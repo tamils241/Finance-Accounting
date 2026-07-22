@@ -1,0 +1,255 @@
+﻿<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Help Center - FinAcc Pro</title>
+  <link rel="stylesheet" href="styles.css">
+  <link rel="stylesheet" href="dashboard.css">
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.2/css/all.min.css">
+  <style>
+    .faq-item { border: 1px solid var(--border-light); border-radius: var(--radius); margin-bottom: 12px; overflow: hidden; background: var(--bg); }
+    .faq-question { display: flex; align-items: center; justify-content: space-between; padding: 18px 24px; cursor: pointer; font-weight: 600; font-size: 0.95rem; color: var(--secondary); transition: var(--transition); }
+    .faq-question:hover { background: var(--bg-alt); }
+    .faq-question i { transition: var(--transition); font-size: 0.85rem; color: var(--text-light); }
+    .faq-item.open .faq-question i { transform: rotate(180deg); }
+    .faq-answer { max-height: 0; overflow: hidden; transition: max-height 0.3s ease; }
+    .faq-answer-inner { padding: 0 24px 18px; font-size: 0.9rem; color: var(--text-light); line-height: 1.7; }
+    .faq-item.open .faq-answer { max-height: 200px; }
+    .contact-card { display: flex; align-items: center; gap: 20px; padding: 24px; border: 1px solid var(--border-light); border-radius: var(--radius); background: var(--bg); transition: var(--transition); cursor: pointer; }
+    .contact-card:hover { border-color: var(--primary); box-shadow: var(--shadow-md); transform: translateY(-2px); }
+    .contact-card-icon { width: 52px; height: 52px; border-radius: var(--radius); display: flex; align-items: center; justify-content: center; font-size: 1.2rem; flex-shrink: 0; }
+  </style>
+</head>
+<body>
+
+  <div class="dashboard">
+    <div class="sidebar-overlay" id="sidebarOverlay"></div>
+
+    <aside class="sidebar" id="sidebar">
+      <div class="sidebar-header">
+        <a href="index.html">
+          <img src="images/logo.webp" alt="FinAcc Pro Logo" class="sidebar-logo-img">
+      </a>
+      </div>
+
+      <nav class="sidebar-nav">
+        <div class="sidebar-section-label">Main</div>
+        <a href="admin-dashboard.html" class="sidebar-link">
+          <i class="fas fa-grid-2"></i> Dashboard
+        </a>
+        <a href="admin-clients.html" class="sidebar-link">
+          <i class="fas fa-users"></i> Clients
+          <span class="badge">128</span>
+        </a>
+        <a href="admin-invoices.html" class="sidebar-link">
+          <i class="fas fa-file-invoice-dollar"></i> Invoices
+          <span class="badge">24</span>
+        </a>
+        <a href="admin-transactions.html" class="sidebar-link">
+          <i class="fas fa-receipt"></i> Transactions
+        </a>
+        <div class="sidebar-section-label">Management</div>
+        <a href="admin-tax-planning.html" class="sidebar-link">
+          <i class="fas fa-calculator"></i> Tax Planning
+        </a>
+        <a href="admin-reports.html" class="sidebar-link">
+          <i class="fas fa-chart-pie"></i> Reports
+        </a>
+        <a href="admin-audit.html" class="sidebar-link">
+          <i class="fas fa-shield-halved"></i> Audit & Compliance
+        </a>
+        <a href="admin-payroll.html" class="sidebar-link">
+          <i class="fas fa-money-bill-wave"></i> Payroll
+        </a>
+        <div class="sidebar-section-label">System</div>
+        <a href="admin-settings.html" class="sidebar-link">
+          <i class="fas fa-gear"></i> Settings
+        </a>
+        <a href="admin-help.html" class="sidebar-link active">
+          <i class="fas fa-circle-question"></i> Help Center
+        </a>
+      </nav>
+      <div class="sidebar-divider"></div>
+      <div class="sidebar-user">
+        <div class="sidebar-user-avatar">AD</div>
+        <div class="sidebar-user-info">
+          <div class="sidebar-user-name">Admin User</div>
+          <div class="sidebar-user-role">Super Admin</div>
+        </div>
+        <button class="sidebar-user-logout" title="Logout">
+          <i class="fas fa-right-from-bracket"></i>
+        </button>
+      </div>
+    </aside>
+
+    <main class="dashboard-main">
+      <header class="topbar">
+        <div class="topbar-left">
+          <button class="topbar-toggle" id="sidebarToggle">
+            <i class="fas fa-bars"></i>
+          </button>
+          <div class="topbar-title">
+            <h1>Help Center</h1>
+            <p>Get support and find answers</p>
+          </div>
+        </div>
+        <div class="topbar-right">
+          <div class="topbar-search">
+            <i class="fas fa-search"></i>
+            <input type="text" placeholder="Search clients, invoices...">
+          </div>
+          <button class="topbar-icon-btn">
+            <i class="fas fa-bell"></i>
+            <span class="notification-dot"></span>
+          </button>
+          <button class="topbar-icon-btn">
+            <i class="fas fa-envelope"></i>
+          </button>
+          <div class="topbar-avatar">AD</div>
+        </div>
+      </header>
+
+      <div class="dashboard-content">
+        <div class="dash-card" style="margin-bottom:32px;">
+          <div class="dash-card-body" style="padding:32px;text-align:center;">
+            <i class="fas fa-search" style="font-size:2rem;color:var(--text-lighter);margin-bottom:12px;"></i>
+            <h3 style="font-size:1.1rem;font-weight:700;color:var(--secondary);margin-bottom:8px;">How can we help you?</h3>
+            <div class="topbar-search" style="max-width:480px;margin:0 auto;">
+              <i class="fas fa-search"></i>
+              <input type="text" placeholder="Search for help articles..." style="width:100%;">
+            </div>
+          </div>
+        </div>
+
+        <div style="margin-bottom:24px;">
+          <h3 style="font-size:1.1rem;font-weight:700;color:var(--secondary);margin-bottom:20px;">Frequently Asked Questions</h3>
+        </div>
+
+        <div style="margin-bottom:40px;">
+          <div class="faq-item">
+            <div class="faq-question" onclick="this.parentElement.classList.toggle('open')">
+              <span>How do I add a new client?</span>
+              <i class="fas fa-chevron-down"></i>
+            </div>
+            <div class="faq-answer">
+              <div class="faq-answer-inner">Navigate to the Clients page from the sidebar. Click the "Add Client" button in the top-right corner. Fill in the client details including name, email, company, and contact information. Click "Save" to create the new client profile. The client will appear in your client list immediately.</div>
+            </div>
+          </div>
+          <div class="faq-item">
+            <div class="faq-question" onclick="this.parentElement.classList.toggle('open')">
+              <span>How to generate reports?</span>
+              <i class="fas fa-chevron-down"></i>
+            </div>
+            <div class="faq-answer">
+              <div class="faq-answer-inner">Go to the Reports page from the sidebar. You will see available report types including Profit & Loss, Balance Sheet, Cash Flow, and more. Select the report type you need, choose the date range, and click "Generate". The report will be generated and can be downloaded as PDF or exported to Excel.</div>
+            </div>
+          </div>
+          <div class="faq-item">
+            <div class="faq-question" onclick="this.parentElement.classList.toggle('open')">
+              <span>How to process payroll?</span>
+              <i class="fas fa-chevron-down"></i>
+            </div>
+            <div class="faq-answer">
+              <div class="faq-answer-inner">Access the Payroll section from the sidebar navigation. Review the pending employees list and verify salary details. Click "Process Payroll" to initiate the batch processing. The system will calculate deductions, taxes, and net pay automatically. Confirm the payroll run to distribute payments to employees.</div>
+            </div>
+          </div>
+          <div class="faq-item">
+            <div class="faq-question" onclick="this.parentElement.classList.toggle('open')">
+              <span>How to file taxes?</span>
+              <i class="fas fa-chevron-down"></i>
+            </div>
+            <div class="faq-answer">
+              <div class="faq-answer-inner">Navigate to the Tax Planning page from the sidebar. Select the appropriate tax service (Federal, State, or GST/VAT). Review the tax summary and ensure all financial data is up to date. Follow the guided filing workflow to complete and submit your tax return. You will receive a confirmation once the filing is submitted successfully.</div>
+            </div>
+          </div>
+          <div class="faq-item">
+            <div class="faq-question" onclick="this.parentElement.classList.toggle('open')">
+              <span>How to invite team members?</span>
+              <i class="fas fa-chevron-down"></i>
+            </div>
+            <div class="faq-answer">
+              <div class="faq-answer-inner">Go to Settings and find the "Team Management" section. Click the "Invite" button and enter the email addresses of the team members you want to add. Assign appropriate roles (Admin, Manager, Staff) and set permissions. Click "Send Invitation" — they will receive an email with a link to join your workspace.</div>
+            </div>
+          </div>
+          <div class="faq-item">
+            <div class="faq-question" onclick="this.parentElement.classList.toggle('open')">
+              <span>How to contact support?</span>
+              <i class="fas fa-chevron-down"></i>
+            </div>
+            <div class="faq-answer">
+              <div class="faq-answer-inner">You can reach our support team through multiple channels. Use the live chat widget for instant help, email us at support@finaccpro.com, or call our helpline at +1 (555) 987-6543. Our support team is available Monday through Friday, 9 AM to 6 PM EST.</div>
+            </div>
+          </div>
+        </div>
+
+        <div style="margin-bottom:24px;">
+          <h3 style="font-size:1.1rem;font-weight:700;color:var(--secondary);margin-bottom:20px;">Contact Support</h3>
+        </div>
+
+        <div style="display:grid;grid-template-columns:repeat(3,1fr);gap:24px;">
+          <div class="contact-card">
+            <div class="contact-card-icon" style="background:rgba(37,99,235,0.1);color:var(--primary);"><i class="fas fa-envelope"></i></div>
+            <div>
+              <h4 style="font-size:0.95rem;font-weight:700;color:var(--secondary);margin-bottom:4px;">Email Us</h4>
+              <p style="font-size:0.85rem;color:var(--text-light);">support@finaccpro.com</p>
+            </div>
+          </div>
+          <div class="contact-card">
+            <div class="contact-card-icon" style="background:rgba(34,197,94,0.1);color:#16a34a;"><i class="fas fa-phone"></i></div>
+            <div>
+              <h4 style="font-size:0.95rem;font-weight:700;color:var(--secondary);margin-bottom:4px;">Call Us</h4>
+              <p style="font-size:0.85rem;color:var(--text-light);">+1 (555) 987-6543</p>
+            </div>
+          </div>
+          <div class="contact-card">
+            <div class="contact-card-icon" style="background:rgba(139,92,246,0.1);color:#8b5cf6;"><i class="fas fa-comments"></i></div>
+            <div>
+              <h4 style="font-size:0.95rem;font-weight:700;color:var(--secondary);margin-bottom:4px;">Live Chat</h4>
+              <p style="font-size:0.85rem;color:var(--text-light);">Available 9AM - 6PM EST</p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </main>
+  </div>
+
+  <footer class="footer" style="margin-left: 260px;">
+    <div class="container">
+      <div class="footer-bottom" style="border-top: none; padding: 24px 0;">
+        <p>&copy; 2026 FinAcc Pro. All rights reserved.</p>
+        <div class="footer-bottom-links">
+          <a href="index.html">Back to Website</a>
+          <a href="login.html">Logout</a>
+        </div>
+      </div>
+    </div>
+  </footer>
+
+  <script>
+    const sidebarToggle = document.getElementById('sidebarToggle');
+    const sidebar = document.getElementById('sidebar');
+    const sidebarOverlay = document.getElementById('sidebarOverlay');
+    sidebarToggle.addEventListener('click', () => {
+      sidebar.classList.toggle('open');
+      sidebarOverlay.classList.toggle('active');
+    });
+    sidebarOverlay.addEventListener('click', () => {
+      sidebar.classList.remove('open');
+      sidebarOverlay.classList.remove('active');
+    });
+    document.querySelectorAll('.sidebar-link').forEach(link => {
+      link.addEventListener('click', function(e) {
+        document.querySelectorAll('.sidebar-link').forEach(l => l.classList.remove('active'));
+        this.classList.add('active');
+      });
+    });
+    document.querySelector('.sidebar-user-logout').addEventListener('click', () => {
+      if (confirm('Are you sure you want to logout?')) {
+        window.location.href = 'login.html';
+      }
+    });
+  </script>
+</body>
+</html>

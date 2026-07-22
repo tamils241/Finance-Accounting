@@ -1,0 +1,572 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Careers - FinAcc Pro</title>
+  <link rel="stylesheet" href="styles.css">
+  <link rel="stylesheet" href="pages.css">
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.2/css/all.min.css">
+  <style>
+    .benefits-grid {
+      display: grid;
+      grid-template-columns: repeat(4, 1fr);
+      gap: 30px;
+    }
+
+    .benefit-card {
+      background: var(--bg-white);
+      border: 1px solid var(--border-color);
+      border-radius: 16px;
+      padding: 40px 28px;
+      text-align: center;
+      transition: transform 0.3s ease, box-shadow 0.3s ease;
+    }
+
+    .benefit-card:hover {
+      transform: translateY(-8px);
+      box-shadow: 0 20px 60px rgba(0, 0, 0, 0.08);
+    }
+
+    .benefit-icon {
+      width: 72px;
+      height: 72px;
+      border-radius: 50%;
+      background: linear-gradient(135deg, var(--primary), var(--accent));
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      margin: 0 auto 20px;
+      font-size: 28px;
+      color: #fff;
+    }
+
+    .benefit-card h3 {
+      font-size: 1.2rem;
+      font-weight: 700;
+      color: var(--secondary);
+      margin-bottom: 10px;
+    }
+
+    .benefit-card p {
+      color: var(--text-muted);
+      line-height: 1.7;
+      font-size: 0.95rem;
+    }
+
+    .positions-grid {
+      display: grid;
+      grid-template-columns: repeat(2, 1fr);
+      gap: 24px;
+    }
+
+    .position-card {
+      background: var(--bg-white);
+      border: 1px solid var(--border-color);
+      border-left: 4px solid var(--primary);
+      border-radius: 12px;
+      padding: 32px;
+      transition: box-shadow 0.3s ease;
+    }
+
+    .position-card:hover {
+      box-shadow: 0 12px 40px rgba(0, 0, 0, 0.08);
+    }
+
+    .position-card h3 {
+      font-size: 1.25rem;
+      font-weight: 700;
+      color: var(--secondary);
+      margin-bottom: 12px;
+    }
+
+    .position-tags {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 10px;
+      margin-bottom: 14px;
+    }
+
+    .position-tag {
+      display: inline-flex;
+      align-items: center;
+      gap: 6px;
+      background: var(--bg-light);
+      color: var(--text-muted);
+      padding: 5px 14px;
+      border-radius: 20px;
+      font-size: 0.82rem;
+      font-weight: 500;
+    }
+
+    .position-tag i {
+      font-size: 0.75rem;
+      color: var(--primary);
+    }
+
+    .position-card > p {
+      color: var(--text-muted);
+      line-height: 1.7;
+      margin-bottom: 20px;
+      font-size: 0.95rem;
+    }
+
+    .culture-grid {
+      display: grid;
+      grid-template-columns: repeat(4, 1fr);
+      gap: 30px;
+    }
+
+    .culture-item {
+      text-align: center;
+      padding: 36px 24px;
+      background: var(--bg-white);
+      border: 1px solid var(--border-color);
+      border-radius: 16px;
+      transition: transform 0.3s ease, box-shadow 0.3s ease;
+    }
+
+    .culture-item:hover {
+      transform: translateY(-6px);
+      box-shadow: 0 16px 48px rgba(0, 0, 0, 0.06);
+    }
+
+    .culture-item .culture-icon {
+      width: 64px;
+      height: 64px;
+      border-radius: 16px;
+      background: linear-gradient(135deg, var(--primary), var(--accent));
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      margin: 0 auto 18px;
+      font-size: 26px;
+      color: #fff;
+    }
+
+    .culture-item h3 {
+      font-size: 1.1rem;
+      font-weight: 700;
+      color: var(--secondary);
+      margin-bottom: 8px;
+    }
+
+    .culture-item p {
+      color: var(--text-muted);
+      font-size: 0.92rem;
+      line-height: 1.65;
+    }
+
+    .careers-cta {
+      background: linear-gradient(135deg, var(--primary), var(--secondary));
+      border-radius: 20px;
+      padding: 64px 48px;
+      text-align: center;
+      position: relative;
+      overflow: hidden;
+    }
+
+    .careers-cta::before {
+      content: '';
+      position: absolute;
+      width: 300px;
+      height: 300px;
+      background: rgba(255, 255, 255, 0.05);
+      border-radius: 50%;
+      top: -100px;
+      right: -80px;
+    }
+
+    .careers-cta::after {
+      content: '';
+      position: absolute;
+      width: 200px;
+      height: 200px;
+      background: rgba(255, 255, 255, 0.04);
+      border-radius: 50%;
+      bottom: -60px;
+      left: -40px;
+    }
+
+    .careers-cta h2 {
+      font-size: 2.2rem;
+      font-weight: 800;
+      color: #fff;
+      margin-bottom: 14px;
+      position: relative;
+      z-index: 1;
+    }
+
+    .careers-cta p {
+      color: rgba(255, 255, 255, 0.85);
+      font-size: 1.1rem;
+      margin-bottom: 28px;
+      position: relative;
+      z-index: 1;
+    }
+
+    .careers-cta .btn-white {
+      position: relative;
+      z-index: 1;
+    }
+
+    @media (max-width: 1024px) {
+      .benefits-grid {
+        grid-template-columns: repeat(2, 1fr);
+      }
+
+      .culture-grid {
+        grid-template-columns: repeat(2, 1fr);
+      }
+
+      .positions-grid {
+        grid-template-columns: 1fr;
+      }
+    }
+
+    @media (max-width: 768px) {
+      .benefits-grid {
+        grid-template-columns: 1fr;
+      }
+
+      .culture-grid {
+        grid-template-columns: 1fr;
+      }
+
+      .careers-cta {
+        padding: 48px 24px;
+      }
+
+      .careers-cta h2 {
+        font-size: 1.6rem;
+      }
+    }
+  </style>
+</head>
+<body>
+
+  <!-- Header -->
+  <header class="header scrolled" id="header">
+    <div class="container header-inner">
+      <a href="index.html" class="logo">
+        <img src="images/logo.webp" alt="FinAcc Pro Logo" class="logo-img">
+      </a>
+      <nav class="nav" id="nav">
+        <a href="index.html" class="nav-link">Home</a>
+        <a href="services.html" class="nav-link">Services</a>
+        <a href="about.html" class="nav-link">About</a>
+        <a href="results.html" class="nav-link">Results</a>
+        <a href="testimonials.html" class="nav-link">Testimonials</a>
+        <a href="contact.html" class="nav-link">Contact</a>
+        
+      </nav>
+      <div class="header-actions">
+        <a href="login.html" class="btn btn-outline btn-sm">Login</a>
+        <a href="register.html" class="btn btn-primary btn-sm">Register</a>
+        <button class="hamburger" id="hamburger" aria-label="Toggle menu">
+          <span></span><span></span><span></span>
+        </button>
+      </div>
+    </div>
+  </header>
+
+  <!-- Mobile Menu -->
+  <div class="mobile-menu-overlay" id="mobileMenuOverlay">
+    <div class="mobile-menu" id="mobileMenu">
+      <div class="mobile-menu-header">
+        <a href="index.html" class="logo">
+          <img src="images/logo.webp" alt="FinAcc Pro Logo" class="logo-img">
+        </a>
+        <button class="mobile-menu-close" id="mobileMenuClose"><i class="fas fa-times"></i></button>
+      </div>
+      <nav class="mobile-nav">
+        <a href="index.html" class="mobile-nav-link">Home</a>
+        <a href="services.html" class="mobile-nav-link">Services</a>
+        <a href="about.html" class="mobile-nav-link">About</a>
+        <a href="results.html" class="mobile-nav-link">Results</a>
+        <a href="testimonials.html" class="mobile-nav-link">Testimonials</a>
+        <a href="contact.html" class="mobile-nav-link">Contact</a>
+        
+      </nav>
+      <div style="display: flex; gap: 12px;">
+        <a href="login.html" class="btn btn-outline btn-block">Login</a>
+        <a href="register.html" class="btn btn-primary btn-block">Register</a>
+      </div>
+    </div>
+  </div>
+
+  <!-- Page Hero -->
+  <section class="page-hero">
+    <div class="page-hero-bg">
+      <video class="hero-video" autoplay muted loop playsinline>
+        <source src="videos/video4.mp4" type="video/mp4">
+      </video>
+      <div class="hero-video-overlay"></div>
+      <div class="hero-shape hero-shape-1"></div>
+      <div class="hero-shape hero-shape-2"></div>
+      <div class="grid-overlay"></div>
+    </div>
+    <div class="container">
+      <div class="page-hero-content" data-animate="fade-up">
+        <span class="section-tag">Join Our Team</span>
+        <h1 class="page-hero-title">Build Your Career in <span class="gradient-text">Finance</span></h1>
+        <p class="page-hero-subtitle">Join a team of passionate professionals shaping the future of financial services.</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- Why Work With Us -->
+  <section class="section">
+    <div class="container">
+      <div class="section-header" data-animate="fade-up">
+        <span class="section-tag">Benefits</span>
+        <h2 class="section-title">Why Work <span class="gradient-text">With Us</span></h2>
+        <p class="section-subtitle">We invest in our people because great teams build great companies.</p>
+      </div>
+      <div class="benefits-grid">
+        <div class="benefit-card" data-animate="fade-up" data-delay="0">
+          <div class="benefit-icon"><i class="fas fa-briefcase"></i></div>
+          <h3>Professional Growth</h3>
+          <p>Accelerate your career with mentorship and continuous learning.</p>
+        </div>
+        <div class="benefit-card" data-animate="fade-up" data-delay="100">
+          <div class="benefit-icon"><i class="fas fa-heart"></i></div>
+          <h3>Health & Wellness</h3>
+          <p>Comprehensive health benefits and wellness programs for you and your family.</p>
+        </div>
+        <div class="benefit-card" data-animate="fade-up" data-delay="200">
+          <div class="benefit-icon"><i class="fas fa-users"></i></div>
+          <h3>Collaborative Culture</h3>
+          <p>Work alongside industry experts in a supportive team environment.</p>
+        </div>
+        <div class="benefit-card" data-animate="fade-up" data-delay="300">
+          <div class="benefit-icon"><i class="fas fa-money-bill-wave"></i></div>
+          <h3>Competitive Pay</h3>
+          <p>Attractive compensation packages with performance bonuses.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Open Positions -->
+  <section class="section" style="background: var(--bg-light);">
+    <div class="container">
+      <div class="section-header" data-animate="fade-up">
+        <span class="section-tag">Open Positions</span>
+        <h2 class="section-title">Find Your <span class="gradient-text">Perfect Role</span></h2>
+        <p class="section-subtitle">Explore current openings and find where you fit best.</p>
+      </div>
+      <div class="positions-grid" id="positions">
+        <div class="position-card" data-animate="fade-up" data-delay="0">
+          <h3>Senior Tax Consultant</h3>
+          <div class="position-tags">
+            <span class="position-tag"><i class="fas fa-building"></i> Tax Advisory</span>
+            <span class="position-tag"><i class="fas fa-clock"></i> Full-time</span>
+            <span class="position-tag"><i class="fas fa-location-dot"></i> New York, NY</span>
+          </div>
+          <p>Lead complex tax planning engagements, advise clients on compliance strategies, and mentor junior team members in tax advisory best practices.</p>
+          <a href="#" class="btn btn-primary btn-sm">Apply Now <i class="fas fa-arrow-right"></i></a>
+        </div>
+        <div class="position-card" data-animate="fade-up" data-delay="100">
+          <h3>Financial Analyst</h3>
+          <div class="position-tags">
+            <span class="position-tag"><i class="fas fa-building"></i> Corporate Finance</span>
+            <span class="position-tag"><i class="fas fa-clock"></i> Full-time</span>
+            <span class="position-tag"><i class="fas fa-location-dot"></i> New York, NY</span>
+          </div>
+          <p>Analyze financial data, build forecasting models, and provide actionable insights that drive strategic business decisions for our clients.</p>
+          <a href="#" class="btn btn-primary btn-sm">Apply Now <i class="fas fa-arrow-right"></i></a>
+        </div>
+        <div class="position-card" data-animate="fade-up" data-delay="200">
+          <h3>Bookkeeping Specialist</h3>
+          <div class="position-tags">
+            <span class="position-tag"><i class="fas fa-building"></i> Accounting</span>
+            <span class="position-tag"><i class="fas fa-clock"></i> Full-time</span>
+            <span class="position-tag"><i class="fas fa-location-dot"></i> Remote</span>
+          </div>
+          <p>Manage day-to-day bookkeeping operations, reconcile accounts, and maintain accurate financial records for a portfolio of clients.</p>
+          <a href="#" class="btn btn-primary btn-sm">Apply Now <i class="fas fa-arrow-right"></i></a>
+        </div>
+        <div class="position-card" data-animate="fade-up" data-delay="300">
+          <h3>Audit Manager</h3>
+          <div class="position-tags">
+            <span class="position-tag"><i class="fas fa-building"></i> Audit & Compliance</span>
+            <span class="position-tag"><i class="fas fa-clock"></i> Full-time</span>
+            <span class="position-tag"><i class="fas fa-location-dot"></i> New York, NY</span>
+          </div>
+          <p>Oversee audit engagements, ensure regulatory compliance, and lead a team of auditors to deliver high-quality assurance services.</p>
+          <a href="#" class="btn btn-primary btn-sm">Apply Now <i class="fas fa-arrow-right"></i></a>
+        </div>
+        <div class="position-card" data-animate="fade-up" data-delay="400">
+          <h3>Payroll Coordinator</h3>
+          <div class="position-tags">
+            <span class="position-tag"><i class="fas fa-building"></i> Payroll</span>
+            <span class="position-tag"><i class="fas fa-clock"></i> Part-time</span>
+            <span class="position-tag"><i class="fas fa-location-dot"></i> Remote</span>
+          </div>
+          <p>Process payroll for multiple clients, manage tax withholdings, and ensure timely and accurate compensation for employees.</p>
+          <a href="#" class="btn btn-primary btn-sm">Apply Now <i class="fas fa-arrow-right"></i></a>
+        </div>
+        <div class="position-card" data-animate="fade-up" data-delay="500">
+          <h3>Junior Accountant</h3>
+          <div class="position-tags">
+            <span class="position-tag"><i class="fas fa-building"></i> Accounting</span>
+            <span class="position-tag"><i class="fas fa-clock"></i> Full-time</span>
+            <span class="position-tag"><i class="fas fa-location-dot"></i> New York, NY</span>
+          </div>
+          <p>Support senior accountants with journal entries, reconciliations, and monthly close processes while building your foundational skills.</p>
+          <a href="#" class="btn btn-primary btn-sm">Apply Now <i class="fas fa-arrow-right"></i></a>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Our Culture -->
+  <section class="section">
+    <div class="container">
+      <div class="section-header" data-animate="fade-up">
+        <span class="section-tag">Culture</span>
+        <h2 class="section-title">What We <span class="gradient-text">Stand For</span></h2>
+        <p class="section-subtitle">Our values shape everything we do, from how we serve clients to how we support each other.</p>
+      </div>
+      <div class="culture-grid">
+        <div class="culture-item" data-animate="fade-up" data-delay="0">
+          <div class="culture-icon"><i class="fas fa-lightbulb"></i></div>
+          <h3>Innovation First</h3>
+          <p>We embrace new ideas and technology to stay ahead in financial services.</p>
+        </div>
+        <div class="culture-item" data-animate="fade-up" data-delay="100">
+          <div class="culture-icon"><i class="fas fa-scale-balanced"></i></div>
+          <h3>Work-Life Balance</h3>
+          <p>Flexible schedules and remote options so you can thrive both professionally and personally.</p>
+        </div>
+        <div class="culture-item" data-animate="fade-up" data-delay="200">
+          <div class="culture-icon"><i class="fas fa-people-group"></i></div>
+          <h3>Diversity & Inclusion</h3>
+          <p>A workplace where every voice matters and different perspectives are celebrated.</p>
+        </div>
+        <div class="culture-item" data-animate="fade-up" data-delay="300">
+          <div class="culture-icon"><i class="fas fa-graduation-cap"></i></div>
+          <h3>Continuous Learning</h3>
+          <p>Training programs, certifications, and conferences to keep your skills sharp.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- CTA -->
+  <section class="section">
+    <div class="container">
+      <div class="careers-cta" data-animate="fade-up">
+        <h2>Ready to Join Us?</h2>
+        <p>We'd love to hear from you. Send us your resume and tell us why you'd be a great fit.</p>
+        <a href="#" class="btn btn-white btn-lg">
+          <span>Send Your Resume</span>
+          <i class="fas fa-arrow-right"></i>
+        </a>
+      </div>
+    </div>
+  </section>
+
+  <!-- Footer -->
+  <footer class="footer">
+    <div class="container">
+      <div class="footer-grid">
+        <div class="footer-brand">
+          <a href="index.html" class="logo">
+            <img src="images/logo.webp" alt="FinAcc Pro Logo" class="logo-img">
+          </a>
+          <p class="footer-brand-text">Empowering businesses with smart financial solutions since 2010. Your trusted partner for all accounting and advisory needs.</p>
+          <div class="footer-app-badges">
+            <a href="#" class="app-badge">
+              <i class="fab fa-apple"></i>
+              <div class="app-badge-text">
+                <span>Download on the</span>
+                <strong>App Store</strong>
+              </div>
+            </a>
+            <a href="#" class="app-badge">
+              <i class="fab fa-google-play"></i>
+              <div class="app-badge-text">
+                <span>Get it on</span>
+                <strong>Google Play</strong>
+              </div>
+            </a>
+          </div>
+        </div>
+        <div class="footer-links">
+          <h4 class="footer-heading">Services</h4>
+          <ul>
+            <li><a href="services.html">Tax Planning</a></li>
+            <li><a href="services.html">Financial Advisory</a></li>
+            <li><a href="services.html">Bookkeeping</a></li>
+            <li><a href="services.html">Audit & Compliance</a></li>
+            <li><a href="services.html">Corporate Finance</a></li>
+            <li><a href="services.html">Payroll Management</a></li>
+          </ul>
+        </div>
+        <div class="footer-links">
+          <h4 class="footer-heading">Company</h4>
+          <ul>
+            <li><a href="about.html">About Us</a></li>
+            <li><a href="results.html">Our Results</a></li>
+            <li><a href="testimonials.html">Testimonials</a></li>
+            <li><a href="contact.html">Contact Us</a></li>
+            <li><a href="careers.html">Careers</a></li>
+            <li><a href="blog.html">Blog</a></li>
+          </ul>
+        </div>
+        <div class="footer-contact">
+          <h4 class="footer-heading">Contact</h4>
+          <div class="footer-contact-item">
+            <div class="footer-contact-icon"><i class="fas fa-phone"></i></div>
+            <div>
+              <h5>Call Us</h5>
+              <p><a href="#">+1 (555) 123-4567</a></p>
+            </div>
+          </div>
+          <div class="footer-contact-item">
+            <div class="footer-contact-icon"><i class="fas fa-envelope"></i></div>
+            <div>
+              <h5>Email Us</h5>
+              <p><a href="mailto:hello@finaccpro.com">hello@finaccpro.com</a></p>
+            </div>
+          </div>
+          <div class="footer-contact-item">
+            <div class="footer-contact-icon"><i class="fas fa-location-dot"></i></div>
+            <div>
+              <h5>Visit Us</h5>
+              <p>123 Finance Street<br>New York, NY 10001</p>
+            </div>
+          </div>
+        </div>
+        <div class="footer-newsletter">
+          <h4 class="footer-heading">Stay Updated</h4>
+          <p>Get the latest financial insights and tips delivered to your inbox.</p>
+          <form class="newsletter-form" onsubmit="event.preventDefault(); this.querySelector('input').value=''; alert('Subscribed!');">
+            <input type="email" placeholder="Your email address" required>
+            <button type="submit"><i class="fas fa-arrow-right"></i></button>
+          </form>
+          <div class="social-links" style="margin-top: 20px;">
+            <a href="#" class="social-link"><i class="fab fa-linkedin-in"></i></a>
+            <a href="#" class="social-link"><i class="fab fa-x-twitter"></i></a>
+            <a href="#" class="social-link"><i class="fab fa-facebook-f"></i></a>
+            <a href="#" class="social-link"><i class="fab fa-instagram"></i></a>
+          </div>
+        </div>
+      </div>
+      <div class="footer-bottom">
+        <p>&copy; 2026 FinAcc Pro. All rights reserved.</p>
+        <div class="footer-bottom-links">
+          <a href="#">Privacy Policy</a>
+          <a href="#">Terms of Service</a>
+        </div>
+      </div>
+    </div>
+  </footer>
+
+  <a href="#" class="back-to-top" id="backToTop"><i class="fas fa-arrow-up"></i></a>
+  <script src="script.js"></script>
+</body>
+</html>

@@ -1,0 +1,310 @@
+﻿<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Settings - FinAcc Pro</title>
+  <link rel="stylesheet" href="styles.css">
+  <link rel="stylesheet" href="dashboard.css">
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.2/css/all.min.css">
+  <style>
+    .settings-section { padding: 28px; border-bottom: 1px solid var(--border-light); }
+    .settings-section:last-child { border-bottom: none; }
+    .settings-section-title { font-size: 1rem; font-weight: 700; color: var(--secondary); margin-bottom: 20px; display: flex; align-items: center; gap: 10px; }
+    .settings-section-title i { color: var(--primary); }
+    .settings-row { display: flex; align-items: center; justify-content: space-between; padding: 14px 0; border-bottom: 1px solid var(--border-light); }
+    .settings-row:last-child { border-bottom: none; }
+    .settings-row-label { font-size: 0.9rem; font-weight: 500; color: var(--text); }
+    .settings-row-desc { font-size: 0.8rem; color: var(--text-light); margin-top: 2px; }
+    .toggle-switch { position: relative; width: 44px; height: 24px; cursor: pointer; }
+    .toggle-switch input { opacity: 0; width: 0; height: 0; }
+    .toggle-slider { position: absolute; inset: 0; background: #cbd5e1; border-radius: 100px; transition: var(--transition); }
+    .toggle-slider::before { content: ''; position: absolute; width: 18px; height: 18px; border-radius: 50%; background: #fff; top: 3px; left: 3px; transition: var(--transition); }
+    .toggle-switch input:checked + .toggle-slider { background: var(--primary); }
+    .toggle-switch input:checked + .toggle-slider::before { transform: translateX(20px); }
+  </style>
+</head>
+<body>
+
+  <div class="dashboard">
+    <div class="sidebar-overlay" id="sidebarOverlay"></div>
+
+    <aside class="sidebar" id="sidebar">
+      <div class="sidebar-header">
+        <a href="index.html">
+          <img src="images/logo.webp" alt="FinAcc Pro Logo" class="sidebar-logo-img">
+      </a>
+      </div>
+
+      <nav class="sidebar-nav">
+        <div class="sidebar-section-label">Main</div>
+        <a href="admin-dashboard.html" class="sidebar-link">
+          <i class="fas fa-grid-2"></i> Dashboard
+        </a>
+        <a href="admin-clients.html" class="sidebar-link">
+          <i class="fas fa-users"></i> Clients
+          <span class="badge">128</span>
+        </a>
+        <a href="admin-invoices.html" class="sidebar-link">
+          <i class="fas fa-file-invoice-dollar"></i> Invoices
+          <span class="badge">24</span>
+        </a>
+        <a href="admin-transactions.html" class="sidebar-link">
+          <i class="fas fa-receipt"></i> Transactions
+        </a>
+        <div class="sidebar-section-label">Management</div>
+        <a href="admin-tax-planning.html" class="sidebar-link">
+          <i class="fas fa-calculator"></i> Tax Planning
+        </a>
+        <a href="admin-reports.html" class="sidebar-link">
+          <i class="fas fa-chart-pie"></i> Reports
+        </a>
+        <a href="admin-audit.html" class="sidebar-link">
+          <i class="fas fa-shield-halved"></i> Audit & Compliance
+        </a>
+        <a href="admin-payroll.html" class="sidebar-link">
+          <i class="fas fa-money-bill-wave"></i> Payroll
+        </a>
+        <div class="sidebar-section-label">System</div>
+        <a href="admin-settings.html" class="sidebar-link active">
+          <i class="fas fa-gear"></i> Settings
+        </a>
+        <a href="admin-help.html" class="sidebar-link">
+          <i class="fas fa-circle-question"></i> Help Center
+        </a>
+      </nav>
+      <div class="sidebar-divider"></div>
+      <div class="sidebar-user">
+        <div class="sidebar-user-avatar">AD</div>
+        <div class="sidebar-user-info">
+          <div class="sidebar-user-name">Admin User</div>
+          <div class="sidebar-user-role">Super Admin</div>
+        </div>
+        <button class="sidebar-user-logout" title="Logout">
+          <i class="fas fa-right-from-bracket"></i>
+        </button>
+      </div>
+    </aside>
+
+    <main class="dashboard-main">
+      <header class="topbar">
+        <div class="topbar-left">
+          <button class="topbar-toggle" id="sidebarToggle">
+            <i class="fas fa-bars"></i>
+          </button>
+          <div class="topbar-title">
+            <h1>Settings</h1>
+            <p>Manage your account preferences</p>
+          </div>
+        </div>
+        <div class="topbar-right">
+          <div class="topbar-search">
+            <i class="fas fa-search"></i>
+            <input type="text" placeholder="Search clients, invoices...">
+          </div>
+          <button class="topbar-icon-btn">
+            <i class="fas fa-bell"></i>
+            <span class="notification-dot"></span>
+          </button>
+          <button class="topbar-icon-btn">
+            <i class="fas fa-envelope"></i>
+          </button>
+          <div class="topbar-avatar">AD</div>
+        </div>
+      </header>
+
+      <div class="dashboard-content">
+        <div class="dash-card" style="margin-bottom:24px;">
+          <div class="settings-section">
+            <div class="settings-section-title"><i class="fas fa-user"></i> Profile Settings</div>
+            <div class="settings-row">
+              <div>
+                <div class="settings-row-label">Full Name</div>
+                <div class="settings-row-desc">Admin User</div>
+              </div>
+              <button class="btn btn-outline btn-sm">Edit</button>
+            </div>
+            <div class="settings-row">
+              <div>
+                <div class="settings-row-label">Email Address</div>
+                <div class="settings-row-desc">admin@finaccpro.com</div>
+              </div>
+              <button class="btn btn-outline btn-sm">Edit</button>
+            </div>
+            <div class="settings-row">
+              <div>
+                <div class="settings-row-label">Phone Number</div>
+                <div class="settings-row-desc">+1 (555) 123-4567</div>
+              </div>
+              <button class="btn btn-outline btn-sm">Edit</button>
+            </div>
+            <div class="settings-row">
+              <div>
+                <div class="settings-row-label">Profile Avatar</div>
+                <div class="settings-row-desc">AD - Admin User</div>
+              </div>
+              <button class="btn btn-outline btn-sm">Change</button>
+            </div>
+          </div>
+
+          <div class="settings-section">
+            <div class="settings-section-title"><i class="fas fa-shield-halved"></i> Security</div>
+            <div class="settings-row">
+              <div>
+                <div class="settings-row-label">Password</div>
+                <div class="settings-row-desc">Last changed 30 days ago</div>
+              </div>
+              <button class="btn btn-outline btn-sm">Change</button>
+            </div>
+            <div class="settings-row">
+              <div>
+                <div class="settings-row-label">Two-Factor Authentication</div>
+                <div class="settings-row-desc">Add an extra layer of security</div>
+              </div>
+              <label class="toggle-switch"><input type="checkbox" checked><span class="toggle-slider"></span></label>
+            </div>
+            <div class="settings-row">
+              <div>
+                <div class="settings-row-label">Login History</div>
+                <div class="settings-row-desc">View recent login activity</div>
+              </div>
+              <button class="btn btn-outline btn-sm">View</button>
+            </div>
+          </div>
+
+          <div class="settings-section">
+            <div class="settings-section-title"><i class="fas fa-bell"></i> Notifications</div>
+            <div class="settings-row">
+              <div>
+                <div class="settings-row-label">Email Notifications</div>
+                <div class="settings-row-desc">Receive updates via email</div>
+              </div>
+              <label class="toggle-switch"><input type="checkbox" checked><span class="toggle-slider"></span></label>
+            </div>
+            <div class="settings-row">
+              <div>
+                <div class="settings-row-label">SMS Notifications</div>
+                <div class="settings-row-desc">Receive alerts via SMS</div>
+              </div>
+              <label class="toggle-switch"><input type="checkbox"><span class="toggle-slider"></span></label>
+            </div>
+            <div class="settings-row">
+              <div>
+                <div class="settings-row-label">Push Notifications</div>
+                <div class="settings-row-desc">Browser push notifications</div>
+              </div>
+              <label class="toggle-switch"><input type="checkbox" checked><span class="toggle-slider"></span></label>
+            </div>
+          </div>
+
+          <div class="settings-section">
+            <div class="settings-section-title"><i class="fas fa-credit-card"></i> Billing</div>
+            <div class="settings-row">
+              <div>
+                <div class="settings-row-label">Current Plan</div>
+                <div class="settings-row-desc">Enterprise - $99/month</div>
+              </div>
+              <button class="btn btn-outline btn-sm">Upgrade</button>
+            </div>
+            <div class="settings-row">
+              <div>
+                <div class="settings-row-label">Payment Method</div>
+                <div class="settings-row-desc">Visa ending in 4242</div>
+              </div>
+              <button class="btn btn-outline btn-sm">Update</button>
+            </div>
+            <div class="settings-row">
+              <div>
+                <div class="settings-row-label">Billing Invoices</div>
+                <div class="settings-row-desc">View past invoices</div>
+              </div>
+              <button class="btn btn-outline btn-sm">View</button>
+            </div>
+          </div>
+
+          <div class="settings-section">
+            <div class="settings-section-title"><i class="fas fa-user-group"></i> Team Management</div>
+            <div class="settings-row">
+              <div>
+                <div class="settings-row-label">Invite Members</div>
+                <div class="settings-row-desc">Add team members to your workspace</div>
+              </div>
+              <button class="btn btn-primary btn-sm"><i class="fas fa-plus"></i> Invite</button>
+            </div>
+            <div class="settings-row">
+              <div>
+                <div class="settings-row-label">Roles & Permissions</div>
+                <div class="settings-row-desc">Manage access levels</div>
+              </div>
+              <button class="btn btn-outline btn-sm">Manage</button>
+            </div>
+          </div>
+
+          <div class="settings-section">
+            <div class="settings-section-title"><i class="fas fa-sliders"></i> Preferences</div>
+            <div class="settings-row">
+              <div>
+                <div class="settings-row-label">Currency</div>
+                <div class="settings-row-desc">USD - US Dollar</div>
+              </div>
+              <button class="btn btn-outline btn-sm">Change</button>
+            </div>
+            <div class="settings-row">
+              <div>
+                <div class="settings-row-label">Timezone</div>
+                <div class="settings-row-desc">Eastern Time (ET)</div>
+              </div>
+              <button class="btn btn-outline btn-sm">Change</button>
+            </div>
+            <div class="settings-row">
+              <div>
+                <div class="settings-row-label">Language</div>
+                <div class="settings-row-desc">English (US)</div>
+              </div>
+              <button class="btn btn-outline btn-sm">Change</button>
+            </div>
+          </div>
+        </div>
+      </div>
+    </main>
+  </div>
+
+  <footer class="footer" style="margin-left: 260px;">
+    <div class="container">
+      <div class="footer-bottom" style="border-top: none; padding: 24px 0;">
+        <p>&copy; 2026 FinAcc Pro. All rights reserved.</p>
+        <div class="footer-bottom-links">
+          <a href="index.html">Back to Website</a>
+          <a href="login.html">Logout</a>
+        </div>
+      </div>
+    </div>
+  </footer>
+
+  <script>
+    const sidebarToggle = document.getElementById('sidebarToggle');
+    const sidebar = document.getElementById('sidebar');
+    const sidebarOverlay = document.getElementById('sidebarOverlay');
+    sidebarToggle.addEventListener('click', () => {
+      sidebar.classList.toggle('open');
+      sidebarOverlay.classList.toggle('active');
+    });
+    sidebarOverlay.addEventListener('click', () => {
+      sidebar.classList.remove('open');
+      sidebarOverlay.classList.remove('active');
+    });
+    document.querySelectorAll('.sidebar-link').forEach(link => {
+      link.addEventListener('click', function(e) {
+        document.querySelectorAll('.sidebar-link').forEach(l => l.classList.remove('active'));
+        this.classList.add('active');
+      });
+    });
+    document.querySelector('.sidebar-user-logout').addEventListener('click', () => {
+      if (confirm('Are you sure you want to logout?')) {
+        window.location.href = 'login.html';
+      }
+    });
+  </script>
+</body>
+</html>

@@ -1,0 +1,227 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Financial Reports - FinAcc Pro</title>
+  <link rel="stylesheet" href="styles.css">
+  <link rel="stylesheet" href="dashboard.css">
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.2/css/all.min.css">
+</head>
+<body>
+
+  <div class="dashboard">
+    <div class="sidebar-overlay" id="sidebarOverlay"></div>
+
+    <aside class="sidebar" id="sidebar">
+      <div class="sidebar-header">
+        <a href="index.html">
+          <img src="images/logo.webp" alt="FinAcc Pro Logo" class="sidebar-logo-img">
+        </a>
+      </div>
+
+      <nav class="sidebar-nav">
+        <div class="sidebar-section-label">Overview</div>
+        <a href="client-dashboard.html" class="sidebar-link">
+          <i class="fas fa-grid-2"></i> Dashboard
+        </a>
+        <a href="client-invoices.html" class="sidebar-link">
+          <i class="fas fa-file-invoice-dollar"></i> My Invoices
+          <span class="badge">6</span>
+        </a>
+        <a href="client-transactions.html" class="sidebar-link">
+          <i class="fas fa-receipt"></i> Transactions
+        </a>
+        <div class="sidebar-section-label">Finance</div>
+        <a href="client-reports.html" class="sidebar-link active">
+          <i class="fas fa-chart-line"></i> Financial Reports
+        </a>
+        <a href="client-tax.html" class="sidebar-link">
+          <i class="fas fa-calculator"></i> Tax Documents
+        </a>
+        <a href="client-budget.html" class="sidebar-link">
+          <i class="fas fa-piggy-bank"></i> Budget Tracker
+        </a>
+        <div class="sidebar-section-label">Account</div>
+        <a href="client-settings.html" class="sidebar-link">
+          <i class="fas fa-gear"></i> Settings
+        </a>
+        <a href="client-support.html" class="sidebar-link">
+          <i class="fas fa-circle-question"></i> Support
+        </a>
+      </nav>
+
+      <div class="sidebar-divider"></div>
+
+      <div class="sidebar-user">
+        <div class="sidebar-user-avatar">JD</div>
+        <div class="sidebar-user-info">
+          <div class="sidebar-user-name">John Davidson</div>
+          <div class="sidebar-user-role">Client</div>
+        </div>
+        <button class="sidebar-user-logout" title="Logout">
+          <i class="fas fa-right-from-bracket"></i>
+        </button>
+      </div>
+    </aside>
+
+    <main class="dashboard-main">
+      <header class="topbar">
+        <div class="topbar-left">
+          <button class="topbar-toggle" id="sidebarToggle">
+            <i class="fas fa-bars"></i>
+          </button>
+          <div class="topbar-title">
+            <h1>Financial Reports</h1>
+            <p>Generate and download your financial reports</p>
+          </div>
+        </div>
+        <div class="topbar-right">
+          <div class="topbar-search">
+            <i class="fas fa-search"></i>
+            <input type="text" placeholder="Search invoices, reports...">
+          </div>
+          <button class="topbar-icon-btn">
+            <i class="fas fa-bell"></i>
+            <span class="notification-dot"></span>
+          </button>
+          <button class="topbar-icon-btn">
+            <i class="fas fa-envelope"></i>
+          </button>
+          <div class="topbar-avatar">JD</div>
+        </div>
+      </header>
+
+      <div class="dashboard-content">
+        <div class="dash-grid" style="grid-template-columns: repeat(3, 1fr); margin-bottom: 32px;">
+          <div class="dash-card">
+            <div class="dash-card-body">
+              <div style="display: flex; align-items: center; gap: 16px; margin-bottom: 16px;">
+                <div class="dash-stat-icon green"><i class="fas fa-chart-line"></i></div>
+                <div>
+                  <h3 class="dash-card-title" style="margin-bottom: 0;">Profit & Loss</h3>
+                  <p style="font-size: 0.8rem; color: var(--text-lighter); margin-top: 2px;">Last generated: Jul 01, 2026</p>
+                </div>
+              </div>
+              <p style="font-size: 0.9rem; color: var(--text-light); margin-bottom: 20px;">Comprehensive overview of revenues, costs, and expenses for the current period.</p>
+              <button class="btn btn-primary btn-sm btn-block">Generate Report</button>
+            </div>
+          </div>
+
+          <div class="dash-card">
+            <div class="dash-card-body">
+              <div style="display: flex; align-items: center; gap: 16px; margin-bottom: 16px;">
+                <div class="dash-stat-icon blue"><i class="fas fa-balance-scale"></i></div>
+                <div>
+                  <h3 class="dash-card-title" style="margin-bottom: 0;">Balance Sheet</h3>
+                  <p style="font-size: 0.8rem; color: var(--text-lighter); margin-top: 2px;">Last generated: Jul 01, 2026</p>
+                </div>
+              </div>
+              <p style="font-size: 0.9rem; color: var(--text-light); margin-bottom: 20px;">Snapshot of assets, liabilities, and equity at a specific point in time.</p>
+              <button class="btn btn-primary btn-sm btn-block">Generate Report</button>
+            </div>
+          </div>
+
+          <div class="dash-card">
+            <div class="dash-card-body">
+              <div style="display: flex; align-items: center; gap: 16px; margin-bottom: 16px;">
+                <div class="dash-stat-icon purple"><i class="fas fa-money-bill-wave"></i></div>
+                <div>
+                  <h3 class="dash-card-title" style="margin-bottom: 0;">Cash Flow</h3>
+                  <p style="font-size: 0.8rem; color: var(--text-lighter); margin-top: 2px;">Last generated: Jun 30, 2026</p>
+                </div>
+              </div>
+              <p style="font-size: 0.9rem; color: var(--text-light); margin-bottom: 20px;">Track cash movements from operating, investing, and financing activities.</p>
+              <button class="btn btn-primary btn-sm btn-block">Generate Report</button>
+            </div>
+          </div>
+
+          <div class="dash-card">
+            <div class="dash-card-body">
+              <div style="display: flex; align-items: center; gap: 16px; margin-bottom: 16px;">
+                <div class="dash-stat-icon orange"><i class="fas fa-file-invoice"></i></div>
+                <div>
+                  <h3 class="dash-card-title" style="margin-bottom: 0;">Tax Summary</h3>
+                  <p style="font-size: 0.8rem; color: var(--text-lighter); margin-top: 2px;">Last generated: Jun 15, 2026</p>
+                </div>
+              </div>
+              <p style="font-size: 0.9rem; color: var(--text-light); margin-bottom: 20px;">Summary of tax obligations, deductions, and credits for the fiscal year.</p>
+              <button class="btn btn-primary btn-sm btn-block">Generate Report</button>
+            </div>
+          </div>
+
+          <div class="dash-card">
+            <div class="dash-card-body">
+              <div style="display: flex; align-items: center; gap: 16px; margin-bottom: 16px;">
+                <div class="dash-stat-icon green"><i class="fas fa-arrow-trend-up"></i></div>
+                <div>
+                  <h3 class="dash-card-title" style="margin-bottom: 0;">Revenue Analysis</h3>
+                  <p style="font-size: 0.8rem; color: var(--text-lighter); margin-top: 2px;">Last generated: Jul 10, 2026</p>
+                </div>
+              </div>
+              <p style="font-size: 0.9rem; color: var(--text-light); margin-bottom: 20px;">Detailed breakdown of revenue streams and growth trends over time.</p>
+              <button class="btn btn-primary btn-sm btn-block">Generate Report</button>
+            </div>
+          </div>
+
+          <div class="dash-card">
+            <div class="dash-card-body">
+              <div style="display: flex; align-items: center; gap: 16px; margin-bottom: 16px;">
+                <div class="dash-stat-icon blue"><i class="fas fa-receipt"></i></div>
+                <div>
+                  <h3 class="dash-card-title" style="margin-bottom: 0;">Expense Report</h3>
+                  <p style="font-size: 0.8rem; color: var(--text-lighter); margin-top: 2px;">Last generated: Jul 05, 2026</p>
+                </div>
+              </div>
+              <p style="font-size: 0.9rem; color: var(--text-light); margin-bottom: 20px;">Itemized list of all business expenses categorized by department.</p>
+              <button class="btn btn-primary btn-sm btn-block">Generate Report</button>
+            </div>
+          </div>
+        </div>
+      </div>
+    </main>
+  </div>
+
+  <footer class="footer" style="margin-left: 260px;">
+    <div class="container">
+      <div class="footer-bottom" style="border-top: none; padding: 24px 0;">
+        <p>&copy; 2026 FinAcc Pro. All rights reserved.</p>
+        <div class="footer-bottom-links">
+          <a href="index.html">Back to Website</a>
+          <a href="login.html">Logout</a>
+        </div>
+      </div>
+    </div>
+  </footer>
+
+  <script>
+    const sidebarToggle = document.getElementById('sidebarToggle');
+    const sidebar = document.getElementById('sidebar');
+    const sidebarOverlay = document.getElementById('sidebarOverlay');
+
+    sidebarToggle.addEventListener('click', () => {
+      sidebar.classList.toggle('open');
+      sidebarOverlay.classList.toggle('active');
+    });
+
+    sidebarOverlay.addEventListener('click', () => {
+      sidebar.classList.remove('open');
+      sidebarOverlay.classList.remove('active');
+    });
+
+    document.querySelectorAll('.sidebar-link').forEach(link => {
+      link.addEventListener('click', function() {
+        document.querySelectorAll('.sidebar-link').forEach(l => l.classList.remove('active'));
+        this.classList.add('active');
+      });
+    });
+
+    document.querySelector('.sidebar-user-logout').addEventListener('click', () => {
+      if (confirm('Are you sure you want to logout?')) {
+        window.location.href = 'login.html';
+      }
+    });
+  </script>
+</body>
+</html>

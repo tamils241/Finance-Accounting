@@ -1,0 +1,169 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Login - FinAcc Pro</title>
+  <link rel="stylesheet" href="styles.css">
+  <link rel="stylesheet" href="auth.css">
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.2/css/all.min.css">
+</head>
+<body>
+
+  <div class="auth-page login-page">
+    <!-- Left Panel -->
+    
+    <div class="auth-left">
+       <div class="auth-form-logo">
+            <img src="images/logo.webp" alt="FinAcc Pro Logo" class="logo-img">
+          </div>
+      <div class="auth-left-content">
+        <h2>Welcome Back to FinAcc Pro</h2>
+        <p>Access your financial dashboard, track performance, and manage your accounts all in one place.</p>
+        <div class="auth-features">
+          <div class="auth-feature">
+            <i class="fas fa-shield-halved"></i>
+            <span>Bank-grade security for your data</span>
+          </div>
+          <div class="auth-feature">
+            <i class="fas fa-chart-pie"></i>
+            <span>Real-time financial analytics</span>
+          </div>
+          <div class="auth-feature">
+            <i class="fas fa-headset"></i>
+            <span>24/7 dedicated support team</span>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Right Panel -->
+    <div class="auth-right">
+      <a href="index.html" class="auth-back">
+        <i class="fas fa-arrow-left"></i>
+        Back to Home
+      </a>
+
+      <div class="auth-form-container">
+        <div class="auth-form-header">
+          
+          <h1>Sign In</h1>
+          <p>Don't have an account? <a href="register.html">Create one</a></p>
+        </div>
+
+        <!-- Social Login -->
+        <div class="social-login">
+          
+          <a href="404.html" class="social-login-btn">
+            <i class="fab fa-google"></i>
+            <span>Google</span>
+          </a>
+          <a href="404.html" class="social-login-btn">
+            <i class="fab fa-microsoft"></i>
+            <span>Microsoft</span>
+          </a>
+        </div>
+
+        <div class="auth-divider">
+          <span>or sign in with email</span>
+        </div>
+
+        <!-- Login Form -->
+        <form class="auth-form" id="loginForm">
+          <div class="form-group">
+            <label for="role">I am a</label>
+            <div class="input-wrapper">
+              <i class="fas fa-briefcase"></i>
+              <select id="role" required>
+                <option value="" disabled selected>Select your role</option>
+                <option value="business-owner">Admin</option>
+                <option value="accountant">Client</option>
+              </select>
+            </div>
+          </div>
+          <div class="form-group">
+            <label for="email">Email Address</label>
+            <div class="input-wrapper">
+              <i class="fas fa-envelope"></i>
+              <input type="email" id="email" placeholder="you@company.com" required>
+            </div>
+          </div>
+
+          <div class="form-group">
+            <label for="password">
+              Password
+              <a href="404.html" class="forgot-link">Forgot password?</a>
+            </label>
+            <div class="input-wrapper">
+              <i class="fas fa-lock"></i>
+              <input type="password" id="password" placeholder="Enter your password" required minlength="8" pattern="^(?=.*[a-z])(?=.*[A-Z])(?=.*\d)(?=.*[@$!%*?&#])[A-Za-z\d@$!%*?&#]{8,}$" title="Password must contain at least 8 characters, including uppercase, lowercase, number and special character (@$!%*?&#)">
+              <button type="button" class="toggle-password" onclick="togglePassword(this)">
+                <i class="fas fa-eye"></i>
+              </button>
+            </div>
+          </div>
+
+          <div class="form-group">
+            <div class="remember-forgot">
+              <div class="checkbox-group">
+                <input type="checkbox" id="remember">
+                <label for="remember">Remember me</label>
+              </div>
+            </div>
+          </div>
+
+          <button type="submit" class="btn btn-primary">
+            <span>Sign In</span>
+            <i class="fas fa-arrow-right"></i>
+          </button>
+
+          <p class="terms-text">
+            By signing in, you agree to our <a href="#">Terms of Service</a> and <a href="#">Privacy Policy</a>
+          </p>
+        </form>
+      </div>
+    </div>
+  </div>
+
+
+  <script>
+    // Password toggle
+    function togglePassword(btn) {
+      const input = btn.parentElement.querySelector('input');
+      const icon = btn.querySelector('i');
+      if (input.type === 'password') {
+        input.type = 'text';
+        icon.classList.replace('fa-eye', 'fa-eye-slash');
+      } else {
+        input.type = 'password';
+        icon.classList.replace('fa-eye-slash', 'fa-eye');
+      }
+    }
+
+    // Form submission
+    document.getElementById('loginForm').addEventListener('submit', function(e) {
+      e.preventDefault();
+
+      if (!document.getElementById('remember').checked) {
+        alert('Please check the "Remember me" checkbox to continue.');
+        return;
+      }
+
+      const btn = this.querySelector('button[type="submit"]');
+      const originalHTML = btn.innerHTML;
+      btn.innerHTML = '<i class="fas fa-spinner fa-spin"></i> <span>Signing In...</span>';
+      btn.disabled = true;
+
+      setTimeout(() => {
+        const role = document.getElementById('role').value;
+        if (role === 'business-owner') {
+          window.location.href = 'admin-dashboard.html';
+        } else {
+          window.location.href = 'client-dashboard.html';
+        }
+      }, 1500);
+    });
+  </script>
+</body>
+</html>

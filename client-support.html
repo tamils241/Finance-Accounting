@@ -1,0 +1,355 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Support - FinAcc Pro</title>
+  <link rel="stylesheet" href="styles.css">
+  <link rel="stylesheet" href="dashboard.css">
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.2/css/all.min.css">
+  <style>
+    .faq-item {
+      border: 1px solid var(--border-light);
+      border-radius: var(--radius);
+      margin-bottom: 12px;
+      overflow: hidden;
+      background: var(--bg);
+      transition: var(--transition);
+    }
+    .faq-item:hover {
+      border-color: var(--primary-100);
+    }
+    .faq-question {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      padding: 18px 24px;
+      cursor: pointer;
+      font-weight: 600;
+      font-size: 0.95rem;
+      color: var(--secondary);
+      background: var(--bg);
+      border: none;
+      width: 100%;
+      text-align: left;
+      font-family: inherit;
+      transition: var(--transition);
+    }
+    .faq-question:hover {
+      color: var(--primary);
+    }
+    .faq-question i {
+      transition: transform 0.3s ease;
+      color: var(--text-lighter);
+    }
+    .faq-item.active .faq-question i {
+      transform: rotate(180deg);
+      color: var(--primary);
+    }
+    .faq-answer {
+      max-height: 0;
+      overflow: hidden;
+      transition: max-height 0.3s ease, padding 0.3s ease;
+    }
+    .faq-item.active .faq-answer {
+      max-height: 200px;
+    }
+    .faq-answer-content {
+      padding: 0 24px 18px;
+      font-size: 0.9rem;
+      color: var(--text-light);
+      line-height: 1.7;
+    }
+    .contact-card {
+      display: flex;
+      align-items: center;
+      gap: 16px;
+      padding: 24px;
+      background: var(--bg);
+      border: 1px solid var(--border-light);
+      border-radius: var(--radius-lg);
+      box-shadow: var(--shadow-sm);
+      transition: var(--transition);
+    }
+    .contact-card:hover {
+      box-shadow: var(--shadow-md);
+      transform: translateY(-2px);
+    }
+    .support-search {
+      position: relative;
+      max-width: 500px;
+      margin-bottom: 32px;
+    }
+    .support-search input {
+      width: 100%;
+      padding: 14px 20px 14px 48px;
+      border: 2px solid var(--border);
+      border-radius: var(--radius);
+      font-family: inherit;
+      font-size: 1rem;
+      color: var(--text);
+      background: var(--bg);
+      outline: none;
+      transition: var(--transition);
+    }
+    .support-search input:focus {
+      border-color: var(--primary);
+      box-shadow: 0 0 0 4px var(--primary-50);
+    }
+    .support-search i {
+      position: absolute;
+      left: 18px;
+      top: 50%;
+      transform: translateY(-50%);
+      color: var(--text-lighter);
+      font-size: 1rem;
+    }
+  </style>
+</head>
+<body>
+
+  <div class="dashboard">
+    <div class="sidebar-overlay" id="sidebarOverlay"></div>
+
+    <aside class="sidebar" id="sidebar">
+      <div class="sidebar-header">
+        <a href="index.html">
+          <img src="images/logo.webp" alt="FinAcc Pro Logo" class="sidebar-logo-img">
+        </a>
+      </div>
+
+      <nav class="sidebar-nav">
+        <div class="sidebar-section-label">Overview</div>
+        <a href="client-dashboard.html" class="sidebar-link">
+          <i class="fas fa-grid-2"></i> Dashboard
+        </a>
+        <a href="client-invoices.html" class="sidebar-link">
+          <i class="fas fa-file-invoice-dollar"></i> My Invoices
+          <span class="badge">6</span>
+        </a>
+        <a href="client-transactions.html" class="sidebar-link">
+          <i class="fas fa-receipt"></i> Transactions
+        </a>
+        <div class="sidebar-section-label">Finance</div>
+        <a href="client-reports.html" class="sidebar-link">
+          <i class="fas fa-chart-line"></i> Financial Reports
+        </a>
+        <a href="client-tax.html" class="sidebar-link">
+          <i class="fas fa-calculator"></i> Tax Documents
+        </a>
+        <a href="client-budget.html" class="sidebar-link">
+          <i class="fas fa-piggy-bank"></i> Budget Tracker
+        </a>
+        <div class="sidebar-section-label">Account</div>
+        <a href="client-settings.html" class="sidebar-link">
+          <i class="fas fa-gear"></i> Settings
+        </a>
+        <a href="client-support.html" class="sidebar-link active">
+          <i class="fas fa-circle-question"></i> Support
+        </a>
+      </nav>
+
+      <div class="sidebar-divider"></div>
+
+      <div class="sidebar-user">
+        <div class="sidebar-user-avatar">JD</div>
+        <div class="sidebar-user-info">
+          <div class="sidebar-user-name">John Davidson</div>
+          <div class="sidebar-user-role">Client</div>
+        </div>
+        <button class="sidebar-user-logout" title="Logout">
+          <i class="fas fa-right-from-bracket"></i>
+        </button>
+      </div>
+    </aside>
+
+    <main class="dashboard-main">
+      <header class="topbar">
+        <div class="topbar-left">
+          <button class="topbar-toggle" id="sidebarToggle">
+            <i class="fas fa-bars"></i>
+          </button>
+          <div class="topbar-title">
+            <h1>Support</h1>
+            <p>Get help and find answers to your questions</p>
+          </div>
+        </div>
+        <div class="topbar-right">
+          <div class="topbar-search">
+            <i class="fas fa-search"></i>
+            <input type="text" placeholder="Search invoices, reports...">
+          </div>
+          <button class="topbar-icon-btn">
+            <i class="fas fa-bell"></i>
+            <span class="notification-dot"></span>
+          </button>
+          <button class="topbar-icon-btn">
+            <i class="fas fa-envelope"></i>
+          </button>
+          <div class="topbar-avatar">JD</div>
+        </div>
+      </header>
+
+      <div class="dashboard-content">
+        <div class="support-search">
+          <i class="fas fa-search"></i>
+          <input type="text" placeholder="Search for help topics...">
+        </div>
+
+        <div class="dash-card" style="margin-bottom: 32px;">
+          <div class="dash-card-header">
+            <h3 class="dash-card-title">Frequently Asked Questions</h3>
+          </div>
+          <div class="dash-card-body">
+            <div class="faq-item active">
+              <button class="faq-question">
+                How do I download my invoices?
+                <i class="fas fa-chevron-down"></i>
+              </button>
+              <div class="faq-answer">
+                <div class="faq-answer-content">
+                  Navigate to the "My Invoices" page from the sidebar. Click on any invoice row and select the "Download" option. You can download invoices in PDF format for your records.
+                </div>
+              </div>
+            </div>
+            <div class="faq-item">
+              <button class="faq-question">
+                How do I update my payment method?
+                <i class="fas fa-chevron-down"></i>
+              </button>
+              <div class="faq-answer">
+                <div class="faq-answer-content">
+                  Go to Settings > Billing section. Click "Update Card" to modify your payment information. All changes are securely saved and your next billing cycle will use the updated method.
+                </div>
+              </div>
+            </div>
+            <div class="faq-item">
+              <button class="faq-question">
+                When are my tax documents available?
+                <i class="fas fa-chevron-down"></i>
+              </button>
+              <div class="faq-answer">
+                <div class="faq-answer-content">
+                  Tax documents are typically available 30 days before each filing deadline. You can check the "Tax Documents" page for the latest status and due dates for all your filings.
+                </div>
+              </div>
+            </div>
+            <div class="faq-item">
+              <button class="faq-question">
+                How do I generate financial reports?
+                <i class="fas fa-chevron-down"></i>
+              </button>
+              <div class="faq-answer">
+                <div class="faq-answer-content">
+                  Visit the "Financial Reports" page and click the "Generate Report" button on any report card. Reports are generated in real-time and can be downloaded as PDF or exported to CSV format.
+                </div>
+              </div>
+            </div>
+            <div class="faq-item">
+              <button class="faq-question">
+                Can I export my transaction history?
+                <i class="fas fa-chevron-down"></i>
+              </button>
+              <div class="faq-answer">
+                <div class="faq-answer-content">
+                  Yes, on the "Transactions" page click "Export CSV" in the card header. This will download a complete transaction history in CSV format that you can open in Excel or any spreadsheet application.
+                </div>
+              </div>
+            </div>
+            <div class="faq-item">
+              <button class="faq-question">
+                How do I enable two-factor authentication?
+                <i class="fas fa-chevron-down"></i>
+              </button>
+              <div class="faq-answer">
+                <div class="faq-answer-content">
+                  Go to Settings > Security and toggle on "Two-Factor Authentication". You'll be guided through the setup process which involves verifying your phone number and entering a confirmation code.
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <h3 style="font-size: 1.1rem; font-weight: 700; color: var(--secondary); margin-bottom: 20px;">Contact Us</h3>
+        <div class="dash-grid" style="grid-template-columns: repeat(3, 1fr);">
+          <div class="contact-card">
+            <div class="dash-stat-icon blue"><i class="fas fa-envelope"></i></div>
+            <div>
+              <div class="settings-label">Email Support</div>
+              <p style="font-size: 0.85rem; color: var(--text-light); margin-top: 4px;">support@finaccpro.com</p>
+              <p style="font-size: 0.8rem; color: var(--text-lighter); margin-top: 2px;">Response within 24 hours</p>
+            </div>
+          </div>
+          <div class="contact-card">
+            <div class="dash-stat-icon green"><i class="fas fa-phone"></i></div>
+            <div>
+              <div class="settings-label">Phone Support</div>
+              <p style="font-size: 0.85rem; color: var(--text-light); margin-top: 4px;">+1 (800) 555-0199</p>
+              <p style="font-size: 0.8rem; color: var(--text-lighter); margin-top: 2px;">Mon-Fri, 9AM-6PM EST</p>
+            </div>
+          </div>
+          <div class="contact-card">
+            <div class="dash-stat-icon purple"><i class="fas fa-comments"></i></div>
+            <div>
+              <div class="settings-label">Live Chat</div>
+              <p style="font-size: 0.85rem; color: var(--text-light); margin-top: 4px;">Chat with an agent</p>
+              <p style="font-size: 0.8rem; color: var(--text-lighter); margin-top: 2px;">Available 24/7</p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </main>
+  </div>
+
+  <footer class="footer" style="margin-left: 260px;">
+    <div class="container">
+      <div class="footer-bottom" style="border-top: none; padding: 24px 0;">
+        <p>&copy; 2026 FinAcc Pro. All rights reserved.</p>
+        <div class="footer-bottom-links">
+          <a href="index.html">Back to Website</a>
+          <a href="login.html">Logout</a>
+        </div>
+      </div>
+    </div>
+  </footer>
+
+  <script>
+    const sidebarToggle = document.getElementById('sidebarToggle');
+    const sidebar = document.getElementById('sidebar');
+    const sidebarOverlay = document.getElementById('sidebarOverlay');
+
+    sidebarToggle.addEventListener('click', () => {
+      sidebar.classList.toggle('open');
+      sidebarOverlay.classList.toggle('active');
+    });
+
+    sidebarOverlay.addEventListener('click', () => {
+      sidebar.classList.remove('open');
+      sidebarOverlay.classList.remove('active');
+    });
+
+    document.querySelectorAll('.sidebar-link').forEach(link => {
+      link.addEventListener('click', function() {
+        document.querySelectorAll('.sidebar-link').forEach(l => l.classList.remove('active'));
+        this.classList.add('active');
+      });
+    });
+
+    document.querySelector('.sidebar-user-logout').addEventListener('click', () => {
+      if (confirm('Are you sure you want to logout?')) {
+        window.location.href = 'login.html';
+      }
+    });
+
+    document.querySelectorAll('.faq-question').forEach(btn => {
+      btn.addEventListener('click', () => {
+        const item = btn.parentElement;
+        const wasActive = item.classList.contains('active');
+        document.querySelectorAll('.faq-item').forEach(i => i.classList.remove('active'));
+        if (!wasActive) item.classList.add('active');
+      });
+    });
+  </script>
+</body>
+</html>

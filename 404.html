@@ -1,0 +1,291 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>404 - Page Not Found | FinAcc Pro</title>
+  <link rel="stylesheet" href="styles.css">
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.2/css/all.min.css">
+  <style>
+    .error-page {
+      min-height: 100vh;
+      display: flex;
+      flex-direction: column;
+      background: var(--bg-alt);
+      overflow: hidden;
+    }
+
+    .error-content {
+      flex: 1;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      padding: 40px 24px;
+      position: relative;
+    }
+
+    .error-bg {
+      position: absolute;
+      inset: 0;
+      overflow: hidden;
+    }
+
+    .error-bg .hero-shape {
+      position: absolute;
+      border-radius: 50%;
+      filter: blur(80px);
+      opacity: 0.5;
+    }
+
+    .error-bg .hero-shape-1 {
+      width: 500px;
+      height: 500px;
+      background: rgba(37, 99, 235, 0.12);
+      top: -200px;
+      right: -100px;
+    }
+
+    .error-bg .hero-shape-2 {
+      width: 350px;
+      height: 350px;
+      background: rgba(6, 182, 212, 0.1);
+      bottom: -150px;
+      left: -80px;
+    }
+
+    .error-bg .hero-shape-3 {
+      width: 250px;
+      height: 250px;
+      background: rgba(139, 92, 246, 0.08);
+      top: 40%;
+      left: 30%;
+    }
+
+    .error-bg .grid-overlay {
+      position: absolute;
+      inset: 0;
+      background-image:
+        linear-gradient(rgba(37, 99, 235, 0.03) 1px, transparent 1px),
+        linear-gradient(90deg, rgba(37, 99, 235, 0.03) 1px, transparent 1px);
+      background-size: 60px 60px;
+    }
+
+    .error-inner {
+      position: relative;
+      z-index: 1;
+      text-align: center;
+      max-width: 600px;
+    }
+
+    .error-code {
+      font-size: clamp(6rem, 15vw, 12rem);
+      font-weight: 900;
+      line-height: 1;
+      letter-spacing: -0.04em;
+      margin-bottom: 8px;
+      background: var(--gradient);
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+      background-clip: text;
+      animation: errorPulse 3s ease-in-out infinite;
+    }
+
+    @keyframes errorPulse {
+      0%, 100% { opacity: 1; transform: scale(1); }
+      50% { opacity: 0.8; transform: scale(1.02); }
+    }
+
+    .error-title {
+      font-size: clamp(1.25rem, 3vw, 1.75rem);
+      font-weight: 700;
+      color: var(--secondary);
+      margin-bottom: 16px;
+    }
+
+    .error-text {
+      font-size: 1.05rem;
+      color: var(--text-light);
+      line-height: 1.7;
+      margin-bottom: 40px;
+      max-width: 480px;
+      margin-left: auto;
+      margin-right: auto;
+    }
+
+    .error-buttons {
+      display: flex;
+      gap: 16px;
+      justify-content: center;
+      flex-wrap: wrap;
+      margin-bottom: 48px;
+    }
+
+    .error-links {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      gap: 24px;
+      flex-wrap: wrap;
+    }
+
+    .error-link {
+      display: flex;
+      align-items: center;
+      gap: 6px;
+      font-size: 0.9rem;
+      font-weight: 500;
+      color: var(--text-light);
+      transition: var(--transition);
+    }
+
+    .error-link:hover {
+      color: var(--primary);
+    }
+
+    .error-link i {
+      font-size: 0.8rem;
+    }
+
+    .error-illustration {
+      position: relative;
+      z-index: 1;
+      margin-bottom: 40px;
+    }
+
+    .error-illustration svg {
+      width: 200px;
+      height: 200px;
+      opacity: 0.6;
+    }
+
+    .error-float {
+      position: absolute;
+      width: 48px;
+      height: 48px;
+      border-radius: 50%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 1.1rem;
+      box-shadow: var(--shadow-md);
+      animation: float 3s ease-in-out infinite;
+    }
+
+    .error-float-1 {
+      background: rgba(37, 99, 235, 0.15);
+      color: var(--primary);
+      top: 10px;
+      right: -20px;
+      animation-delay: 0s;
+    }
+
+    .error-float-2 {
+      background: rgba(6, 182, 212, 0.15);
+      color: var(--accent);
+      bottom: 20px;
+      left: -15px;
+      animation-delay: 1s;
+    }
+
+    .error-float-3 {
+      background: rgba(139, 92, 246, 0.15);
+      color: var(--accent-2);
+      top: 50%;
+      right: -30px;
+      animation-delay: 2s;
+    }
+
+    /* Header */
+    .error-header {
+      position: fixed;
+      top: 0;
+      left: 0;
+      right: 0;
+      z-index: 1000;
+      padding: 16px 0;
+      background: rgba(255, 255, 255, 0.8);
+      backdrop-filter: blur(20px);
+      -webkit-backdrop-filter: blur(20px);
+      border-bottom: 1px solid var(--border);
+    }
+
+    /* Footer */
+    .error-page .footer {
+      margin-left: 0;
+    }
+
+    @media (max-width: 480px) {
+      .error-buttons {
+        flex-direction: column;
+        width: 100%;
+      }
+
+      .error-buttons .btn {
+        width: 100%;
+      }
+
+      .error-links {
+        flex-direction: column;
+        gap: 16px;
+      }
+
+      .error-float {
+        width: 40px;
+        height: 40px;
+        font-size: 0.9rem;
+      }
+    }
+  </style>
+</head>
+<body>
+
+  <!-- Error Content -->
+  <div class="error-page">
+    <div class="error-content">
+      <div class="error-bg">
+        <div class="hero-shape hero-shape-1"></div>
+        <div class="hero-shape hero-shape-2"></div>
+        <div class="hero-shape hero-shape-3"></div>
+        <div class="grid-overlay"></div>
+      </div>
+
+      <div class="error-inner">
+        <div class="error-illustration">
+          <svg viewBox="0 0 200 200" fill="none" xmlns="http://www.w3.org/2000/svg">
+            <circle cx="100" cy="100" r="80" stroke="url(#grad)" stroke-width="4" stroke-dasharray="8 8" opacity="0.3"/>
+            <circle cx="100" cy="100" r="60" stroke="url(#grad)" stroke-width="2" opacity="0.2"/>
+            <path d="M70 85 L85 100 L70 115" stroke="var(--primary)" stroke-width="4" stroke-linecap="round" stroke-linejoin="round" opacity="0.5"/>
+            <path d="M130 85 L115 100 L130 115" stroke="var(--accent)" stroke-width="4" stroke-linecap="round" stroke-linejoin="round" opacity="0.5"/>
+            <path d="M80 130 L100 145 L120 130" stroke="var(--accent-2)" stroke-width="3" stroke-linecap="round" stroke-linejoin="round" opacity="0.4"/>
+            <defs>
+              <linearGradient id="grad" x1="0%" y1="0%" x2="100%" y2="100%">
+                <stop offset="0%" style="stop-color:#2563eb"/>
+                <stop offset="100%" style="stop-color:#06b6d4"/>
+              </linearGradient>
+            </defs>
+          </svg>
+          <div class="error-float error-float-1"><i class="fas fa-file-circle-xmark"></i></div>
+          <div class="error-float error-float-2"><i class="fas fa-compass"></i></div>
+          <div class="error-float error-float-3"><i class="fas fa-link-slash"></i></div>
+        </div>
+
+        <div class="error-code">404</div>
+        <h1 class="error-title">Oops! Page Not Found</h1>
+        <p class="error-text">The page you're looking for doesn't exist or has been moved. Let's get you back on track to managing your finances.</p>
+
+        <div class="error-buttons">
+          <a href="index.html" class="btn btn-primary btn-lg">
+            <i class="fas fa-house"></i>
+            <span>Back to Home</span>
+          </a>
+          <a href="contact.html" class="btn btn-outline btn-lg">
+            <i class="fas fa-headset"></i>
+            <span>Contact Support</span>
+          </a>
+        
+    </div>
+  </div>
+
+</body>
+</html>

@@ -1,0 +1,264 @@
+﻿<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Transactions - FinAcc Pro</title>
+  <link rel="stylesheet" href="styles.css">
+  <link rel="stylesheet" href="dashboard.css">
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.2/css/all.min.css">
+</head>
+<body>
+
+  <div class="dashboard">
+    <div class="sidebar-overlay" id="sidebarOverlay"></div>
+
+    <aside class="sidebar" id="sidebar">
+      <div class="sidebar-header">
+        <a href="index.html">
+          <img src="images/logo.webp" alt="FinAcc Pro Logo" class="sidebar-logo-img">
+      </a>
+      </div>
+
+      <nav class="sidebar-nav">
+        <div class="sidebar-section-label">Main</div>
+        <a href="admin-dashboard.html" class="sidebar-link">
+          <i class="fas fa-grid-2"></i> Dashboard
+        </a>
+        <a href="admin-clients.html" class="sidebar-link">
+          <i class="fas fa-users"></i> Clients
+          <span class="badge">128</span>
+        </a>
+        <a href="admin-invoices.html" class="sidebar-link">
+          <i class="fas fa-file-invoice-dollar"></i> Invoices
+          <span class="badge">24</span>
+        </a>
+        <a href="admin-transactions.html" class="sidebar-link active">
+          <i class="fas fa-receipt"></i> Transactions
+        </a>
+        <div class="sidebar-section-label">Management</div>
+        <a href="admin-tax-planning.html" class="sidebar-link">
+          <i class="fas fa-calculator"></i> Tax Planning
+        </a>
+        <a href="admin-reports.html" class="sidebar-link">
+          <i class="fas fa-chart-pie"></i> Reports
+        </a>
+        <a href="admin-audit.html" class="sidebar-link">
+          <i class="fas fa-shield-halved"></i> Audit & Compliance
+        </a>
+        <a href="admin-payroll.html" class="sidebar-link">
+          <i class="fas fa-money-bill-wave"></i> Payroll
+        </a>
+        <div class="sidebar-section-label">System</div>
+        <a href="admin-settings.html" class="sidebar-link">
+          <i class="fas fa-gear"></i> Settings
+        </a>
+        <a href="admin-help.html" class="sidebar-link">
+          <i class="fas fa-circle-question"></i> Help Center
+        </a>
+      </nav>
+      <div class="sidebar-divider"></div>
+      <div class="sidebar-user">
+        <div class="sidebar-user-avatar">AD</div>
+        <div class="sidebar-user-info">
+          <div class="sidebar-user-name">Admin User</div>
+          <div class="sidebar-user-role">Super Admin</div>
+        </div>
+        <button class="sidebar-user-logout" title="Logout">
+          <i class="fas fa-right-from-bracket"></i>
+        </button>
+      </div>
+    </aside>
+
+    <main class="dashboard-main">
+      <header class="topbar">
+        <div class="topbar-left">
+          <button class="topbar-toggle" id="sidebarToggle">
+            <i class="fas fa-bars"></i>
+          </button>
+          <div class="topbar-title">
+            <h1>Transactions</h1>
+            <p>View all financial transactions</p>
+          </div>
+        </div>
+        <div class="topbar-right">
+          <div class="topbar-search">
+            <i class="fas fa-search"></i>
+            <input type="text" placeholder="Search clients, invoices...">
+          </div>
+          <button class="topbar-icon-btn">
+            <i class="fas fa-bell"></i>
+            <span class="notification-dot"></span>
+          </button>
+          <button class="topbar-icon-btn">
+            <i class="fas fa-envelope"></i>
+          </button>
+          <div class="topbar-avatar">AD</div>
+        </div>
+      </header>
+
+      <div class="dashboard-content">
+        <div class="stats-row">
+          <div class="dash-stat-card">
+            <div class="dash-stat-header">
+              <div class="dash-stat-icon blue"><i class="fas fa-receipt"></i></div>
+              <span class="dash-stat-change up"><i class="fas fa-arrow-up"></i> 15%</span>
+            </div>
+            <div class="dash-stat-value">1,847</div>
+            <div class="dash-stat-label">Total Transactions</div>
+          </div>
+          <div class="dash-stat-card">
+            <div class="dash-stat-header">
+              <div class="dash-stat-icon green"><i class="fas fa-arrow-trend-up"></i></div>
+              <span class="dash-stat-change up"><i class="fas fa-arrow-up"></i> 18%</span>
+            </div>
+            <div class="dash-stat-value">$4.2M</div>
+            <div class="dash-stat-label">Income</div>
+          </div>
+          <div class="dash-stat-card">
+            <div class="dash-stat-header">
+              <div class="dash-stat-icon orange"><i class="fas fa-arrow-trend-down"></i></div>
+              <span class="dash-stat-change down"><i class="fas fa-arrow-down"></i> 5%</span>
+            </div>
+            <div class="dash-stat-value">$2.8M</div>
+            <div class="dash-stat-label">Expenses</div>
+          </div>
+          <div class="dash-stat-card">
+            <div class="dash-stat-header">
+              <div class="dash-stat-icon purple"><i class="fas fa-scale-balanced"></i></div>
+              <span class="dash-stat-change up"><i class="fas fa-arrow-up"></i> 24%</span>
+            </div>
+            <div class="dash-stat-value">$1.4M</div>
+            <div class="dash-stat-label">Net</div>
+          </div>
+        </div>
+
+        <div class="dash-card">
+          <div class="dash-card-header">
+            <h3 class="dash-card-title">Recent Transactions</h3>
+            <button class="btn btn-primary btn-sm"><i class="fas fa-download"></i> Export</button>
+          </div>
+          <div class="dash-card-body" style="padding:0;">
+            <table class="dash-table">
+              <thead>
+                <tr>
+                  <th>Transaction ID</th>
+                  <th>Date</th>
+                  <th>Description</th>
+                  <th>Category</th>
+                  <th>Amount</th>
+                  <th>Type</th>
+                </tr>
+              </thead>
+              <tbody>
+                <tr>
+                  <td><strong>#TXN-9841</strong></td>
+                  <td>Dec 15, 2025</td>
+                  <td>Client Payment - TechVentures</td>
+                  <td>Service Revenue</td>
+                  <td><strong>$24,500.00</strong></td>
+                  <td><span class="status-badge active">Credit</span></td>
+                </tr>
+                <tr>
+                  <td><strong>#TXN-9840</strong></td>
+                  <td>Dec 14, 2025</td>
+                  <td>Office Rent Payment</td>
+                  <td>Operating Expense</td>
+                  <td><strong>$8,200.00</strong></td>
+                  <td><span class="status-badge overdue">Debit</span></td>
+                </tr>
+                <tr>
+                  <td><strong>#TXN-9839</strong></td>
+                  <td>Dec 13, 2025</td>
+                  <td>Client Payment - GlobalTrade</td>
+                  <td>Service Revenue</td>
+                  <td><strong>$89,200.00</strong></td>
+                  <td><span class="status-badge active">Credit</span></td>
+                </tr>
+                <tr>
+                  <td><strong>#TXN-9838</strong></td>
+                  <td>Dec 12, 2025</td>
+                  <td>Software Subscription</td>
+                  <td>Technology</td>
+                  <td><strong>$2,400.00</strong></td>
+                  <td><span class="status-badge overdue">Debit</span></td>
+                </tr>
+                <tr>
+                  <td><strong>#TXN-9837</strong></td>
+                  <td>Dec 11, 2025</td>
+                  <td>Consulting Fee - Digital Labs</td>
+                  <td>Service Revenue</td>
+                  <td><strong>$35,600.00</strong></td>
+                  <td><span class="status-badge active">Credit</span></td>
+                </tr>
+                <tr>
+                  <td><strong>#TXN-9836</strong></td>
+                  <td>Dec 10, 2025</td>
+                  <td>Employee Payroll</td>
+                  <td>Payroll</td>
+                  <td><strong>$125,000.00</strong></td>
+                  <td><span class="status-badge overdue">Debit</span></td>
+                </tr>
+                <tr>
+                  <td><strong>#TXN-9835</strong></td>
+                  <td>Dec 09, 2025</td>
+                  <td>Investment Returns</td>
+                  <td>Investment Income</td>
+                  <td><strong>$12,750.00</strong></td>
+                  <td><span class="status-badge active">Credit</span></td>
+                </tr>
+                <tr>
+                  <td><strong>#TXN-9834</strong></td>
+                  <td>Dec 08, 2025</td>
+                  <td>Marketing Campaign</td>
+                  <td>Marketing</td>
+                  <td><strong>$15,800.00</strong></td>
+                  <td><span class="status-badge overdue">Debit</span></td>
+                </tr>
+              </tbody>
+            </table>
+          </div>
+        </div>
+      </div>
+    </main>
+  </div>
+
+  <footer class="footer" style="margin-left: 260px;">
+    <div class="container">
+      <div class="footer-bottom" style="border-top: none; padding: 24px 0;">
+        <p>&copy; 2026 FinAcc Pro. All rights reserved.</p>
+        <div class="footer-bottom-links">
+          <a href="index.html">Back to Website</a>
+          <a href="login.html">Logout</a>
+        </div>
+      </div>
+    </div>
+  </footer>
+
+  <script>
+    const sidebarToggle = document.getElementById('sidebarToggle');
+    const sidebar = document.getElementById('sidebar');
+    const sidebarOverlay = document.getElementById('sidebarOverlay');
+    sidebarToggle.addEventListener('click', () => {
+      sidebar.classList.toggle('open');
+      sidebarOverlay.classList.toggle('active');
+    });
+    sidebarOverlay.addEventListener('click', () => {
+      sidebar.classList.remove('open');
+      sidebarOverlay.classList.remove('active');
+    });
+    document.querySelectorAll('.sidebar-link').forEach(link => {
+      link.addEventListener('click', function(e) {
+        document.querySelectorAll('.sidebar-link').forEach(l => l.classList.remove('active'));
+        this.classList.add('active');
+      });
+    });
+    document.querySelector('.sidebar-user-logout').addEventListener('click', () => {
+      if (confirm('Are you sure you want to logout?')) {
+        window.location.href = 'login.html';
+      }
+    });
+  </script>
+</body>
+</html>

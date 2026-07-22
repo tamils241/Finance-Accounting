@@ -1,0 +1,226 @@
+﻿<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Tax Planning - FinAcc Pro</title>
+  <link rel="stylesheet" href="styles.css">
+  <link rel="stylesheet" href="dashboard.css">
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.2/css/all.min.css">
+</head>
+<body>
+
+  <div class="dashboard">
+    <div class="sidebar-overlay" id="sidebarOverlay"></div>
+
+    <aside class="sidebar" id="sidebar">
+      <div class="sidebar-header">
+        <a href="index.html">
+          <img src="images/logo.webp" alt="FinAcc Pro Logo" class="sidebar-logo-img">
+      </a>
+      </div>
+
+      <nav class="sidebar-nav">
+        <div class="sidebar-section-label">Main</div>
+        <a href="admin-dashboard.html" class="sidebar-link">
+          <i class="fas fa-grid-2"></i> Dashboard
+        </a>
+        <a href="admin-clients.html" class="sidebar-link">
+          <i class="fas fa-users"></i> Clients
+          <span class="badge">128</span>
+        </a>
+        <a href="admin-invoices.html" class="sidebar-link">
+          <i class="fas fa-file-invoice-dollar"></i> Invoices
+          <span class="badge">24</span>
+        </a>
+        <a href="admin-transactions.html" class="sidebar-link">
+          <i class="fas fa-receipt"></i> Transactions
+        </a>
+        <div class="sidebar-section-label">Management</div>
+        <a href="admin-tax-planning.html" class="sidebar-link active">
+          <i class="fas fa-calculator"></i> Tax Planning
+        </a>
+        <a href="admin-reports.html" class="sidebar-link">
+          <i class="fas fa-chart-pie"></i> Reports
+        </a>
+        <a href="admin-audit.html" class="sidebar-link">
+          <i class="fas fa-shield-halved"></i> Audit & Compliance
+        </a>
+        <a href="admin-payroll.html" class="sidebar-link">
+          <i class="fas fa-money-bill-wave"></i> Payroll
+        </a>
+        <div class="sidebar-section-label">System</div>
+        <a href="admin-settings.html" class="sidebar-link">
+          <i class="fas fa-gear"></i> Settings
+        </a>
+        <a href="admin-help.html" class="sidebar-link">
+          <i class="fas fa-circle-question"></i> Help Center
+        </a>
+      </nav>
+      <div class="sidebar-divider"></div>
+      <div class="sidebar-user">
+        <div class="sidebar-user-avatar">AD</div>
+        <div class="sidebar-user-info">
+          <div class="sidebar-user-name">Admin User</div>
+          <div class="sidebar-user-role">Super Admin</div>
+        </div>
+        <button class="sidebar-user-logout" title="Logout">
+          <i class="fas fa-right-from-bracket"></i>
+        </button>
+      </div>
+    </aside>
+
+    <main class="dashboard-main">
+      <header class="topbar">
+        <div class="topbar-left">
+          <button class="topbar-toggle" id="sidebarToggle">
+            <i class="fas fa-bars"></i>
+          </button>
+          <div class="topbar-title">
+            <h1>Tax Planning</h1>
+            <p>Manage tax strategies and filings</p>
+          </div>
+        </div>
+        <div class="topbar-right">
+          <div class="topbar-search">
+            <i class="fas fa-search"></i>
+            <input type="text" placeholder="Search clients, invoices...">
+          </div>
+          <button class="topbar-icon-btn">
+            <i class="fas fa-bell"></i>
+            <span class="notification-dot"></span>
+          </button>
+          <button class="topbar-icon-btn">
+            <i class="fas fa-envelope"></i>
+          </button>
+          <div class="topbar-avatar">AD</div>
+        </div>
+      </header>
+
+      <div class="dashboard-content">
+        <div class="stats-row">
+          <div class="dash-stat-card">
+            <div class="dash-stat-header">
+              <div class="dash-stat-icon green"><i class="fas fa-piggy-bank"></i></div>
+              <span class="dash-stat-change up"><i class="fas fa-arrow-up"></i> 18%</span>
+            </div>
+            <div class="dash-stat-value">$847K</div>
+            <div class="dash-stat-label">Tax Saved</div>
+          </div>
+          <div class="dash-stat-card">
+            <div class="dash-stat-header">
+              <div class="dash-stat-icon orange"><i class="fas fa-file-lines"></i></div>
+              <span class="dash-stat-change down"><i class="fas fa-arrow-down"></i> 5%</span>
+            </div>
+            <div class="dash-stat-value">12</div>
+            <div class="dash-stat-label">Filings Due</div>
+          </div>
+          <div class="dash-stat-card">
+            <div class="dash-stat-header">
+              <div class="dash-stat-icon blue"><i class="fas fa-shield-check"></i></div>
+              <span class="dash-stat-change up"><i class="fas fa-arrow-up"></i> 3%</span>
+            </div>
+            <div class="dash-stat-value">98%</div>
+            <div class="dash-stat-label">Compliance Rate</div>
+          </div>
+          <div class="dash-stat-card">
+            <div class="dash-stat-header">
+              <div class="dash-stat-icon purple"><i class="fas fa-calendar-day"></i></div>
+              <span class="dash-stat-change up"><i class="fas fa-arrow-up"></i> 10%</span>
+            </div>
+            <div class="dash-stat-value">Jan 15</div>
+            <div class="dash-stat-label">Next Deadline</div>
+          </div>
+        </div>
+
+        <div style="margin-bottom:24px;">
+          <h3 style="font-size:1rem;font-weight:700;color:var(--secondary);margin-bottom:20px;">Tax Services</h3>
+        </div>
+
+        <div class="dash-grid dash-grid-equal" style="grid-template-columns: repeat(3, 1fr); margin-bottom:32px;">
+          <div class="dash-card" style="cursor:pointer;">
+            <div class="dash-card-body" style="text-align:center;padding:32px 24px;">
+              <div style="width:56px;height:56px;border-radius:var(--radius);background:rgba(37,99,235,0.1);display:flex;align-items:center;justify-content:center;margin:0 auto 16px;font-size:1.3rem;color:var(--primary);"><i class="fas fa-landmark"></i></div>
+              <h4 style="font-size:1rem;font-weight:700;color:var(--secondary);margin-bottom:8px;">Federal Tax</h4>
+              <p style="font-size:0.85rem;color:var(--text-light);line-height:1.6;">Federal income tax planning, compliance, and filing services for businesses and individuals.</p>
+            </div>
+          </div>
+          <div class="dash-card" style="cursor:pointer;">
+            <div class="dash-card-body" style="text-align:center;padding:32px 24px;">
+              <div style="width:56px;height:56px;border-radius:var(--radius);background:rgba(34,197,94,0.1);display:flex;align-items:center;justify-content:center;margin:0 auto 16px;font-size:1.3rem;color:#16a34a;"><i class="fas fa-map-location-dot"></i></div>
+              <h4 style="font-size:1rem;font-weight:700;color:var(--secondary);margin-bottom:8px;">State Tax</h4>
+              <p style="font-size:0.85rem;color:var(--text-light);line-height:1.6;">Multi-state tax compliance, nexus analysis, and state-specific filing requirements.</p>
+            </div>
+          </div>
+          <div class="dash-card" style="cursor:pointer;">
+            <div class="dash-card-body" style="text-align:center;padding:32px 24px;">
+              <div style="width:56px;height:56px;border-radius:var(--radius);background:rgba(139,92,246,0.1);display:flex;align-items:center;justify-content:center;margin:0 auto 16px;font-size:1.3rem;color:#8b5cf6;"><i class="fas fa-percent"></i></div>
+              <h4 style="font-size:1rem;font-weight:700;color:var(--secondary);margin-bottom:8px;">GST/VAT</h4>
+              <p style="font-size:0.85rem;color:var(--text-light);line-height:1.6;">Goods and Services Tax and Value Added Tax registration, filing, and advisory.</p>
+            </div>
+          </div>
+          <div class="dash-card" style="cursor:pointer;">
+            <div class="dash-card-body" style="text-align:center;padding:32px 24px;">
+              <div style="width:56px;height:56px;border-radius:var(--radius);background:rgba(249,115,22,0.1);display:flex;align-items:center;justify-content:center;margin:0 auto 16px;font-size:1.3rem;color:#f97316;"><i class="fas fa-magnifying-glass-chart"></i></div>
+              <h4 style="font-size:1rem;font-weight:700;color:var(--secondary);margin-bottom:8px;">Tax Audit</h4>
+              <p style="font-size:0.85rem;color:var(--text-light);line-height:1.6;">Comprehensive tax audit support, representation, and resolution services.</p>
+            </div>
+          </div>
+          <div class="dash-card" style="cursor:pointer;">
+            <div class="dash-card-body" style="text-align:center;padding:32px 24px;">
+              <div style="width:56px;height:56px;border-radius:var(--radius);background:rgba(6,182,212,0.1);display:flex;align-items:center;justify-content:center;margin:0 auto 16px;font-size:1.3rem;color:#06b6d4;"><i class="fas fa-lightbulb"></i></div>
+              <h4 style="font-size:1rem;font-weight:700;color:var(--secondary);margin-bottom:8px;">Tax Advisory</h4>
+              <p style="font-size:0.85rem;color:var(--text-light);line-height:1.6;">Strategic tax planning, optimization, and consulting to minimize tax liabilities.</p>
+            </div>
+          </div>
+          <div class="dash-card" style="cursor:pointer;">
+            <div class="dash-card-body" style="text-align:center;padding:32px 24px;">
+              <div style="width:56px;height:56px;border-radius:var(--radius);background:rgba(37,99,235,0.1);display:flex;align-items:center;justify-content:center;margin:0 auto 16px;font-size:1.3rem;color:var(--primary);"><i class="fas fa-globe"></i></div>
+              <h4 style="font-size:1rem;font-weight:700;color:var(--secondary);margin-bottom:8px;">International Tax</h4>
+              <p style="font-size:0.85rem;color:var(--text-light);line-height:1.6;">Cross-border tax planning, transfer pricing, and international treaty benefits.</p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </main>
+  </div>
+
+  <footer class="footer" style="margin-left: 260px;">
+    <div class="container">
+      <div class="footer-bottom" style="border-top: none; padding: 24px 0;">
+        <p>&copy; 2026 FinAcc Pro. All rights reserved.</p>
+        <div class="footer-bottom-links">
+          <a href="index.html">Back to Website</a>
+          <a href="login.html">Logout</a>
+        </div>
+      </div>
+    </div>
+  </footer>
+
+  <script>
+    const sidebarToggle = document.getElementById('sidebarToggle');
+    const sidebar = document.getElementById('sidebar');
+    const sidebarOverlay = document.getElementById('sidebarOverlay');
+    sidebarToggle.addEventListener('click', () => {
+      sidebar.classList.toggle('open');
+      sidebarOverlay.classList.toggle('active');
+    });
+    sidebarOverlay.addEventListener('click', () => {
+      sidebar.classList.remove('open');
+      sidebarOverlay.classList.remove('active');
+    });
+    document.querySelectorAll('.sidebar-link').forEach(link => {
+      link.addEventListener('click', function(e) {
+        document.querySelectorAll('.sidebar-link').forEach(l => l.classList.remove('active'));
+        this.classList.add('active');
+      });
+    });
+    document.querySelector('.sidebar-user-logout').addEventListener('click', () => {
+      if (confirm('Are you sure you want to logout?')) {
+        window.location.href = 'login.html';
+      }
+    });
+  </script>
+</body>
+</html>

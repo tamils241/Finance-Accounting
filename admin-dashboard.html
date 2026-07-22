@@ -1,0 +1,465 @@
+﻿<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Admin Dashboard - FinAcc Pro</title>
+  <link rel="stylesheet" href="styles.css">
+  <link rel="stylesheet" href="dashboard.css">
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+</head>
+<body>
+
+  <div class="dashboard">
+    <!-- Sidebar Overlay (Mobile) -->
+    <div class="sidebar-overlay" id="sidebarOverlay"></div>
+
+    <!-- Sidebar -->
+    <aside class="sidebar" id="sidebar">
+      <div class="sidebar-header">
+        <a href="index.html">
+          <img src="images/logo.webp" alt="FinAcc Pro Logo" class="sidebar-logo-img">
+        </a>
+      </div>
+      <nav class="sidebar-nav">
+        <div class="sidebar-section-label">Main</div>
+        <a href="admin-dashboard.html" class="sidebar-link active">
+          <i class="fas fa-grid-2"></i> Dashboard
+        </a>
+        <a href="admin-clients.html" class="sidebar-link">
+          <i class="fas fa-users"></i> Clients
+          <span class="badge">128</span>
+        </a>
+        <a href="admin-invoices.html" class="sidebar-link">
+          <i class="fas fa-file-invoice-dollar"></i> Invoices
+          <span class="badge">24</span>
+        </a>
+        <a href="admin-transactions.html" class="sidebar-link">
+          <i class="fas fa-receipt"></i> Transactions
+        </a>
+
+        <div class="sidebar-section-label">Management</div>
+        <a href="admin-tax-planning.html" class="sidebar-link">
+          <i class="fas fa-calculator"></i> Tax Planning
+        </a>
+        <a href="admin-reports.html" class="sidebar-link">
+          <i class="fas fa-chart-pie"></i> Reports
+        </a>
+        <a href="admin-audit.html" class="sidebar-link">
+          <i class="fas fa-shield-halved"></i> Audit & Compliance
+        </a>
+        <a href="admin-payroll.html" class="sidebar-link">
+          <i class="fas fa-money-bill-wave"></i> Payroll
+        </a>
+
+        <div class="sidebar-section-label">System</div>
+        <a href="admin-settings.html" class="sidebar-link">
+          <i class="fas fa-gear"></i> Settings
+        </a>
+        <a href="admin-help.html" class="sidebar-link">
+          <i class="fas fa-circle-question"></i> Help Center
+        </a>
+      </nav>
+
+      <div class="sidebar-divider"></div>
+
+      <div class="sidebar-user">
+        <div class="sidebar-user-avatar">AD</div>
+        <div class="sidebar-user-info">
+          <div class="sidebar-user-name">Admin User</div>
+          <div class="sidebar-user-role">Super Admin</div>
+        </div>
+        <button class="sidebar-user-logout" title="Logout">
+          <i class="fas fa-right-from-bracket"></i>
+        </button>
+      </div>
+    </aside>
+
+    <!-- Main Content -->
+    <main class="dashboard-main">
+      <!-- Top Bar -->
+      <header class="topbar">
+        <div class="topbar-left">
+          <button class="topbar-toggle" id="sidebarToggle">
+            <i class="fas fa-bars"></i>
+          </button>
+          <div class="topbar-title">
+            <h1>Admin Dashboard</h1>
+            <p>Welcome back, here's your overview today</p>
+          </div>
+        </div>
+        <div class="topbar-right">
+          <div class="topbar-search">
+            <i class="fas fa-search"></i>
+            <input type="text" placeholder="Search clients, invoices...">
+          </div>
+          <button class="topbar-icon-btn">
+            <i class="fas fa-bell"></i>
+            <span class="notification-dot"></span>
+          </button>
+          <button class="topbar-icon-btn">
+            <i class="fas fa-envelope"></i>
+          </button>
+          <div class="topbar-avatar">AD</div>
+        </div>
+      </header>
+
+      <!-- Dashboard Content -->
+      <div class="dashboard-content">
+        <!-- Stats Row -->
+        <div class="stats-row">
+          <div class="dash-stat-card">
+            <div class="dash-stat-header">
+              <div class="dash-stat-icon blue"><i class="fas fa-users"></i></div>
+              <span class="dash-stat-change up"><i class="fas fa-arrow-up"></i> 12%</span>
+            </div>
+            <div class="dash-stat-value">128</div>
+            <div class="dash-stat-label">Total Clients</div>
+          </div>
+          <div class="dash-stat-card">
+            <div class="dash-stat-header">
+              <div class="dash-stat-icon green"><i class="fas fa-dollar-sign"></i></div>
+              <span class="dash-stat-change up"><i class="fas fa-arrow-up"></i> 8.5%</span>
+            </div>
+            <div class="dash-stat-value">$2.4M</div>
+            <div class="dash-stat-label">Revenue This Month</div>
+          </div>
+          <div class="dash-stat-card">
+            <div class="dash-stat-header">
+              <div class="dash-stat-icon purple"><i class="fas fa-file-invoice"></i></div>
+              <span class="dash-stat-change down"><i class="fas fa-arrow-down"></i> 3%</span>
+            </div>
+            <div class="dash-stat-value">247</div>
+            <div class="dash-stat-label">Active Invoices</div>
+          </div>
+          <div class="dash-stat-card">
+            <div class="dash-stat-header">
+              <div class="dash-stat-icon orange"><i class="fas fa-clock"></i></div>
+              <span class="dash-stat-change up"><i class="fas fa-arrow-up"></i> 5%</span>
+            </div>
+            <div class="dash-stat-value">18</div>
+            <div class="dash-stat-label">Pending Tasks</div>
+          </div>
+        </div>
+
+        <!-- Chart + Activity -->
+        <div class="dash-grid">
+          <!-- Revenue Chart -->
+          <div class="dash-card">
+            <div class="dash-card-header">
+              <h3 class="dash-card-title">Revenue Overview</h3>
+              <span class="dash-card-action">View Report</span>
+            </div>
+            <div class="dash-card-body">
+              <div class="chart-placeholder">
+                <div class="chart-bars">
+                  <div class="chart-bar-group">
+                    <div class="chart-bar primary" style="height: 120px;"></div>
+                    <div class="chart-bar secondary" style="height: 80px;"></div>
+                    <span class="chart-bar-label">Jan</span>
+                  </div>
+                  <div class="chart-bar-group">
+                    <div class="chart-bar primary" style="height: 150px;"></div>
+                    <div class="chart-bar secondary" style="height: 90px;"></div>
+                    <span class="chart-bar-label">Feb</span>
+                  </div>
+                  <div class="chart-bar-group">
+                    <div class="chart-bar primary" style="height: 100px;"></div>
+                    <div class="chart-bar secondary" style="height: 70px;"></div>
+                    <span class="chart-bar-label">Mar</span>
+                  </div>
+                  <div class="chart-bar-group">
+                    <div class="chart-bar primary" style="height: 170px;"></div>
+                    <div class="chart-bar secondary" style="height: 110px;"></div>
+                    <span class="chart-bar-label">Apr</span>
+                  </div>
+                  <div class="chart-bar-group">
+                    <div class="chart-bar primary" style="height: 140px;"></div>
+                    <div class="chart-bar secondary" style="height: 95px;"></div>
+                    <span class="chart-bar-label">May</span>
+                  </div>
+                  <div class="chart-bar-group">
+                    <div class="chart-bar primary" style="height: 190px;"></div>
+                    <div class="chart-bar secondary" style="height: 120px;"></div>
+                    <span class="chart-bar-label">Jun</span>
+                  </div>
+                  <div class="chart-bar-group">
+                    <div class="chart-bar primary" style="height: 160px;"></div>
+                    <div class="chart-bar secondary" style="height: 100px;"></div>
+                    <span class="chart-bar-label">Jul</span>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <!-- Recent Activity -->
+          <div class="dash-card">
+            <div class="dash-card-header">
+              <h3 class="dash-card-title">Recent Activity</h3>
+              <span class="dash-card-action">View All</span>
+            </div>
+            <div class="dash-card-body">
+              <div class="activity-list">
+                <div class="activity-item">
+                  <div class="activity-icon green"><i class="fas fa-check"></i></div>
+                  <div>
+                    <div class="activity-text"><strong>Tax return filed</strong> for TechVentures Inc.</div>
+                    <div class="activity-time">2 hours ago</div>
+                  </div>
+                </div>
+                <div class="activity-item">
+                  <div class="activity-icon blue"><i class="fas fa-user-plus"></i></div>
+                  <div>
+                    <div class="activity-text">New client <strong>Bloom Retail</strong> onboarded</div>
+                    <div class="activity-time">5 hours ago</div>
+                  </div>
+                </div>
+                <div class="activity-item">
+                  <div class="activity-icon purple"><i class="fas fa-file-invoice-dollar"></i></div>
+                  <div>
+                    <div class="activity-text">Invoice <strong>#INV-2847</strong> sent to GlobalTrade</div>
+                    <div class="activity-time">1 day ago</div>
+                  </div>
+                </div>
+                <div class="activity-item">
+                  <div class="activity-icon orange"><i class="fas fa-exclamation-triangle"></i></div>
+                  <div>
+                    <div class="activity-text">Compliance deadline for <strong>Digital Labs</strong></div>
+                    <div class="activity-time">2 days ago</div>
+                  </div>
+                </div>
+                <div class="activity-item">
+                  <div class="activity-icon green"><i class="fas fa-dollar-sign"></i></div>
+                  <div>
+                    <div class="activity-text">Payment of <strong>$45,200</strong> received</div>
+                    <div class="activity-time">3 days ago</div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- Clients Table + Services Breakdown -->
+        <div class="dash-grid dash-grid-equal">
+          <!-- Recent Clients -->
+          <div class="dash-card">
+            <div class="dash-card-header">
+              <h3 class="dash-card-title">Recent Clients</h3>
+              <span class="dash-card-action">View All Clients</span>
+            </div>
+            <div class="dash-card-body" style="padding: 0;">
+              <table class="dash-table">
+                <thead>
+                  <tr>
+                    <th>Client</th>
+                    <th>Service</th>
+                    <th>Status</th>
+                    <th>Revenue</th>
+                  </tr>
+                </thead>
+                <tbody>
+                  <tr>
+                    <td>
+                      <div class="user-cell">
+                        <div class="user-cell-avatar">TV</div>
+                        <div>
+                          <div class="user-cell-name">TechVentures</div>
+                          <div class="user-cell-email">tech@ventures.com</div>
+                        </div>
+                      </div>
+                    </td>
+                    <td>Tax Planning</td>
+                    <td><span class="status-badge active">Active</span></td>
+                    <td><strong>$24,500</strong></td>
+                  </tr>
+                  <tr>
+                    <td>
+                      <div class="user-cell">
+                        <div class="user-cell-avatar">GT</div>
+                        <div>
+                          <div class="user-cell-name">GlobalTrade</div>
+                          <div class="user-cell-email">info@globaltrade.com</div>
+                        </div>
+                      </div>
+                    </td>
+                    <td>Corporate Finance</td>
+                    <td><span class="status-badge active">Active</span></td>
+                    <td><strong>$89,200</strong></td>
+                  </tr>
+                  <tr>
+                    <td>
+                      <div class="user-cell">
+                        <div class="user-cell-avatar">BR</div>
+                        <div>
+                          <div class="user-cell-name">Bloom Retail</div>
+                          <div class="user-cell-email">hello@bloom.com</div>
+                        </div>
+                      </div>
+                    </td>
+                    <td>Bookkeeping</td>
+                    <td><span class="status-badge pending">Pending</span></td>
+                    <td><strong>$12,800</strong></td>
+                  </tr>
+                  <tr>
+                    <td>
+                      <div class="user-cell">
+                        <div class="user-cell-avatar">DL</div>
+                        <div>
+                          <div class="user-cell-name">Digital Labs</div>
+                          <div class="user-cell-email">ops@digitallabs.io</div>
+                        </div>
+                      </div>
+                    </td>
+                    <td>Audit & Compliance</td>
+                    <td><span class="status-badge active">Active</span></td>
+                    <td><strong>$35,600</strong></td>
+                  </tr>
+                  <tr>
+                    <td>
+                      <div class="user-cell">
+                        <div class="user-cell-avatar">SM</div>
+                        <div>
+                          <div class="user-cell-name">Skyline Media</div>
+                          <div class="user-cell-email">finance@skyline.co</div>
+                        </div>
+                      </div>
+                    </td>
+                    <td>Payroll</td>
+                    <td><span class="status-badge inactive">Inactive</span></td>
+                    <td><strong>$8,400</strong></td>
+                  </tr>
+                </tbody>
+              </table>
+            </div>
+          </div>
+
+          <!-- Service Breakdown -->
+          <div class="dash-card">
+            <div class="dash-card-header">
+              <h3 class="dash-card-title">Service Breakdown</h3>
+              <span class="dash-card-action">Details</span>
+            </div>
+            <div class="dash-card-body">
+              <div class="donut-chart">
+                <div class="donut-visual">
+                  <svg viewBox="0 0 100 100">
+                    <circle cx="50" cy="50" r="40" fill="none" stroke="#e2e8f0" stroke-width="12"/>
+                    <circle cx="50" cy="50" r="40" fill="none" stroke="#2563eb" stroke-width="12" stroke-dasharray="75.4 175.8" stroke-dashoffset="0"/>
+                    <circle cx="50" cy="50" r="40" fill="none" stroke="#06b6d4" stroke-width="12" stroke-dasharray="50.3 200.9" stroke-dashoffset="-75.4"/>
+                    <circle cx="50" cy="50" r="40" fill="none" stroke="#8b5cf6" stroke-width="12" stroke-dasharray="37.7 213.5" stroke-dashoffset="-125.7"/>
+                    <circle cx="50" cy="50" r="40" fill="none" stroke="#f97316" stroke-width="12" stroke-dasharray="25.1 226.1" stroke-dashoffset="-163.4"/>
+                    <circle cx="50" cy="50" r="40" fill="none" stroke="#22c55e" stroke-width="12" stroke-dasharray="62.8 188.4" stroke-dashoffset="-188.5"/>
+                  </svg>
+                  <div class="donut-center-text">
+                    <span class="value">5</span>
+                    <span class="label">Services</span>
+                  </div>
+                </div>
+                <div class="donut-legend">
+                  <div class="donut-legend-item">
+                    <div class="donut-legend-dot" style="background: #2563eb;"></div>
+                    <span class="donut-legend-label">Tax Planning</span>
+                    <span class="donut-legend-value">30%</span>
+                  </div>
+                  <div class="donut-legend-item">
+                    <div class="donut-legend-dot" style="background: #22c55e;"></div>
+                    <span class="donut-legend-label">Financial Advisory</span>
+                    <span class="donut-legend-value">25%</span>
+                  </div>
+                  <div class="donut-legend-item">
+                    <div class="donut-legend-dot" style="background: #06b6d4;"></div>
+                    <span class="donut-legend-label">Bookkeeping</span>
+                    <span class="donut-legend-value">20%</span>
+                  </div>
+                  <div class="donut-legend-item">
+                    <div class="donut-legend-dot" style="background: #8b5cf6;"></div>
+                    <span class="donut-legend-label">Audit & Compliance</span>
+                    <span class="donut-legend-value">15%</span>
+                  </div>
+                  <div class="donut-legend-item">
+                    <div class="donut-legend-dot" style="background: #f97316;"></div>
+                    <span class="donut-legend-label">Payroll</span>
+                    <span class="donut-legend-value">10%</span>
+                  </div>
+                </div>
+              </div>
+
+              <div style="margin-top: 24px;">
+                <div class="dash-card-header" style="padding: 16px 0; border-bottom: 1px solid var(--border-light);">
+                  <h3 class="dash-card-title" style="font-size: 0.9rem;">Quick Actions</h3>
+                </div>
+                <div class="quick-actions" style="margin-top: 16px;">
+                  <a href="#" class="quick-action-btn">
+                    <i class="fas fa-user-plus blue"></i>
+                    <span>Add Client</span>
+                  </a>
+                  <a href="#" class="quick-action-btn">
+                    <i class="fas fa-file-invoice green"></i>
+                    <span>New Invoice</span>
+                  </a>
+                  <a href="#" class="quick-action-btn">
+                    <i class="fas fa-chart-bar purple"></i>
+                    <span>Generate Report</span>
+                  </a>
+                  <a href="#" class="quick-action-btn">
+                    <i class="fas fa-paper-plane orange"></i>
+                    <span>Send Invoice</span>
+                  </a>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </main>
+  </div>
+
+  <!-- Footer -->
+  <footer class="footer" style="margin-left: 260px;">
+    <div class="container">
+      <div class="footer-bottom" style="border-top: none; padding: 24px 0;">
+        <p>&copy; 2026 FinAcc Pro. All rights reserved.</p>
+        <div class="footer-bottom-links">
+          <a href="index.html">Back to Website</a>
+          <a href="login.html">Logout</a>
+        </div>
+      </div>
+    </div>
+  </footer>
+
+  <script>
+    // Sidebar toggle
+    const sidebarToggle = document.getElementById('sidebarToggle');
+    const sidebar = document.getElementById('sidebar');
+    const sidebarOverlay = document.getElementById('sidebarOverlay');
+
+    sidebarToggle.addEventListener('click', () => {
+      sidebar.classList.toggle('open');
+      sidebarOverlay.classList.toggle('active');
+    });
+
+    sidebarOverlay.addEventListener('click', () => {
+      sidebar.classList.remove('open');
+      sidebarOverlay.classList.remove('active');
+    });
+
+    // Sidebar link active state
+    document.querySelectorAll('.sidebar-link').forEach(link => {
+      link.addEventListener('click', function() {
+        document.querySelectorAll('.sidebar-link').forEach(l => l.classList.remove('active'));
+        this.classList.add('active');
+      });
+    });
+
+    // Logout
+    document.querySelector('.sidebar-user-logout').addEventListener('click', () => {
+      if (confirm('Are you sure you want to logout?')) {
+        window.location.href = 'login.html';
+      }
+    });
+  </script>
+</body>
+</html>

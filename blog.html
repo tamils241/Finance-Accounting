@@ -1,0 +1,834 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Blog - FinAcc Pro</title>
+  <link rel="stylesheet" href="styles.css">
+  <link rel="stylesheet" href="pages.css">
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.2/css/all.min.css">
+  <style>
+    /* Blog Content Layout */
+    .blog-content {
+      display: grid;
+      grid-template-columns: 1fr 340px;
+      gap: 40px;
+      padding: 80px 0;
+    }
+
+    /* Blog Grid */
+    .blog-grid {
+      display: grid;
+      grid-template-columns: repeat(2, 1fr);
+      gap: 28px;
+    }
+
+    /* Blog Card */
+    .blog-card {
+      background: var(--card-bg, #fff);
+      border-radius: 16px;
+      overflow: hidden;
+      box-shadow: 0 4px 24px rgba(0, 0, 0, 0.06);
+      border: 1px solid var(--border-color, #e2e8f0);
+      transition: transform 0.3s ease, box-shadow 0.3s ease;
+      position: relative;
+    }
+
+    .blog-card:hover {
+      transform: translateY(-6px);
+      box-shadow: 0 12px 40px rgba(37, 99, 235, 0.12);
+    }
+
+    /* Blog Card Image */
+    .blog-card-image {
+      position: relative;
+      height: 200px;
+      background: linear-gradient(135deg, var(--primary, #2563eb), var(--secondary, #0f172a));
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      overflow: hidden;
+    }
+
+    .blog-card-image i {
+      font-size: 48px;
+      color: rgba(255, 255, 255, 0.25);
+    }
+
+    /* Blog Card Category Badge */
+    .blog-card-category {
+      position: absolute;
+      top: 16px;
+      left: 16px;
+      background: linear-gradient(135deg, var(--primary, #2563eb), var(--accent, #06b6d4));
+      color: #fff;
+      padding: 5px 14px;
+      border-radius: 20px;
+      font-size: 0.75rem;
+      font-weight: 600;
+      letter-spacing: 0.3px;
+      z-index: 2;
+    }
+
+    /* Blog Card Content */
+    .blog-card-content {
+      padding: 24px;
+    }
+
+    .blog-card-meta {
+      display: flex;
+      align-items: center;
+      gap: 16px;
+      margin-bottom: 12px;
+      font-size: 0.8rem;
+      color: var(--text-secondary, #64748b);
+    }
+
+    .blog-card-meta span {
+      display: flex;
+      align-items: center;
+      gap: 6px;
+    }
+
+    .blog-card-title {
+      font-size: 1.1rem;
+      font-weight: 700;
+      color: var(--secondary, #0f172a);
+      margin-bottom: 10px;
+      line-height: 1.4;
+      transition: color 0.2s ease;
+    }
+
+    .blog-card:hover .blog-card-title {
+      color: var(--primary, #2563eb);
+    }
+
+    .blog-card-excerpt {
+      font-size: 0.88rem;
+      color: var(--text-secondary, #64748b);
+      line-height: 1.6;
+      margin-bottom: 18px;
+    }
+
+    .blog-card-footer {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      padding-top: 16px;
+      border-top: 1px solid var(--border-color, #e2e8f0);
+    }
+
+    .blog-card-author {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+    }
+
+    .blog-card-avatar {
+      width: 36px;
+      height: 36px;
+      border-radius: 50%;
+      background: linear-gradient(135deg, var(--primary, #2563eb), var(--accent, #06b6d4));
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      color: #fff;
+      font-size: 0.75rem;
+      font-weight: 700;
+    }
+
+    .blog-card-author-info h5 {
+      font-size: 0.82rem;
+      font-weight: 600;
+      color: var(--secondary, #0f172a);
+      margin: 0;
+    }
+
+    .blog-card-author-info span {
+      font-size: 0.72rem;
+      color: var(--text-secondary, #64748b);
+    }
+
+    .blog-card-readmore {
+      font-size: 0.82rem;
+      font-weight: 600;
+      color: var(--primary, #2563eb);
+      text-decoration: none;
+      display: flex;
+      align-items: center;
+      gap: 6px;
+      transition: gap 0.2s ease;
+    }
+
+    .blog-card-readmore:hover {
+      gap: 10px;
+    }
+
+    /* Blog Sidebar */
+    .blog-sidebar {
+      position: sticky;
+      top: 100px;
+      align-self: start;
+    }
+
+    .sidebar-widget {
+      background: var(--card-bg, #fff);
+      border-radius: 16px;
+      padding: 28px;
+      margin-bottom: 24px;
+      box-shadow: 0 4px 24px rgba(0, 0, 0, 0.06);
+      border: 1px solid var(--border-color, #e2e8f0);
+    }
+
+    .sidebar-widget h3 {
+      font-size: 1.05rem;
+      font-weight: 700;
+      color: var(--secondary, #0f172a);
+      margin-bottom: 18px;
+      padding-bottom: 12px;
+      border-bottom: 2px solid var(--border-color, #e2e8f0);
+    }
+
+    /* Search Box */
+    .search-box {
+      display: flex;
+      border-radius: 12px;
+      overflow: hidden;
+      border: 1px solid var(--border-color, #e2e8f0);
+    }
+
+    .search-box input {
+      flex: 1;
+      border: none;
+      padding: 12px 16px;
+      font-size: 0.88rem;
+      font-family: 'Inter', sans-serif;
+      outline: none;
+      background: transparent;
+    }
+
+    .search-box button {
+      background: linear-gradient(135deg, var(--primary, #2563eb), var(--accent, #06b6d4));
+      color: #fff;
+      border: none;
+      padding: 12px 18px;
+      cursor: pointer;
+      transition: opacity 0.2s ease;
+    }
+
+    .search-box button:hover {
+      opacity: 0.9;
+    }
+
+    /* Category List */
+    .category-list {
+      list-style: none;
+      padding: 0;
+      margin: 0;
+    }
+
+    .category-list li {
+      padding: 10px 0;
+      border-bottom: 1px solid var(--border-color, #e2e8f0);
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      cursor: pointer;
+      transition: color 0.2s ease;
+    }
+
+    .category-list li:last-child {
+      border-bottom: none;
+    }
+
+    .category-list li:hover {
+      color: var(--primary, #2563eb);
+    }
+
+    .category-list li span {
+      font-size: 0.85rem;
+      color: var(--text-secondary, #64748b);
+      background: var(--bg-secondary, #f1f5f9);
+      padding: 2px 10px;
+      border-radius: 12px;
+      font-weight: 500;
+    }
+
+    /* Recent Post Item */
+    .recent-post-item {
+      display: flex;
+      gap: 14px;
+      padding: 14px 0;
+      border-bottom: 1px solid var(--border-color, #e2e8f0);
+      cursor: pointer;
+      transition: transform 0.2s ease;
+    }
+
+    .recent-post-item:last-child {
+      border-bottom: none;
+    }
+
+    .recent-post-item:hover {
+      transform: translateX(4px);
+    }
+
+    .recent-post-thumb {
+      width: 64px;
+      height: 64px;
+      min-width: 64px;
+      border-radius: 10px;
+      background: linear-gradient(135deg, var(--primary, #2563eb), var(--accent, #06b6d4));
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      color: rgba(255, 255, 255, 0.4);
+      font-size: 1.1rem;
+    }
+
+    .recent-post-info h5 {
+      font-size: 0.85rem;
+      font-weight: 600;
+      color: var(--secondary, #0f172a);
+      line-height: 1.4;
+      margin-bottom: 6px;
+      transition: color 0.2s ease;
+    }
+
+    .recent-post-item:hover .recent-post-info h5 {
+      color: var(--primary, #2563eb);
+    }
+
+    .recent-post-info span {
+      font-size: 0.75rem;
+      color: var(--text-secondary, #64748b);
+      display: flex;
+      align-items: center;
+      gap: 4px;
+    }
+
+    /* Newsletter Sidebar Form */
+    .sidebar-newsletter-form {
+      display: flex;
+      flex-direction: column;
+      gap: 10px;
+    }
+
+    .sidebar-newsletter-form p {
+      font-size: 0.85rem;
+      color: var(--text-secondary, #64748b);
+      line-height: 1.5;
+      margin-bottom: 6px;
+    }
+
+    .sidebar-newsletter-form input {
+      width: 100%;
+      padding: 12px 16px;
+      border: 1px solid var(--border-color, #e2e8f0);
+      border-radius: 10px;
+      font-family: 'Inter', sans-serif;
+      font-size: 0.85rem;
+      outline: none;
+      transition: border-color 0.2s ease;
+    }
+
+    .sidebar-newsletter-form input:focus {
+      border-color: var(--primary, #2563eb);
+    }
+
+    .sidebar-newsletter-form button {
+      width: 100%;
+      padding: 12px;
+      background: linear-gradient(135deg, var(--primary, #2563eb), var(--accent, #06b6d4));
+      color: #fff;
+      border: none;
+      border-radius: 10px;
+      font-family: 'Inter', sans-serif;
+      font-size: 0.88rem;
+      font-weight: 600;
+      cursor: pointer;
+      transition: opacity 0.2s ease;
+    }
+
+    .sidebar-newsletter-form button:hover {
+      opacity: 0.9;
+    }
+
+    /* Blog Section Title */
+    .blog-section-title {
+      font-size: 1.15rem;
+      font-weight: 700;
+      color: var(--secondary, #0f172a);
+      margin-bottom: 20px;
+    }
+
+    /* Responsive */
+    @media (max-width: 1024px) {
+      .blog-content {
+        grid-template-columns: 1fr;
+        padding: 60px 0;
+      }
+
+      .blog-sidebar {
+        position: static;
+        display: grid;
+        grid-template-columns: repeat(2, 1fr);
+        gap: 24px;
+      }
+
+      .sidebar-widget {
+        margin-bottom: 0;
+      }
+    }
+
+    @media (max-width: 768px) {
+      .blog-grid {
+        grid-template-columns: 1fr;
+      }
+
+      .blog-sidebar {
+        grid-template-columns: 1fr;
+      }
+
+      .blog-content {
+        padding: 40px 0;
+      }
+    }
+  </style>
+</head>
+<body>
+
+  <!-- Header -->
+  <header class="header scrolled" id="header">
+    <div class="container header-inner">
+      <a href="index.html" class="logo">
+        <img src="images/logo.webp" alt="FinAcc Pro Logo" class="logo-img">
+      </a>
+      <nav class="nav" id="nav">
+        <a href="index.html" class="nav-link">Home</a>
+        <a href="services.html" class="nav-link">Services</a>
+        <a href="about.html" class="nav-link">About</a>
+        <a href="results.html" class="nav-link">Results</a>
+        <a href="testimonials.html" class="nav-link">Testimonials</a>
+        <a href="contact.html" class="nav-link">Contact</a>
+       
+      </nav>
+      <div class="header-actions">
+        <a href="login.html" class="btn btn-outline btn-sm">Login</a>
+        <a href="register.html" class="btn btn-primary btn-sm">Register</a>
+        <button class="hamburger" id="hamburger" aria-label="Toggle menu">
+          <span></span><span></span><span></span>
+        </button>
+      </div>
+    </div>
+  </header>
+
+  <!-- Mobile Menu -->
+  <div class="mobile-menu-overlay" id="mobileMenuOverlay">
+    <div class="mobile-menu" id="mobileMenu">
+      <div class="mobile-menu-header">
+        <a href="index.html" class="logo">
+          <img src="images/logo.webp" alt="FinAcc Pro Logo" class="logo-img">
+        </a>
+        <button class="mobile-menu-close" id="mobileMenuClose"><i class="fas fa-times"></i></button>
+      </div>
+      <nav class="mobile-nav">
+        <a href="index.html" class="mobile-nav-link">Home</a>
+        <a href="services.html" class="mobile-nav-link">Services</a>
+        <a href="about.html" class="mobile-nav-link">About</a>
+        <a href="results.html" class="mobile-nav-link">Results</a>
+        <a href="testimonials.html" class="mobile-nav-link">Testimonials</a>
+        <a href="contact.html" class="mobile-nav-link">Contact</a>
+       
+      </nav>
+      <div style="display: flex; gap: 12px;">
+        <a href="login.html" class="btn btn-outline btn-block">Login</a>
+        <a href="register.html" class="btn btn-primary btn-block">Register</a>
+      </div>
+    </div>
+  </div>
+
+  <!-- Page Hero -->
+  <section class="page-hero">
+    <div class="page-hero-bg">
+      <video class="hero-video" autoplay muted loop playsinline>
+        <source src="videos/video4.mp4" type="video/mp4">
+      </video>
+      <div class="hero-video-overlay"></div>
+      <div class="hero-shape hero-shape-1"></div>
+      <div class="hero-shape hero-shape-2"></div>
+      <div class="grid-overlay"></div>
+    </div>
+    <div class="container">
+      <div class="page-hero-content" data-animate="fade-up">
+        <span class="section-tag">Our Blog</span>
+        <h1 class="page-hero-title">Financial Insights & <span class="gradient-text">Expert Advice</span></h1>
+        <p class="page-hero-subtitle">Stay informed with the latest financial news, tips, and insights from our expert team.</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- Blog Content -->
+  <section class="container">
+    <div class="blog-content">
+      <!-- Main Column -->
+      <div>
+        <div class="blog-grid">
+
+          <!-- Blog Card 1 -->
+          <div class="blog-card" data-animate="fade-up" data-delay="0">
+            <div class="blog-card-image">
+              <div class="blog-card-category">Tax Planning</div>
+              <i class="fas fa-file-invoice-dollar"></i>
+            </div>
+            <div class="blog-card-content">
+              <div class="blog-card-meta">
+                <span><i class="far fa-calendar"></i> June 28, 2026</span>
+                <span><i class="far fa-clock"></i> 5 min read</span>
+              </div>
+              <h3 class="blog-card-title">7 Tax Strategies Every Small Business Should Know in 2026</h3>
+              <p class="blog-card-excerpt">Discover proven tax planning strategies that can help small businesses minimize their tax liability and maximize savings throughout the year.</p>
+              <div class="blog-card-footer">
+                <div class="blog-card-author">
+                  <div class="blog-card-avatar">DP</div>
+                  <div class="blog-card-author-info">
+                    <h5>David Park</h5>
+                    <span>Head of Tax Services</span>
+                  </div>
+                </div>
+                <a href="#" class="blog-card-readmore">Read More <i class="fas fa-arrow-right"></i></a>
+              </div>
+            </div>
+          </div>
+
+          <!-- Blog Card 2 -->
+          <div class="blog-card" data-animate="fade-up" data-delay="100">
+            <div class="blog-card-image">
+              <div class="blog-card-category">Financial Advisory</div>
+              <i class="fas fa-chart-line"></i>
+            </div>
+            <div class="blog-card-content">
+              <div class="blog-card-meta">
+                <span><i class="far fa-calendar"></i> June 22, 2026</span>
+                <span><i class="far fa-clock"></i> 7 min read</span>
+              </div>
+              <h3 class="blog-card-title">How to Build a Financial Roadmap for Your Startup</h3>
+              <p class="blog-card-excerpt">From seed funding to Series A, learn how to create a comprehensive financial plan that guides your startup through every growth stage.</p>
+              <div class="blog-card-footer">
+                <div class="blog-card-author">
+                  <div class="blog-card-avatar">LC</div>
+                  <div class="blog-card-author-info">
+                    <h5>Linda Chen</h5>
+                    <span>Chief Financial Officer</span>
+                  </div>
+                </div>
+                <a href="#" class="blog-card-readmore">Read More <i class="fas fa-arrow-right"></i></a>
+              </div>
+            </div>
+          </div>
+
+          <!-- Blog Card 3 -->
+          <div class="blog-card" data-animate="fade-up" data-delay="200">
+            <div class="blog-card-image">
+              <div class="blog-card-category">Compliance</div>
+              <i class="fas fa-clipboard-check"></i>
+            </div>
+            <div class="blog-card-content">
+              <div class="blog-card-meta">
+                <span><i class="far fa-calendar"></i> June 15, 2026</span>
+                <span><i class="far fa-clock"></i> 6 min read</span>
+              </div>
+              <h3 class="blog-card-title">Understanding the New SEC Reporting Requirements</h3>
+              <p class="blog-card-excerpt">A comprehensive guide to the latest SEC regulation changes and what they mean for publicly traded companies and investors alike.</p>
+              <div class="blog-card-footer">
+                <div class="blog-card-author">
+                  <div class="blog-card-avatar">MS</div>
+                  <div class="blog-card-author-info">
+                    <h5>Maria Santos</h5>
+                    <span>Director of Audit</span>
+                  </div>
+                </div>
+                <a href="#" class="blog-card-readmore">Read More <i class="fas fa-arrow-right"></i></a>
+              </div>
+            </div>
+          </div>
+
+          <!-- Blog Card 4 -->
+          <div class="blog-card" data-animate="fade-up" data-delay="300">
+            <div class="blog-card-image">
+              <div class="blog-card-category">Business Growth</div>
+              <i class="fas fa-rocket"></i>
+            </div>
+            <div class="blog-card-content">
+              <div class="blog-card-meta">
+                <span><i class="far fa-calendar"></i> June 10, 2026</span>
+                <span><i class="far fa-clock"></i> 8 min read</span>
+              </div>
+              <h3 class="blog-card-title">Scaling Your Business: Financial Metrics That Matter</h3>
+              <p class="blog-card-excerpt">Learn which key financial metrics investors and lenders look for when evaluating your business for growth funding and expansion opportunities.</p>
+              <div class="blog-card-footer">
+                <div class="blog-card-author">
+                  <div class="blog-card-avatar">RM</div>
+                  <div class="blog-card-author-info">
+                    <h5>Robert Mitchell</h5>
+                    <span>CEO & Founder</span>
+                  </div>
+                </div>
+                <a href="#" class="blog-card-readmore">Read More <i class="fas fa-arrow-right"></i></a>
+              </div>
+            </div>
+          </div>
+
+          <!-- Blog Card 5 -->
+          <div class="blog-card" data-animate="fade-up" data-delay="400">
+            <div class="blog-card-image">
+              <div class="blog-card-category">Accounting</div>
+              <i class="fas fa-calculator"></i>
+            </div>
+            <div class="blog-card-content">
+              <div class="blog-card-meta">
+                <span><i class="far fa-calendar"></i> June 5, 2026</span>
+                <span><i class="far fa-clock"></i> 4 min read</span>
+              </div>
+              <h3 class="blog-card-title">Cloud Accounting vs. Traditional: Which Is Right for You?</h3>
+              <p class="blog-card-excerpt">Compare the benefits and drawbacks of cloud-based accounting software with traditional desktop solutions to find the best fit for your business.</p>
+              <div class="blog-card-footer">
+                <div class="blog-card-author">
+                  <div class="blog-card-avatar">LC</div>
+                  <div class="blog-card-author-info">
+                    <h5>Linda Chen</h5>
+                    <span>Chief Financial Officer</span>
+                  </div>
+                </div>
+                <a href="#" class="blog-card-readmore">Read More <i class="fas fa-arrow-right"></i></a>
+              </div>
+            </div>
+          </div>
+
+          <!-- Blog Card 6 -->
+          <div class="blog-card" data-animate="fade-up" data-delay="500">
+            <div class="blog-card-image">
+              <div class="blog-card-category">Payroll</div>
+              <i class="fas fa-money-check-dollar"></i>
+            </div>
+            <div class="blog-card-content">
+              <div class="blog-card-meta">
+                <span><i class="far fa-calendar"></i> May 29, 2026</span>
+                <span><i class="far fa-clock"></i> 5 min read</span>
+              </div>
+              <h3 class="blog-card-title">Payroll Compliance: Avoiding Common Mistakes</h3>
+              <p class="blog-card-excerpt">From misclassifying workers to missed deadlines, learn the most common payroll errors and how to ensure your business stays fully compliant.</p>
+              <div class="blog-card-footer">
+                <div class="blog-card-author">
+                  <div class="blog-card-avatar">DP</div>
+                  <div class="blog-card-author-info">
+                    <h5>David Park</h5>
+                    <span>Head of Tax Services</span>
+                  </div>
+                </div>
+                <a href="#" class="blog-card-readmore">Read More <i class="fas fa-arrow-right"></i></a>
+              </div>
+            </div>
+          </div>
+
+        </div>
+      </div>
+
+      <!-- Sidebar -->
+      <aside class="blog-sidebar">
+
+        <!-- Search -->
+        <div class="sidebar-widget">
+          <h3>Search</h3>
+          <div class="search-box">
+            <form onsubmit="event.preventDefault();" style="display:flex; width:100%;">
+              <input type="text" placeholder="Search articles...">
+              <button type="submit"><i class="fas fa-search"></i></button>
+            </form>
+          </div>
+        </div>
+
+        <!-- Categories -->
+        <div class="sidebar-widget">
+          <h3>Categories</h3>
+          <ul class="category-list">
+            <li><a href="#">Tax Planning <span>12</span></a></li>
+            <li><a href="#">Financial Advisory <span>9</span></a></li>
+            <li><a href="#">Bookkeeping <span>7</span></a></li>
+            <li><a href="#">Audit & Compliance <span>8</span></a></li>
+            <li><a href="#">Corporate Finance <span>6</span></a></li>
+            <li><a href="#">Payroll Management <span>5</span></a></li>
+          </ul>
+        </div>
+
+        <!-- Recent Posts -->
+        <div class="sidebar-widget">
+          <h3>Recent Posts</h3>
+          <a href="#" class="recent-post-item">
+            <div class="recent-post-thumb"><i class="fas fa-file-invoice-dollar"></i></div>
+            <div class="recent-post-info">
+              <h5>7 Tax Strategies Every Small Business Should Know</h5>
+              <span><i class="far fa-calendar"></i> June 28, 2026</span>
+            </div>
+          </a>
+          <a href="#" class="recent-post-item">
+            <div class="recent-post-thumb"><i class="fas fa-chart-line"></i></div>
+            <div class="recent-post-info">
+              <h5>How to Build a Financial Roadmap for Your Startup</h5>
+              <span><i class="far fa-calendar"></i> June 22, 2026</span>
+            </div>
+          </a>
+          <a href="#" class="recent-post-item">
+            <div class="recent-post-thumb"><i class="fas fa-clipboard-check"></i></div>
+            <div class="recent-post-info">
+              <h5>Understanding the New SEC Reporting Requirements</h5>
+              <span><i class="far fa-calendar"></i> June 15, 2026</span>
+            </div>
+          </a>
+        </div>
+
+        <!-- Newsletter -->
+        <div class="sidebar-widget">
+          <h3>Newsletter</h3>
+          <form class="sidebar-newsletter-form" onsubmit="event.preventDefault(); this.querySelector('input').value=''; alert('Subscribed!');">
+            <p>Get the latest financial insights and tips delivered to your inbox.</p>
+            <input type="email" placeholder="Your email address" required>
+            <button type="submit">Subscribe <i class="fas fa-arrow-right"></i></button>
+          </form>
+        </div>
+
+      </aside>
+    </div>
+  </section>
+
+  <!-- CTA -->
+  <section class="cta">
+    <div class="container">
+      <div class="cta-card" data-animate="fade-up">
+        <div class="cta-content">
+          <h2 class="cta-title">Stay Ahead with FinAcc Pro Insights</h2>
+          <p class="cta-text">Join 500+ businesses that rely on our expert financial guidance.</p>
+          <div class="cta-buttons">
+            <a href="register.html" class="btn btn-white btn-lg">
+              <span>Get Started Free</span>
+              <i class="fas fa-arrow-right"></i>
+            </a>
+            <a href="contact.html" class="btn btn-outline-white btn-lg">Schedule a Call</a>
+          </div>
+        </div>
+        <div class="cta-visual">
+          <div class="cta-float-card cta-float-1">
+            <i class="fas fa-shield-halved"></i> <span>100% Confidential</span>
+          </div>
+          <div class="cta-float-card cta-float-2">
+            <i class="fas fa-award"></i> <span>Award-Winning Team</span>
+          </div>
+          <div class="cta-float-card cta-float-3">
+            <i class="fas fa-handshake"></i> <span>Trusted Partner</span>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Footer -->
+  <footer class="footer">
+    <div class="container">
+      <div class="footer-grid">
+        <div class="footer-brand">
+          <a href="index.html" class="logo">
+            <img src="images/logo.webp" alt="FinAcc Pro Logo" class="logo-img">
+          </a>
+          <p class="footer-brand-text">Empowering businesses with smart financial solutions since 2010. Your trusted partner for all accounting and advisory needs.</p>
+          <div class="footer-app-badges">
+            <a href="#" class="app-badge">
+              <i class="fab fa-apple"></i>
+              <div class="app-badge-text">
+                <span>Download on the</span>
+                <strong>App Store</strong>
+              </div>
+            </a>
+            <a href="#" class="app-badge">
+              <i class="fab fa-google-play"></i>
+              <div class="app-badge-text">
+                <span>Get it on</span>
+                <strong>Google Play</strong>
+              </div>
+            </a>
+          </div>
+        </div>
+        <div class="footer-links">
+          <h4 class="footer-heading">Services</h4>
+          <ul>
+            <li><a href="services.html">Tax Planning</a></li>
+            <li><a href="services.html">Financial Advisory</a></li>
+            <li><a href="services.html">Bookkeeping</a></li>
+            <li><a href="services.html">Audit & Compliance</a></li>
+            <li><a href="services.html">Corporate Finance</a></li>
+            <li><a href="services.html">Payroll Management</a></li>
+          </ul>
+        </div>
+        <div class="footer-links">
+          <h4 class="footer-heading">Company</h4>
+          <ul>
+            <li><a href="about.html">About Us</a></li>
+            <li><a href="results.html">Our Results</a></li>
+            <li><a href="testimonials.html">Testimonials</a></li>
+            <li><a href="contact.html">Contact Us</a></li>
+            <li><a href="careers.html">Careers</a></li>
+            <li><a href="blog.html">Blog</a></li>
+          </ul>
+        </div>
+        <div class="footer-contact">
+          <h4 class="footer-heading">Contact</h4>
+          <div class="footer-contact-item">
+            <div class="footer-contact-icon"><i class="fas fa-phone"></i></div>
+            <div>
+              <h5>Call Us</h5>
+              <p><a href="#">+1 (555) 123-4567</a></p>
+            </div>
+          </div>
+          <div class="footer-contact-item">
+            <div class="footer-contact-icon"><i class="fas fa-envelope"></i></div>
+            <div>
+              <h5>Email Us</h5>
+              <p><a href="mailto:hello@finaccpro.com">hello@finaccpro.com</a></p>
+            </div>
+          </div>
+          <div class="footer-contact-item">
+            <div class="footer-contact-icon"><i class="fas fa-location-dot"></i></div>
+            <div>
+              <h5>Visit Us</h5>
+              <p>123 Finance Street<br>New York, NY 10001</p>
+            </div>
+          </div>
+        </div>
+        <div class="footer-newsletter">
+          <h4 class="footer-heading">Stay Updated</h4>
+          <p>Get the latest financial insights and tips delivered to your inbox.</p>
+          <form class="newsletter-form" onsubmit="event.preventDefault(); this.querySelector('input').value=''; alert('Subscribed!');">
+            <input type="email" placeholder="Your email address" required>
+            <button type="submit"><i class="fas fa-arrow-right"></i></button>
+          </form>
+          <div class="social-links" style="margin-top: 20px;">
+            <a href="#" class="social-link"><i class="fab fa-linkedin-in"></i></a>
+            <a href="#" class="social-link"><i class="fab fa-x-twitter"></i></a>
+            <a href="#" class="social-link"><i class="fab fa-facebook-f"></i></a>
+            <a href="#" class="social-link"><i class="fab fa-instagram"></i></a>
+          </div>
+        </div>
+      </div>
+      <div class="footer-bottom">
+        <p>&copy; 2026 FinAcc Pro. All rights reserved.</p>
+        <div class="footer-bottom-links">
+          <a href="#">Privacy Policy</a>
+          <a href="#">Terms of Service</a>
+        </div>
+      </div>
+    </div>
+  </footer>
+
+  <a href="#" class="back-to-top" id="backToTop"><i class="fas fa-arrow-up"></i></a>
+  <script src="script.js"></script>
+</body>
+</html>

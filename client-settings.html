@@ -1,0 +1,333 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Settings - FinAcc Pro</title>
+  <link rel="stylesheet" href="styles.css">
+  <link rel="stylesheet" href="dashboard.css">
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.2/css/all.min.css">
+  <style>
+    .settings-card {
+      margin-bottom: 24px;
+    }
+    .settings-card .dash-card-header {
+      border-bottom: 1px solid var(--border-light);
+    }
+    .settings-row {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      padding: 16px 0;
+      border-bottom: 1px solid var(--border-light);
+    }
+    .settings-row:last-child {
+      border-bottom: none;
+    }
+    .settings-label {
+      font-size: 0.9rem;
+      font-weight: 600;
+      color: var(--secondary);
+    }
+    .settings-sublabel {
+      font-size: 0.8rem;
+      color: var(--text-lighter);
+      margin-top: 2px;
+    }
+    .settings-value {
+      font-size: 0.9rem;
+      color: var(--text-light);
+    }
+    .settings-input {
+      padding: 10px 14px;
+      border: 1.5px solid var(--border);
+      border-radius: var(--radius-sm);
+      font-family: inherit;
+      font-size: 0.9rem;
+      color: var(--text);
+      background: var(--bg-alt);
+      outline: none;
+      width: 280px;
+      transition: var(--transition);
+    }
+    .settings-input:focus {
+      border-color: var(--primary);
+      background: var(--bg);
+      box-shadow: 0 0 0 4px var(--primary-50);
+    }
+    .toggle-switch {
+      position: relative;
+      width: 48px;
+      height: 26px;
+      cursor: pointer;
+    }
+    .toggle-switch input {
+      opacity: 0;
+      width: 0;
+      height: 0;
+    }
+    .toggle-slider {
+      position: absolute;
+      inset: 0;
+      background: var(--border);
+      border-radius: 100px;
+      transition: var(--transition);
+    }
+    .toggle-slider::before {
+      content: '';
+      position: absolute;
+      width: 20px;
+      height: 20px;
+      border-radius: 50%;
+      background: #fff;
+      top: 3px;
+      left: 3px;
+      transition: var(--transition);
+    }
+    .toggle-switch input:checked + .toggle-slider {
+      background: var(--primary);
+    }
+    .toggle-switch input:checked + .toggle-slider::before {
+      transform: translateX(22px);
+    }
+  </style>
+</head>
+<body>
+
+  <div class="dashboard">
+    <div class="sidebar-overlay" id="sidebarOverlay"></div>
+
+    <aside class="sidebar" id="sidebar">
+      <div class="sidebar-header">
+        <a href="index.html">
+          <img src="images/logo.webp" alt="FinAcc Pro Logo" class="sidebar-logo-img">
+        </a>
+      </div>
+
+      <nav class="sidebar-nav">
+        <div class="sidebar-section-label">Overview</div>
+        <a href="client-dashboard.html" class="sidebar-link">
+          <i class="fas fa-grid-2"></i> Dashboard
+        </a>
+        <a href="client-invoices.html" class="sidebar-link">
+          <i class="fas fa-file-invoice-dollar"></i> My Invoices
+          <span class="badge">6</span>
+        </a>
+        <a href="client-transactions.html" class="sidebar-link">
+          <i class="fas fa-receipt"></i> Transactions
+        </a>
+        <div class="sidebar-section-label">Finance</div>
+        <a href="client-reports.html" class="sidebar-link">
+          <i class="fas fa-chart-line"></i> Financial Reports
+        </a>
+        <a href="client-tax.html" class="sidebar-link">
+          <i class="fas fa-calculator"></i> Tax Documents
+        </a>
+        <a href="client-budget.html" class="sidebar-link">
+          <i class="fas fa-piggy-bank"></i> Budget Tracker
+        </a>
+        <div class="sidebar-section-label">Account</div>
+        <a href="client-settings.html" class="sidebar-link active">
+          <i class="fas fa-gear"></i> Settings
+        </a>
+        <a href="client-support.html" class="sidebar-link">
+          <i class="fas fa-circle-question"></i> Support
+        </a>
+      </nav>
+
+      <div class="sidebar-divider"></div>
+
+      <div class="sidebar-user">
+        <div class="sidebar-user-avatar">JD</div>
+        <div class="sidebar-user-info">
+          <div class="sidebar-user-name">John Davidson</div>
+          <div class="sidebar-user-role">Client</div>
+        </div>
+        <button class="sidebar-user-logout" title="Logout">
+          <i class="fas fa-right-from-bracket"></i>
+        </button>
+      </div>
+    </aside>
+
+    <main class="dashboard-main">
+      <header class="topbar">
+        <div class="topbar-left">
+          <button class="topbar-toggle" id="sidebarToggle">
+            <i class="fas fa-bars"></i>
+          </button>
+          <div class="topbar-title">
+            <h1>Settings</h1>
+            <p>Manage your account preferences</p>
+          </div>
+        </div>
+        <div class="topbar-right">
+          <div class="topbar-search">
+            <i class="fas fa-search"></i>
+            <input type="text" placeholder="Search invoices, reports...">
+          </div>
+          <button class="topbar-icon-btn">
+            <i class="fas fa-bell"></i>
+            <span class="notification-dot"></span>
+          </button>
+          <button class="topbar-icon-btn">
+            <i class="fas fa-envelope"></i>
+          </button>
+          <div class="topbar-avatar">JD</div>
+        </div>
+      </header>
+
+      <div class="dashboard-content">
+        <div class="dash-card settings-card">
+          <div class="dash-card-header">
+            <h3 class="dash-card-title"><i class="fas fa-user" style="margin-right: 8px; color: var(--primary);"></i> Profile</h3>
+            <span class="dash-card-action">Save Changes</span>
+          </div>
+          <div class="dash-card-body">
+            <div class="settings-row">
+              <div>
+                <div class="settings-label">Full Name</div>
+                <div class="settings-sublabel">Your display name</div>
+              </div>
+              <input type="text" class="settings-input" value="John Davidson">
+            </div>
+            <div class="settings-row">
+              <div>
+                <div class="settings-label">Email Address</div>
+                <div class="settings-sublabel">Your primary email</div>
+              </div>
+              <input type="email" class="settings-input" value="john.davidson@email.com">
+            </div>
+            <div class="settings-row">
+              <div>
+                <div class="settings-label">Phone Number</div>
+                <div class="settings-sublabel">Your contact number</div>
+              </div>
+              <input type="tel" class="settings-input" value="+1 (555) 123-4567">
+            </div>
+          </div>
+        </div>
+
+        <div class="dash-card settings-card">
+          <div class="dash-card-header">
+            <h3 class="dash-card-title"><i class="fas fa-shield-halved" style="margin-right: 8px; color: var(--primary);"></i> Security</h3>
+            <span class="dash-card-action">Update</span>
+          </div>
+          <div class="dash-card-body">
+            <div class="settings-row">
+              <div>
+                <div class="settings-label">Password</div>
+                <div class="settings-sublabel">Last changed 30 days ago</div>
+              </div>
+              <button class="btn btn-outline btn-sm">Change Password</button>
+            </div>
+            <div class="settings-row">
+              <div>
+                <div class="settings-label">Two-Factor Authentication</div>
+                <div class="settings-sublabel">Add an extra layer of security</div>
+              </div>
+              <label class="toggle-switch">
+                <input type="checkbox" checked>
+                <span class="toggle-slider"></span>
+              </label>
+            </div>
+          </div>
+        </div>
+
+        <div class="dash-card settings-card">
+          <div class="dash-card-header">
+            <h3 class="dash-card-title"><i class="fas fa-bell" style="margin-right: 8px; color: var(--primary);"></i> Notifications</h3>
+            <span class="dash-card-action">Save Preferences</span>
+          </div>
+          <div class="dash-card-body">
+            <div class="settings-row">
+              <div>
+                <div class="settings-label">Email Notifications</div>
+                <div class="settings-sublabel">Receive updates via email</div>
+              </div>
+              <label class="toggle-switch">
+                <input type="checkbox" checked>
+                <span class="toggle-slider"></span>
+              </label>
+            </div>
+            <div class="settings-row">
+              <div>
+                <div class="settings-label">SMS Notifications</div>
+                <div class="settings-sublabel">Receive alerts via text message</div>
+              </div>
+              <label class="toggle-switch">
+                <input type="checkbox">
+                <span class="toggle-slider"></span>
+              </label>
+            </div>
+          </div>
+        </div>
+
+        <div class="dash-card settings-card">
+          <div class="dash-card-header">
+            <h3 class="dash-card-title"><i class="fas fa-credit-card" style="margin-right: 8px; color: var(--primary);"></i> Billing</h3>
+            <span class="dash-card-action">Manage</span>
+          </div>
+          <div class="dash-card-body">
+            <div class="settings-row">
+              <div>
+                <div class="settings-label">Current Plan</div>
+                <div class="settings-sublabel">Your subscription tier</div>
+              </div>
+              <span class="status-badge active">Professional</span>
+            </div>
+            <div class="settings-row">
+              <div>
+                <div class="settings-label">Payment Method</div>
+                <div class="settings-sublabel">Visa ending in 4242</div>
+              </div>
+              <button class="btn btn-outline btn-sm">Update Card</button>
+            </div>
+          </div>
+        </div>
+      </div>
+    </main>
+  </div>
+
+  <footer class="footer" style="margin-left: 260px;">
+    <div class="container">
+      <div class="footer-bottom" style="border-top: none; padding: 24px 0;">
+        <p>&copy; 2026 FinAcc Pro. All rights reserved.</p>
+        <div class="footer-bottom-links">
+          <a href="index.html">Back to Website</a>
+          <a href="login.html">Logout</a>
+        </div>
+      </div>
+    </div>
+  </footer>
+
+  <script>
+    const sidebarToggle = document.getElementById('sidebarToggle');
+    const sidebar = document.getElementById('sidebar');
+    const sidebarOverlay = document.getElementById('sidebarOverlay');
+
+    sidebarToggle.addEventListener('click', () => {
+      sidebar.classList.toggle('open');
+      sidebarOverlay.classList.toggle('active');
+    });
+
+    sidebarOverlay.addEventListener('click', () => {
+      sidebar.classList.remove('open');
+      sidebarOverlay.classList.remove('active');
+    });
+
+    document.querySelectorAll('.sidebar-link').forEach(link => {
+      link.addEventListener('click', function() {
+        document.querySelectorAll('.sidebar-link').forEach(l => l.classList.remove('active'));
+        this.classList.add('active');
+      });
+    });
+
+    document.querySelector('.sidebar-user-logout').addEventListener('click', () => {
+      if (confirm('Are you sure you want to logout?')) {
+        window.location.href = 'login.html';
+      }
+    });
+  </script>
+</body>
+</html>

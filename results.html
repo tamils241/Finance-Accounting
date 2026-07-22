@@ -1,0 +1,336 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Results - FinAcc Pro</title>
+  <link rel="stylesheet" href="styles.css">
+  <link rel="stylesheet" href="pages.css">
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.2/css/all.min.css">
+</head>
+<body>
+
+  <!-- Header -->
+  <header class="header scrolled" id="header">
+    <div class="container header-inner">
+      <a href="index.html" class="logo">
+        <img src="images/logo.webp" alt="FinAcc Pro Logo" class="logo-img">
+      </a>
+      <nav class="nav" id="nav">
+        <a href="index.html" class="nav-link">Home</a>
+        <a href="services.html" class="nav-link">Services</a>
+        <a href="about.html" class="nav-link">About</a>
+        <a href="results.html" class="nav-link active">Results</a>
+        <a href="testimonials.html" class="nav-link">Testimonials</a>
+        <a href="contact.html" class="nav-link">Contact</a>
+
+      </nav>
+      <div class="header-actions">
+        <a href="login.html" class="btn btn-outline btn-sm">Login</a>
+        <a href="register.html" class="btn btn-primary btn-sm">Register</a>
+        <button class="hamburger" id="hamburger" aria-label="Toggle menu">
+          <span></span><span></span><span></span>
+        </button>
+      </div>
+    </div>
+  </header>
+
+  <!-- Mobile Menu -->
+  <div class="mobile-menu-overlay" id="mobileMenuOverlay">
+    <div class="mobile-menu" id="mobileMenu">
+      <div class="mobile-menu-header">
+        <a href="index.html" class="logo">
+          <img src="images/logo.webp" alt="FinAcc Pro Logo" class="logo-img">
+        </a>
+        <button class="mobile-menu-close" id="mobileMenuClose"><i class="fas fa-times"></i></button>
+      </div>
+      <nav class="mobile-nav">
+        <a href="index.html" class="mobile-nav-link">Home</a>
+        <a href="services.html" class="mobile-nav-link">Services</a>
+        <a href="about.html" class="mobile-nav-link">About</a>
+        <a href="results.html" class="mobile-nav-link">Results</a>
+        <a href="testimonials.html" class="mobile-nav-link">Testimonials</a>
+        <a href="contact.html" class="mobile-nav-link">Contact</a>
+
+      </nav>
+      <div style="display: flex; gap: 12px;">
+        <a href="login.html" class="btn btn-outline btn-block">Login</a>
+        <a href="register.html" class="btn btn-primary btn-block">Register</a>
+      </div>
+    </div>
+  </div>
+
+  <!-- Page Hero -->
+  <section class="page-hero page-hero-dark">
+    <div class="page-hero-bg">
+      <video class="hero-video" autoplay muted loop playsinline>
+        <source src="videos/video4.mp4" type="video/mp4">
+      </video>
+      <div class="hero-video-overlay"></div>
+      <div class="hero-shape hero-shape-1"></div>
+      <div class="hero-shape hero-shape-2"></div>
+      <div class="grid-overlay"></div>
+    </div>
+    <div class="container">
+      <div class="page-hero-content" data-animate="fade-up">
+        <span class="section-tag light-tag">Our Track Record</span>
+        <h1 class="page-hero-title light-title">Numbers That <span class="gradient-text-light">Speak Volumes</span></h1>
+        <p class="page-hero-subtitle light-subtitle">Our proven track record of delivering exceptional financial results for businesses worldwide.</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- Stats Grid -->
+  <section class="stats-page">
+    <div class="container">
+      <div class="stats-page-grid">
+        <div class="stats-page-card" data-animate="fade-up" data-delay="0">
+          <div class="stats-page-icon blue"><i class="fas fa-users"></i></div>
+          <div class="stats-page-number" data-count="500">0</div>
+          <div class="stats-page-plus">+</div>
+          <div class="stats-page-label">Happy Clients</div>
+          <p>Businesses across 25+ countries trust us with their finances.</p>
+        </div>
+        <div class="stats-page-card" data-animate="fade-up" data-delay="100">
+          <div class="stats-page-icon green"><i class="fas fa-dollar-sign"></i></div>
+          <div class="stats-page-number" data-count="2">0</div>
+          <div class="stats-page-plus">B+</div>
+          <div class="stats-page-label">Revenue Managed</div>
+          <p>Billions in revenue managed with precision and care.</p>
+        </div>
+        <div class="stats-page-card" data-animate="fade-up" data-delay="200">
+          <div class="stats-page-icon purple"><i class="fas fa-globe"></i></div>
+          <div class="stats-page-number" data-count="25">0</div>
+          <div class="stats-page-plus">+</div>
+          <div class="stats-page-label">Countries Served</div>
+          <p>Global reach with local expertise in every market.</p>
+        </div>
+        <div class="stats-page-card" data-animate="fade-up" data-delay="300">
+          <div class="stats-page-icon orange"><i class="fas fa-trophy"></i></div>
+          <div class="stats-page-number" data-count="50">0</div>
+          <div class="stats-page-plus">+</div>
+          <div class="stats-page-label">Industry Awards</div>
+          <p>Recognized for excellence in financial services.</p>
+        </div>
+        <div class="stats-page-card" data-animate="fade-up" data-delay="100">
+          <div class="stats-page-icon green"><i class="fas fa-arrow-trend-up"></i></div>
+          <div class="stats-page-number" data-count="40">0</div>
+          <div class="stats-page-plus">%</div>
+          <div class="stats-page-label">Avg. Cost Savings</div>
+          <p>Our clients save an average of 40% on financial operations.</p>
+        </div>
+        <div class="stats-page-card" data-animate="fade-up" data-delay="200">
+          <div class="stats-page-icon blue"><i class="fas fa-clock"></i></div>
+          <div class="stats-page-number" data-count="15">0</div>
+          <div class="stats-page-plus">+</div>
+          <div class="stats-page-label">Years Experience</div>
+          <p>Over a decade and a half of financial excellence.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Case Studies -->
+  <section class="case-studies">
+    <div class="container">
+      <div class="section-header" data-animate="fade-up">
+        <span class="section-tag">Case Studies</span>
+        <h2 class="section-title">Real Results for <span class="gradient-text">Real Businesses</span></h2>
+        <p class="section-subtitle">See how we've helped businesses transform their financial operations.</p>
+      </div>
+      <div class="case-grid">
+        <div class="case-card" data-animate="fade-up" data-delay="0">
+          <div class="case-stat">
+            <span class="case-stat-value">$200K</span>
+            <span class="case-stat-label">Saved in Taxes</span>
+          </div>
+          <h3>TechVentures Inc.</h3>
+          <p>Restructured their tax strategy resulting in $200K annual savings and full compliance across 3 states.</p>
+          <span class="case-tag">Tax Planning</span>
+        </div>
+        <div class="case-card" data-animate="fade-up" data-delay="100">
+          <div class="case-stat">
+            <span class="case-stat-value">3x</span>
+            <span class="case-stat-label">Revenue Growth</span>
+          </div>
+          <h3>Bloom Retail</h3>
+          <p>Implemented financial controls and advisory that tripled revenue within 18 months of engagement.</p>
+          <span class="case-tag">Financial Advisory</span>
+        </div>
+        <div class="case-card" data-animate="fade-up" data-delay="200">
+          <div class="case-stat">
+            <span class="case-stat-value">100%</span>
+            <span class="case-stat-label">Compliance</span>
+          </div>
+          <h3>GlobalTrade Corp.</h3>
+          <p>Achieved full regulatory compliance across 12 international markets with zero audit findings.</p>
+          <span class="case-tag">Audit & Compliance</span>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Awards Section -->
+  <section class="awards-section">
+    <div class="container">
+      <div class="section-header" data-animate="fade-up">
+        <span class="section-tag">Recognition</span>
+        <h2 class="section-title">Awards & <span class="gradient-text">Certifications</span></h2>
+      </div>
+      <div class="awards-grid">
+        <div class="award-card" data-animate="fade-up" data-delay="0">
+          <div class="award-icon"><i class="fas fa-medal"></i></div>
+          <h4>Best Financial Advisory Firm</h4>
+          <span>Finance Awards 2025</span>
+        </div>
+        <div class="award-card" data-animate="fade-up" data-delay="100">
+          <div class="award-icon"><i class="fas fa-certificate"></i></div>
+          <h4>ISO 27001 Certified</h4>
+          <span>Information Security</span>
+        </div>
+        <div class="award-card" data-animate="fade-up" data-delay="200">
+          <div class="award-icon"><i class="fas fa-star"></i></div>
+          <h4>Top 10 Accounting Firms</h4>
+          <span>Accounting Today 2025</span>
+        </div>
+        <div class="award-card" data-animate="fade-up" data-delay="300">
+          <div class="award-icon"><i class="fas fa-shield-halved"></i></div>
+          <h4>SOC 2 Type II Compliant</h4>
+          <span>Data Security Standard</span>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- CTA -->
+  <section class="cta">
+    <div class="container">
+      <div class="cta-card" data-animate="fade-up">
+        <div class="cta-content">
+          <h2 class="cta-title">Want Results Like These?</h2>
+          <p class="cta-text">Start your free trial and see the difference expert financial management makes.</p>
+          <div class="cta-buttons">
+            <a href="register.html" class="btn btn-white btn-lg">
+              <span>Start Free Trial</span>
+              <i class="fas fa-arrow-right"></i>
+            </a>
+            <a href="contact.html" class="btn btn-outline-white btn-lg">Talk to an Expert</a>
+          </div>
+        </div>
+        <div class="cta-visual">
+          <div class="cta-float-card cta-float-1">
+            <i class="fas fa-chart-line"></i> <span>Proven Results</span>
+          </div>
+          <div class="cta-float-card cta-float-2">
+            <i class="fas fa-shield-halved"></i> <span>Guaranteed ROI</span>
+          </div>
+          <div class="cta-float-card cta-float-3">
+            <i class="fas fa-handshake"></i> <span>Long-Term Partnership</span>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Footer -->
+  <footer class="footer">
+    <div class="container">
+      <div class="footer-grid">
+        <div class="footer-brand">
+          <a href="index.html" class="logo">
+            <img src="images/logo.webp" alt="FinAcc Pro Logo" class="logo-img">
+          </a>
+          <p class="footer-brand-text">Empowering businesses with smart financial solutions since 2010. Your trusted partner for all accounting and advisory needs.</p>
+          <div class="footer-app-badges">
+            <a href="#" class="app-badge">
+              <i class="fab fa-apple"></i>
+              <div class="app-badge-text">
+                <span>Download on the</span>
+                <strong>App Store</strong>
+              </div>
+            </a>
+            <a href="#" class="app-badge">
+              <i class="fab fa-google-play"></i>
+              <div class="app-badge-text">
+                <span>Get it on</span>
+                <strong>Google Play</strong>
+              </div>
+            </a>
+          </div>
+        </div>
+        <div class="footer-links">
+          <h4 class="footer-heading">Services</h4>
+          <ul>
+            <li><a href="services.html">Tax Planning</a></li>
+            <li><a href="services.html">Financial Advisory</a></li>
+            <li><a href="services.html">Bookkeeping</a></li>
+            <li><a href="services.html">Audit & Compliance</a></li>
+            <li><a href="services.html">Corporate Finance</a></li>
+            <li><a href="services.html">Payroll Management</a></li>
+          </ul>
+        </div>
+        <div class="footer-links">
+          <h4 class="footer-heading">Company</h4>
+          <ul>
+            <li><a href="about.html">About Us</a></li>
+            <li><a href="results.html">Our Results</a></li>
+            <li><a href="testimonials.html">Testimonials</a></li>
+            <li><a href="contact.html">Contact Us</a></li>
+            <li><a href="careers.html">Careers</a></li>
+            <li><a href="blog.html">Blog</a></li>
+          </ul>
+        </div>
+        <div class="footer-contact">
+          <h4 class="footer-heading">Contact</h4>
+          <div class="footer-contact-item">
+            <div class="footer-contact-icon"><i class="fas fa-phone"></i></div>
+            <div>
+              <h5>Call Us</h5>
+              <p><a href="tel:+15551234567">+1 (555) 123-4567</a></p>
+            </div>
+          </div>
+          <div class="footer-contact-item">
+            <div class="footer-contact-icon"><i class="fas fa-envelope"></i></div>
+            <div>
+              <h5>Email Us</h5>
+              <p><a href="mailto:hello@finaccpro.com">hello@finaccpro.com</a></p>
+            </div>
+          </div>
+          <div class="footer-contact-item">
+            <div class="footer-contact-icon"><i class="fas fa-location-dot"></i></div>
+            <div>
+              <h5>Visit Us</h5>
+              <p>123 Finance Street<br>New York, NY 10001</p>
+            </div>
+          </div>
+        </div>
+        <div class="footer-newsletter">
+          <h4 class="footer-heading">Stay Updated</h4>
+          <p>Get the latest financial insights and tips delivered to your inbox.</p>
+          <form class="newsletter-form" onsubmit="event.preventDefault(); this.querySelector('input').value=''; alert('Subscribed!');">
+            <input type="email" placeholder="Your email address" required>
+            <button type="submit"><i class="fas fa-arrow-right"></i></button>
+          </form>
+          <div class="social-links" style="margin-top: 20px;">
+            <a href="#" class="social-link"><i class="fab fa-linkedin-in"></i></a>
+            <a href="#" class="social-link"><i class="fab fa-x-twitter"></i></a>
+            <a href="#" class="social-link"><i class="fab fa-facebook-f"></i></a>
+            <a href="#" class="social-link"><i class="fab fa-instagram"></i></a>
+          </div>
+        </div>
+      </div>
+      <div class="footer-bottom">
+        <p>&copy; 2026 FinAcc Pro. All rights reserved.</p>
+        <div class="footer-bottom-links">
+          <a href="#">Privacy Policy</a>
+          <a href="#">Terms of Service</a>
+        </div>
+      </div>
+    </div>
+  </footer>
+
+  <a href="#" class="back-to-top" id="backToTop"><i class="fas fa-arrow-up"></i></a>
+  <script src="script.js"></script>
+</body>
+</html>

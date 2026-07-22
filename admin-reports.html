@@ -1,0 +1,234 @@
+﻿<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Reports - FinAcc Pro</title>
+  <link rel="stylesheet" href="styles.css">
+  <link rel="stylesheet" href="dashboard.css">
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.2/css/all.min.css">
+</head>
+<body>
+
+  <div class="dashboard">
+    <div class="sidebar-overlay" id="sidebarOverlay"></div>
+
+    <aside class="sidebar" id="sidebar">
+      <div class="sidebar-header">
+        <a href="index.html">
+          <img src="images/logo.webp" alt="FinAcc Pro Logo" class="sidebar-logo-img">
+      </a>
+      </div>
+
+      <nav class="sidebar-nav">
+        <div class="sidebar-section-label">Main</div>
+        <a href="admin-dashboard.html" class="sidebar-link">
+          <i class="fas fa-grid-2"></i> Dashboard
+        </a>
+        <a href="admin-clients.html" class="sidebar-link">
+          <i class="fas fa-users"></i> Clients
+          <span class="badge">128</span>
+        </a>
+        <a href="admin-invoices.html" class="sidebar-link">
+          <i class="fas fa-file-invoice-dollar"></i> Invoices
+          <span class="badge">24</span>
+        </a>
+        <a href="admin-transactions.html" class="sidebar-link">
+          <i class="fas fa-receipt"></i> Transactions
+        </a>
+        <div class="sidebar-section-label">Management</div>
+        <a href="admin-tax-planning.html" class="sidebar-link">
+          <i class="fas fa-calculator"></i> Tax Planning
+        </a>
+        <a href="admin-reports.html" class="sidebar-link active">
+          <i class="fas fa-chart-pie"></i> Reports
+        </a>
+        <a href="admin-audit.html" class="sidebar-link">
+          <i class="fas fa-shield-halved"></i> Audit & Compliance
+        </a>
+        <a href="admin-payroll.html" class="sidebar-link">
+          <i class="fas fa-money-bill-wave"></i> Payroll
+        </a>
+        <div class="sidebar-section-label">System</div>
+        <a href="admin-settings.html" class="sidebar-link">
+          <i class="fas fa-gear"></i> Settings
+        </a>
+        <a href="admin-help.html" class="sidebar-link">
+          <i class="fas fa-circle-question"></i> Help Center
+        </a>
+      </nav>
+      <div class="sidebar-divider"></div>
+      <div class="sidebar-user">
+        <div class="sidebar-user-avatar">AD</div>
+        <div class="sidebar-user-info">
+          <div class="sidebar-user-name">Admin User</div>
+          <div class="sidebar-user-role">Super Admin</div>
+        </div>
+        <button class="sidebar-user-logout" title="Logout">
+          <i class="fas fa-right-from-bracket"></i>
+        </button>
+      </div>
+    </aside>
+
+    <main class="dashboard-main">
+      <header class="topbar">
+        <div class="topbar-left">
+          <button class="topbar-toggle" id="sidebarToggle">
+            <i class="fas fa-bars"></i>
+          </button>
+          <div class="topbar-title">
+            <h1>Reports</h1>
+            <p>Generate and view financial reports</p>
+          </div>
+        </div>
+        <div class="topbar-right">
+          <div class="topbar-search">
+            <i class="fas fa-search"></i>
+            <input type="text" placeholder="Search clients, invoices...">
+          </div>
+          <button class="topbar-icon-btn">
+            <i class="fas fa-bell"></i>
+            <span class="notification-dot"></span>
+          </button>
+          <button class="topbar-icon-btn">
+            <i class="fas fa-envelope"></i>
+          </button>
+          <div class="topbar-avatar">AD</div>
+        </div>
+      </header>
+
+      <div class="dashboard-content">
+        <div class="dash-grid" style="grid-template-columns: repeat(2, 1fr); gap:24px; margin-bottom:0;">
+
+          <div class="dash-card">
+            <div class="dash-card-body" style="display:flex;align-items:center;gap:20px;">
+              <div style="width:52px;height:52px;border-radius:var(--radius);background:rgba(37,99,235,0.1);display:flex;align-items:center;justify-content:center;font-size:1.2rem;color:var(--primary);flex-shrink:0;"><i class="fas fa-chart-line"></i></div>
+              <div style="flex:1;">
+                <h4 style="font-size:1rem;font-weight:700;color:var(--secondary);margin-bottom:4px;">Profit & Loss</h4>
+                <p style="font-size:0.8rem;color:var(--text-light);">Jan 2025 - Dec 2025</p>
+              </div>
+              <button class="btn btn-primary btn-sm">Generate</button>
+            </div>
+          </div>
+
+          <div class="dash-card">
+            <div class="dash-card-body" style="display:flex;align-items:center;gap:20px;">
+              <div style="width:52px;height:52px;border-radius:var(--radius);background:rgba(34,197,94,0.1);display:flex;align-items:center;justify-content:center;font-size:1.2rem;color:#16a34a;flex-shrink:0;"><i class="fas fa-balance-scale"></i></div>
+              <div style="flex:1;">
+                <h4 style="font-size:1rem;font-weight:700;color:var(--secondary);margin-bottom:4px;">Balance Sheet</h4>
+                <p style="font-size:0.8rem;color:var(--text-light);">As of Dec 31, 2025</p>
+              </div>
+              <button class="btn btn-primary btn-sm">Generate</button>
+            </div>
+          </div>
+
+          <div class="dash-card">
+            <div class="dash-card-body" style="display:flex;align-items:center;gap:20px;">
+              <div style="width:52px;height:52px;border-radius:var(--radius);background:rgba(6,182,212,0.1);display:flex;align-items:center;justify-content:center;font-size:1.2rem;color:#06b6d4;flex-shrink:0;"><i class="fas fa-money-bill-transfer"></i></div>
+              <div style="flex:1;">
+                <h4 style="font-size:1rem;font-weight:700;color:var(--secondary);margin-bottom:4px;">Cash Flow</h4>
+                <p style="font-size:0.8rem;color:var(--text-light);">Jan 2025 - Dec 2025</p>
+              </div>
+              <button class="btn btn-primary btn-sm">Generate</button>
+            </div>
+          </div>
+
+          <div class="dash-card">
+            <div class="dash-card-body" style="display:flex;align-items:center;gap:20px;">
+              <div style="width:52px;height:52px;border-radius:var(--radius);background:rgba(139,92,246,0.1);display:flex;align-items:center;justify-content:center;font-size:1.2rem;color:#8b5cf6;flex-shrink:0;"><i class="fas fa-file-invoice-dollar"></i></div>
+              <div style="flex:1;">
+                <h4 style="font-size:1rem;font-weight:700;color:var(--secondary);margin-bottom:4px;">Tax Summary</h4>
+                <p style="font-size:0.8rem;color:var(--text-light);">Jan 2025 - Dec 2025</p>
+              </div>
+              <button class="btn btn-primary btn-sm">Generate</button>
+            </div>
+          </div>
+
+          <div class="dash-card">
+            <div class="dash-card-body" style="display:flex;align-items:center;gap:20px;">
+              <div style="width:52px;height:52px;border-radius:var(--radius);background:rgba(249,115,22,0.1);display:flex;align-items:center;justify-content:center;font-size:1.2rem;color:#f97316;flex-shrink:0;"><i class="fas fa-users"></i></div>
+              <div style="flex:1;">
+                <h4 style="font-size:1rem;font-weight:700;color:var(--secondary);margin-bottom:4px;">Client Summary</h4>
+                <p style="font-size:0.8rem;color:var(--text-light);">Jan 2025 - Dec 2025</p>
+              </div>
+              <button class="btn btn-primary btn-sm">Generate</button>
+            </div>
+          </div>
+
+          <div class="dash-card">
+            <div class="dash-card-body" style="display:flex;align-items:center;gap:20px;">
+              <div style="width:52px;height:52px;border-radius:var(--radius);background:rgba(37,99,235,0.1);display:flex;align-items:center;justify-content:center;font-size:1.2rem;color:var(--primary);flex-shrink:0;"><i class="fas fa-signal"></i></div>
+              <div style="flex:1;">
+                <h4 style="font-size:1rem;font-weight:700;color:var(--secondary);margin-bottom:4px;">Revenue Analysis</h4>
+                <p style="font-size:0.8rem;color:var(--text-light);">Jan 2025 - Dec 2025</p>
+              </div>
+              <button class="btn btn-primary btn-sm">Generate</button>
+            </div>
+          </div>
+
+          <div class="dash-card">
+            <div class="dash-card-body" style="display:flex;align-items:center;gap:20px;">
+              <div style="width:52px;height:52px;border-radius:var(--radius);background:rgba(34,197,94,0.1);display:flex;align-items:center;justify-content:center;font-size:1.2rem;color:#16a34a;flex-shrink:0;"><i class="fas fa-receipt"></i></div>
+              <div style="flex:1;">
+                <h4 style="font-size:1rem;font-weight:700;color:var(--secondary);margin-bottom:4px;">Expense Report</h4>
+                <p style="font-size:0.8rem;color:var(--text-light);">Jan 2025 - Dec 2025</p>
+              </div>
+              <button class="btn btn-primary btn-sm">Generate</button>
+            </div>
+          </div>
+
+          <div class="dash-card">
+            <div class="dash-card-body" style="display:flex;align-items:center;gap:20px;">
+              <div style="width:52px;height:52px;border-radius:var(--radius);background:rgba(139,92,246,0.1);display:flex;align-items:center;justify-content:center;font-size:1.2rem;color:#8b5cf6;flex-shrink:0;"><i class="fas fa-shield-halved"></i></div>
+              <div style="flex:1;">
+                <h4 style="font-size:1rem;font-weight:700;color:var(--secondary);margin-bottom:4px;">Audit Report</h4>
+                <p style="font-size:0.8rem;color:var(--text-light);">Jan 2025 - Dec 2025</p>
+              </div>
+              <button class="btn btn-primary btn-sm">Generate</button>
+            </div>
+          </div>
+
+        </div>
+      </div>
+    </main>
+  </div>
+
+  <footer class="footer" style="margin-left: 260px;">
+    <div class="container">
+      <div class="footer-bottom" style="border-top: none; padding: 24px 0;">
+        <p>&copy; 2026 FinAcc Pro. All rights reserved.</p>
+        <div class="footer-bottom-links">
+          <a href="index.html">Back to Website</a>
+          <a href="login.html">Logout</a>
+        </div>
+      </div>
+    </div>
+  </footer>
+
+  <script>
+    const sidebarToggle = document.getElementById('sidebarToggle');
+    const sidebar = document.getElementById('sidebar');
+    const sidebarOverlay = document.getElementById('sidebarOverlay');
+    sidebarToggle.addEventListener('click', () => {
+      sidebar.classList.toggle('open');
+      sidebarOverlay.classList.toggle('active');
+    });
+    sidebarOverlay.addEventListener('click', () => {
+      sidebar.classList.remove('open');
+      sidebarOverlay.classList.remove('active');
+    });
+    document.querySelectorAll('.sidebar-link').forEach(link => {
+      link.addEventListener('click', function(e) {
+        document.querySelectorAll('.sidebar-link').forEach(l => l.classList.remove('active'));
+        this.classList.add('active');
+      });
+    });
+    document.querySelector('.sidebar-user-logout').addEventListener('click', () => {
+      if (confirm('Are you sure you want to logout?')) {
+        window.location.href = 'login.html';
+      }
+    });
+  </script>
+</body>
+</html>

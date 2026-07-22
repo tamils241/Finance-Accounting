@@ -1,0 +1,336 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>About Us - FinAcc Pro</title>
+  <link rel="stylesheet" href="styles.css">
+  <link rel="stylesheet" href="pages.css">
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.2/css/all.min.css">
+</head>
+<body>
+
+  <!-- Header -->
+  <header class="header scrolled" id="header">
+    <div class="container header-inner">
+      <a href="index.html" class="logo">
+        <img src="images/logo.webp" alt="FinAcc Pro Logo" class="logo-img">
+      </a>
+      <nav class="nav" id="nav">
+        <a href="index.html" class="nav-link">Home</a>
+        <a href="services.html" class="nav-link">Services</a>
+        <a href="about.html" class="nav-link active">About</a>
+        <a href="results.html" class="nav-link">Results</a>
+        <a href="testimonials.html" class="nav-link">Testimonials</a>
+        <a href="contact.html" class="nav-link">Contact</a>
+
+      </nav>
+      <div class="header-actions">
+        <a href="login.html" class="btn btn-outline btn-sm">Login</a>
+        <a href="register.html" class="btn btn-primary btn-sm">Register</a>
+        <button class="hamburger" id="hamburger" aria-label="Toggle menu">
+          <span></span><span></span><span></span>
+        </button>
+      </div>
+    </div>
+  </header>
+
+  <!-- Mobile Menu -->
+  <div class="mobile-menu-overlay" id="mobileMenuOverlay">
+    <div class="mobile-menu" id="mobileMenu">
+      <div class="mobile-menu-header">
+        <a href="index.html" class="logo">
+          <img src="images/logo.webp" alt="FinAcc Pro Logo" class="logo-img">
+        </a>
+        <button class="mobile-menu-close" id="mobileMenuClose"><i class="fas fa-times"></i></button>
+      </div>
+      <nav class="mobile-nav">
+        <a href="index.html" class="mobile-nav-link">Home</a>
+        <a href="services.html" class="mobile-nav-link">Services</a>
+        <a href="about.html" class="mobile-nav-link">About</a>
+        <a href="results.html" class="mobile-nav-link">Results</a>
+        <a href="testimonials.html" class="mobile-nav-link">Testimonials</a>
+        <a href="contact.html" class="mobile-nav-link">Contact</a>
+
+      </nav>
+      <div style="display: flex; gap: 12px;">
+        <a href="login.html" class="btn btn-outline btn-block">Login</a>
+        <a href="register.html" class="btn btn-primary btn-block">Register</a>
+      </div>
+    </div>
+  </div>
+
+  <!-- Page Hero -->
+  <section class="page-hero">
+    <div class="page-hero-bg">
+      <video class="hero-video" autoplay muted loop playsinline>
+        <source src="videos/video4.mp4" type="video/mp4">
+      </video>
+      <div class="hero-video-overlay"></div>
+      <div class="hero-shape hero-shape-1"></div>
+      <div class="hero-shape hero-shape-2"></div>
+      <div class="grid-overlay"></div>
+    </div>
+    <div class="container">
+      <div class="page-hero-content" data-animate="fade-up">
+        <span class="section-tag">Who We Are</span>
+        <h1 class="page-hero-title">We Deliver <span class="gradient-text">Financial Excellence</span></h1>
+        <p class="page-hero-subtitle">Over 15 years of experience empowering businesses with smart financial solutions.</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- About Main -->
+  <section class="about" id="about">
+    <div class="container about-inner">
+      <div class="about-visual" data-animate="fade-right">
+        <div class="about-image-wrapper">
+          <div class="about-image">
+            <img src="images/about.webp" alt="About FinAcc Pro">
+          </div>
+          <div class="about-experience-badge">
+            <span class="experience-number">15+</span>
+            <span class="experience-text">Years of Excellence</span>
+          </div>
+        </div>
+      </div>
+      <div class="about-content" data-animate="fade-left">
+        <span class="section-tag">Why Choose Us</span>
+        <h2 class="section-title">Trusted by <span class="gradient-text">500+ Businesses</span></h2>
+        <p class="about-text">
+          With over 15 years of experience, our team of certified professionals provides personalized financial solutions that drive measurable results. We combine traditional expertise with modern technology to serve your unique needs.
+        </p>
+        <div class="about-features">
+          <div class="about-feature">
+            <div class="about-feature-icon"><i class="fas fa-award"></i></div>
+            <div class="about-feature-text">
+              <h4>Certified Experts</h4>
+              <p>CPA, CFA, and MBA professionals on every engagement.</p>
+            </div>
+          </div>
+          <div class="about-feature">
+            <div class="about-feature-icon"><i class="fas fa-clock"></i></div>
+            <div class="about-feature-text">
+              <h4>24/7 Support</h4>
+              <p>Round-the-clock assistance for urgent financial matters.</p>
+            </div>
+          </div>
+          <div class="about-feature">
+            <div class="about-feature-icon"><i class="fas fa-lock"></i></div>
+            <div class="about-feature-text">
+              <h4>Bank-Grade Security</h4>
+              <p>Enterprise-level encryption protecting your financial data.</p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Mission & Vision -->
+  <section class="mission-section">
+    <div class="container">
+      <div class="mission-grid">
+        <div class="mission-card" data-animate="fade-up" data-delay="0">
+          <div class="mission-card-image"><img src="images/Financial-Advisory.webp" alt="Our Mission"></div>
+          <div class="mission-icon"><i class="fas fa-bullseye"></i></div>
+          <h3>Our Mission</h3>
+          <p>To empower businesses of all sizes with accessible, accurate, and actionable financial insights that drive growth, ensure compliance, and create lasting value.</p>
+        </div>
+        <div class="mission-card" data-animate="fade-up" data-delay="100">
+          <div class="mission-card-image"><img src="images/Corporate-Finance.webp" alt="Our Vision"></div>
+          <div class="mission-icon"><i class="fas fa-eye"></i></div>
+          <h3>Our Vision</h3>
+          <p>To be the most trusted financial partner for businesses worldwide, known for innovation, integrity, and the measurable impact we create for every client.</p>
+        </div>
+        <div class="mission-card" data-animate="fade-up" data-delay="200">
+          <div class="mission-card-image"><img src="images/Bookkeeping-Services.webp" alt="Our Values"></div>
+          <div class="mission-icon"><i class="fas fa-heart"></i></div>
+          <h3>Our Values</h3>
+          <p>Integrity, transparency, excellence, and client-first thinking. These core principles guide every decision we make and every relationship we build.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Team Section -->
+  <section class="team-section">
+    <div class="container">
+      <div class="section-header" data-animate="fade-up">
+        <span class="section-tag">Our Team</span>
+        <h2 class="section-title">Meet the <span class="gradient-text">Experts</span></h2>
+        <p class="section-subtitle">Led by industry veterans with decades of combined experience.</p>
+      </div>
+      <div class="team-grid">
+        <div class="team-card" data-animate="fade-up" data-delay="0">
+          <div class="team-avatar">
+            <img src="images/team/1.webp" alt="Robert Mitchell" onerror="this.style.display='none'; this.nextElementSibling.style.display='flex';">
+            <div class="team-avatar-placeholder" style="display:none;">RM</div>
+          </div>
+          <h4>Robert Mitchell</h4>
+          <span class="team-role">CEO & Founder</span>
+          <p>20+ years in corporate finance. Former VP at Goldman Sachs. CPA, CFA charterholder.</p>
+        </div>
+        <div class="team-card" data-animate="fade-up" data-delay="100">
+          <div class="team-avatar">
+            <img src="images/team/2.webp" alt="Linda Chen" onerror="this.style.display='none'; this.nextElementSibling.style.display='flex';">
+            <div class="team-avatar-placeholder" style="display:none;">LC</div>
+          </div>
+          <h4>Linda Chen</h4>
+          <span class="team-role">Chief Financial Officer</span>
+          <p>15 years in financial strategy. MBA from Wharton. Expert in M&A and capital markets.</p>
+        </div>
+        <div class="team-card" data-animate="fade-up" data-delay="200">
+          <div class="team-avatar">
+            <img src="images/team/3.webp" alt="David Park" onerror="this.style.display='none'; this.nextElementSibling.style.display='flex';">
+            <div class="team-avatar-placeholder" style="display:none;">DP</div>
+          </div>
+          <h4>David Park</h4>
+          <span class="team-role">Head of Tax Services</span>
+          <p>18 years in tax planning. Former IRS senior auditor. Specializes in international tax.</p>
+        </div>
+        <div class="team-card" data-animate="fade-up" data-delay="300">
+          <div class="team-avatar">
+            <img src="images/team/Arun Kumar.webp" alt="Maria Santos" onerror="this.style.display='none'; this.nextElementSibling.style.display='flex';">
+            <div class="team-avatar-placeholder" style="display:none;">MS</div>
+          </div>
+          <h4>Maria Santos</h4>
+          <span class="team-role">Director of Audit</span>
+          <p>14 years in compliance and audit. Big Four background. SOX and regulatory expert.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- CTA -->
+  <section class="cta">
+    <div class="container">
+      <div class="cta-card" data-animate="fade-up">
+        <div class="cta-content">
+          <h2 class="cta-title">Partner with the Best in the Industry</h2>
+          <p class="cta-text">Join 500+ businesses that trust FinAcc Pro for their financial needs.</p>
+          <div class="cta-buttons">
+            <a href="register.html" class="btn btn-white btn-lg">
+              <span>Get Started Free</span>
+              <i class="fas fa-arrow-right"></i>
+            </a>
+            <a href="contact.html" class="btn btn-outline-white btn-lg">Schedule a Call</a>
+          </div>
+        </div>
+        <div class="cta-visual">
+          <div class="cta-float-card cta-float-1">
+            <i class="fas fa-shield-halved"></i> <span>100% Confidential</span>
+          </div>
+          <div class="cta-float-card cta-float-2">
+            <i class="fas fa-award"></i> <span>Award-Winning Team</span>
+          </div>
+          <div class="cta-float-card cta-float-3">
+            <i class="fas fa-handshake"></i> <span>Trusted Partner</span>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Footer -->
+  <footer class="footer">
+    <div class="container">
+      <div class="footer-grid">
+        <div class="footer-brand">
+          <a href="index.html" class="logo">
+            <img src="images/logo.webp" alt="FinAcc Pro Logo" class="logo-img">
+          </a>
+          <p class="footer-brand-text">Empowering businesses with smart financial solutions since 2010. Your trusted partner for all accounting and advisory needs.</p>
+          <div class="footer-app-badges">
+            <a href="#" class="app-badge">
+              <i class="fab fa-apple"></i>
+              <div class="app-badge-text">
+                <span>Download on the</span>
+                <strong>App Store</strong>
+              </div>
+            </a>
+            <a href="#" class="app-badge">
+              <i class="fab fa-google-play"></i>
+              <div class="app-badge-text">
+                <span>Get it on</span>
+                <strong>Google Play</strong>
+              </div>
+            </a>
+          </div>
+        </div>
+        <div class="footer-links">
+          <h4 class="footer-heading">Services</h4>
+          <ul>
+            <li><a href="services.html">Tax Planning</a></li>
+            <li><a href="services.html">Financial Advisory</a></li>
+            <li><a href="services.html">Bookkeeping</a></li>
+            <li><a href="services.html">Audit & Compliance</a></li>
+            <li><a href="services.html">Corporate Finance</a></li>
+            <li><a href="services.html">Payroll Management</a></li>
+          </ul>
+        </div>
+        <div class="footer-links">
+          <h4 class="footer-heading">Company</h4>
+          <ul>
+            <li><a href="about.html">About Us</a></li>
+            <li><a href="results.html">Our Results</a></li>
+            <li><a href="testimonials.html">Testimonials</a></li>
+            <li><a href="contact.html">Contact Us</a></li>
+            <li><a href="careers.html">Careers</a></li>
+            <li><a href="blog.html">Blog</a></li>
+          </ul>
+        </div>
+        <div class="footer-contact">
+          <h4 class="footer-heading">Contact</h4>
+          <div class="footer-contact-item">
+            <div class="footer-contact-icon"><i class="fas fa-phone"></i></div>
+            <div>
+              <h5>Call Us</h5>
+              <p><a href="#">+1 (555) 123-4567</a></p>
+            </div>
+          </div>
+          <div class="footer-contact-item">
+            <div class="footer-contact-icon"><i class="fas fa-envelope"></i></div>
+            <div>
+              <h5>Email Us</h5>
+              <p><a href="mailto:hello@finaccpro.com">hello@finaccpro.com</a></p>
+            </div>
+          </div>
+          <div class="footer-contact-item">
+            <div class="footer-contact-icon"><i class="fas fa-location-dot"></i></div>
+            <div>
+              <h5>Visit Us</h5>
+              <p>123 Finance Street<br>New York, NY 10001</p>
+            </div>
+          </div>
+        </div>
+        <div class="footer-newsletter">
+          <h4 class="footer-heading">Stay Updated</h4>
+          <p>Get the latest financial insights and tips delivered to your inbox.</p>
+          <form class="newsletter-form" onsubmit="event.preventDefault(); this.querySelector('input').value=''; alert('Subscribed!');">
+            <input type="email" placeholder="Your email address" required>
+            <button type="submit"><i class="fas fa-arrow-right"></i></button>
+          </form>
+          <div class="social-links" style="margin-top: 20px;">
+            <a href="#" class="social-link"><i class="fab fa-linkedin-in"></i></a>
+            <a href="#" class="social-link"><i class="fab fa-x-twitter"></i></a>
+            <a href="#" class="social-link"><i class="fab fa-facebook-f"></i></a>
+            <a href="#" class="social-link"><i class="fab fa-instagram"></i></a>
+          </div>
+        </div>
+      </div>
+      <div class="footer-bottom">
+        <p>&copy; 2026 FinAcc Pro. All rights reserved.</p>
+        <div class="footer-bottom-links">
+          <a href="#">Privacy Policy</a>
+          <a href="#">Terms of Service</a>
+        </div>
+      </div>
+    </div>
+  </footer>
+
+  <a href="#" class="back-to-top" id="backToTop"><i class="fas fa-arrow-up"></i></a>
+  <script src="script.js"></script>
+</body>
+</html>

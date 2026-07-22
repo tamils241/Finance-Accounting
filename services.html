@@ -1,0 +1,518 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Services - FinAcc Pro</title>
+  <link rel="stylesheet" href="styles.css">
+  <link rel="stylesheet" href="pages.css">
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.2/css/all.min.css">
+</head>
+<body>
+
+  <!-- Header -->
+  <header class="header scrolled" id="header">
+    <div class="container header-inner">
+      <a href="index.html" class="logo">
+        <img src="images/logo.webp" alt="FinAcc Pro Logo" class="logo-img">
+      </a>
+      <nav class="nav" id="nav">
+        <a href="index.html" class="nav-link">Home</a>
+        <a href="services.html" class="nav-link active">Services</a>
+        <a href="about.html" class="nav-link">About</a>
+        <a href="results.html" class="nav-link">Results</a>
+        <a href="testimonials.html" class="nav-link">Testimonials</a>
+        <a href="contact.html" class="nav-link">Contact</a>
+
+      </nav>
+      <div class="header-actions">
+        <a href="login.html" class="btn btn-outline btn-sm">Login</a>
+        <a href="register.html" class="btn btn-primary btn-sm">Register</a>
+        <button class="hamburger" id="hamburger" aria-label="Toggle menu">
+          <span></span><span></span><span></span>
+        </button>
+      </div>
+    </div>
+  </header>
+
+  <!-- Mobile Menu Overlay -->
+  <div class="mobile-menu-overlay" id="mobileMenuOverlay">
+    <div class="mobile-menu" id="mobileMenu">
+      <div class="mobile-menu-header">
+        <a href="index.html" class="logo">
+          <img src="images/logo.webp" alt="FinAcc Pro Logo" class="logo-img">
+        </a>
+        <button class="mobile-menu-close" id="mobileMenuClose">
+          <i class="fas fa-times"></i>
+        </button>
+      </div>
+      <nav class="mobile-nav">
+        <a href="index.html" class="mobile-nav-link">Home</a>
+        <a href="services.html" class="mobile-nav-link">Services</a>
+        <a href="about.html" class="mobile-nav-link">About</a>
+        <a href="results.html" class="mobile-nav-link">Results</a>
+        <a href="testimonials.html" class="mobile-nav-link">Testimonials</a>
+        <a href="contact.html" class="mobile-nav-link">Contact</a>
+
+      </nav>
+      <div style="display: flex; gap: 12px;">
+        <a href="login.html" class="btn btn-outline btn-block">Login</a>
+        <a href="register.html" class="btn btn-primary btn-block">Register</a>
+      </div>
+    </div>
+  </div>
+
+  <!-- Page Hero -->
+  <section class="page-hero">
+    <div class="page-hero-bg">
+      <video class="hero-video" autoplay muted loop playsinline>
+        <source src="videos/video4.mp4" type="video/mp4">
+      </video>
+      <div class="hero-video-overlay"></div>
+      <div class="hero-shape hero-shape-1"></div>
+      <div class="hero-shape hero-shape-2"></div>
+      <div class="grid-overlay"></div>
+    </div>
+    <div class="container">
+      <div class="page-hero-content" data-animate="fade-up">
+        <span class="section-tag">What We Offer</span>
+        <h1 class="page-hero-title">Comprehensive Financial <span class="gradient-text">Services</span></h1>
+        <p class="page-hero-subtitle">End-to-end financial solutions tailored to accelerate your business growth and ensure compliance.</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- Services Grid -->
+  <section class="services" id="services">
+    <div class="container">
+      <div class="services-grid">
+
+        <div class="card-3d" data-animate="fade-up" data-delay="0">
+          <div class="card-3d-inner">
+            <div class="card-3d-front">
+              <div class="card-image"><img src="images/Tax-Planning&Filing.webp" alt="Tax Planning & Filing"></div>
+              <div class="card-icon"><i class="fas fa-calculator"></i></div>
+              <h3 class="card-title">Tax Planning & Filing</h3>
+            </div>
+            <div class="card-3d-back">
+              <div class="card-back-icon"><i class="fas fa-calculator"></i></div>
+              <h3 class="card-back-title">Tax Planning & Filing</h3>
+              <ul class="card-back-list">
+                <li><i class="fas fa-check"></i> Federal & State Tax Returns</li>
+                <li><i class="fas fa-check"></i> Tax Strategy Consulting</li>
+                <li><i class="fas fa-check"></i> Audit Representation</li>
+                <li><i class="fas fa-check"></i> Tax Compliance Review</li>
+              </ul>
+              <a href="contact.html" class="btn btn-primary btn-sm">Get Started</a>
+            </div>
+          </div>
+        </div>
+
+        <div class="card-3d" data-animate="fade-up" data-delay="100">
+          <div class="card-3d-inner">
+            <div class="card-3d-front">
+              <div class="card-image"><img src="images/Financial-Advisory.webp" alt="Financial Advisory"></div>
+              <div class="card-icon"><i class="fas fa-chart-pie"></i></div>
+              <h3 class="card-title">Financial Advisory</h3>
+            </div>
+            <div class="card-3d-back">
+              <div class="card-back-icon"><i class="fas fa-chart-pie"></i></div>
+              <h3 class="card-back-title">Financial Advisory</h3>
+              <ul class="card-back-list">
+                <li><i class="fas fa-check"></i> Budgeting & Forecasting</li>
+                <li><i class="fas fa-check"></i> Cash Flow Management</li>
+                <li><i class="fas fa-check"></i> Investment Analysis</li>
+                <li><i class="fas fa-check"></i> Risk Assessment</li>
+              </ul>
+              <a href="contact.html" class="btn btn-primary btn-sm">Get Started</a>
+            </div>
+          </div>
+        </div>
+
+        <div class="card-3d" data-animate="fade-up" data-delay="200">
+          <div class="card-3d-inner">
+            <div class="card-3d-front">
+              <div class="card-image"><img src="images/Bookkeeping-Services.webp" alt="Bookkeeping Services"></div>
+              <div class="card-icon"><i class="fas fa-file-invoice-dollar"></i></div>
+              <h3 class="card-title">Bookkeeping Services</h3>
+            </div>
+            <div class="card-3d-back">
+              <div class="card-back-icon"><i class="fas fa-file-invoice-dollar"></i></div>
+              <h3 class="card-back-title">Bookkeeping Services</h3>
+              <ul class="card-back-list">
+                <li><i class="fas fa-check"></i> Daily Transaction Recording</li>
+                <li><i class="fas fa-check"></i> Bank Reconciliation</li>
+                <li><i class="fas fa-check"></i> Financial Statements</li>
+                <li><i class="fas fa-check"></i> Accounts Payable/Receivable</li>
+              </ul>
+              <a href="contact.html" class="btn btn-primary btn-sm">Get Started</a>
+            </div>
+          </div>
+        </div>
+
+        <div class="card-3d" data-animate="fade-up" data-delay="0">
+          <div class="card-3d-inner">
+            <div class="card-3d-front">
+              <div class="card-image"><img src="images/Audit&Compliance.webp" alt="Audit & Compliance"></div>
+              <div class="card-icon"><i class="fas fa-shield-halved"></i></div>
+              <h3 class="card-title">Audit & Compliance</h3>
+            </div>
+            <div class="card-3d-back">
+              <div class="card-back-icon"><i class="fas fa-shield-halved"></i></div>
+              <h3 class="card-back-title">Audit & Compliance</h3>
+              <ul class="card-back-list">
+                <li><i class="fas fa-check"></i> Internal Audits</li>
+                <li><i class="fas fa-check"></i> Compliance Reviews</li>
+                <li><i class="fas fa-check"></i> SOX Compliance</li>
+                <li><i class="fas fa-check"></i> Regulatory Reporting</li>
+              </ul>
+              <a href="contact.html" class="btn btn-primary btn-sm">Get Started</a>
+            </div>
+          </div>
+        </div>
+
+        <div class="card-3d" data-animate="fade-up" data-delay="100">
+          <div class="card-3d-inner">
+            <div class="card-3d-front">
+              <div class="card-image"><img src="images/Corporate-Finance.webp" alt="Corporate Finance"></div>
+              <div class="card-icon"><i class="fas fa-building-columns"></i></div>
+              <h3 class="card-title">Corporate Finance</h3>
+            </div>
+            <div class="card-3d-back">
+              <div class="card-back-icon"><i class="fas fa-building-columns"></i></div>
+              <h3 class="card-back-title">Corporate Finance</h3>
+              <ul class="card-back-list">
+                <li><i class="fas fa-check"></i> M&A Advisory</li>
+                <li><i class="fas fa-check"></i> Capital Structuring</li>
+                <li><i class="fas fa-check"></i> Valuation Services</li>
+                <li><i class="fas fa-check"></i> Due Diligence</li>
+              </ul>
+              <a href="contact.html" class="btn btn-primary btn-sm">Get Started</a>
+            </div>
+          </div>
+        </div>
+
+        <div class="card-3d" data-animate="fade-up" data-delay="200">
+          <div class="card-3d-inner">
+            <div class="card-3d-front">
+              <div class="card-image"><img src="images/Payroll-Management.webp" alt="Payroll Management"></div>
+              <div class="card-icon"><i class="fas fa-laptop-code"></i></div>
+              <h3 class="card-title">Payroll Management</h3>
+            </div>
+            <div class="card-3d-back">
+              <div class="card-back-icon"><i class="fas fa-laptop-code"></i></div>
+              <h3 class="card-back-title">Payroll Management</h3>
+              <ul class="card-back-list">
+                <li><i class="fas fa-check"></i> Payroll Processing</li>
+                <li><i class="fas fa-check"></i> Benefits Administration</li>
+                <li><i class="fas fa-check"></i> Tax Withholding</li>
+                <li><i class="fas fa-check"></i> Employee Self-Service</li>
+              </ul>
+              <a href="contact.html" class="btn btn-primary btn-sm">Get Started</a>
+            </div>
+          </div>
+        </div>
+
+      </div>
+    </div>
+  </section>
+
+  <!-- Process Section -->
+  <section class="process-section">
+    <div class="container">
+      <div class="section-header" data-animate="fade-up">
+        <span class="section-tag">Our Process</span>
+        <h2 class="section-title">How We <span class="gradient-text">Work</span></h2>
+        <p class="section-subtitle">A streamlined approach to delivering exceptional financial services.</p>
+      </div>
+      <div class="process-grid">
+        <div class="process-card" data-animate="fade-up" data-delay="0">
+          <div class="process-number">01</div>
+          <div class="process-icon"><i class="fas fa-comments"></i></div>
+          <h3>Consultation</h3>
+          <p>We start by understanding your business, goals, and financial challenges through an in-depth consultation.</p>
+        </div>
+        <div class="process-card" data-animate="fade-up" data-delay="100">
+          <div class="process-number">02</div>
+          <div class="process-icon"><i class="fas fa-magnifying-glass-chart"></i></div>
+          <h3>Analysis</h3>
+          <p>Our experts analyze your financial data, identify opportunities, and develop a tailored strategy.</p>
+        </div>
+        <div class="process-card" data-animate="fade-up" data-delay="200">
+          <div class="process-number">03</div>
+          <div class="process-icon"><i class="fas fa-rocket"></i></div>
+          <h3>Implementation</h3>
+          <p>We execute the strategy with precision, leveraging modern tools and proven methodologies.</p>
+        </div>
+        <div class="process-card" data-animate="fade-up" data-delay="300">
+          <div class="process-number">04</div>
+          <div class="process-icon"><i class="fas fa-chart-line"></i></div>
+          <h3>Optimization</h3>
+          <p>Continuous monitoring and optimization to ensure sustained growth and compliance.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Service Testimonials -->
+  <section class="service-testimonials">
+    <div class="container">
+      <div class="section-header" data-animate="fade-up">
+        <span class="section-tag">Client Feedback</span>
+        <h2 class="section-title">What Clients Say About Our <span class="gradient-text">Services</span></h2>
+        <p class="section-subtitle">Real results from businesses that trust us with their financial operations.</p>
+      </div>
+      <div class="service-testimonials-grid">
+        <div class="service-testimonial-card" data-animate="fade-up" data-delay="0">
+          <div class="service-testimonial-icon"><i class="fas fa-calculator"></i></div>
+          <div class="service-testimonial-stars">
+            <i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i>
+          </div>
+          <p class="service-testimonial-text">"FinAcc Pro's tax planning saved us over $200K last year. Their team identified deductions we never knew existed. Exceptional service!"</p>
+          <div class="service-testimonial-author">
+            <div class="service-testimonial-avatar">JD</div>
+            <div class="service-testimonial-info">
+              <h4>James Davidson</h4>
+              <span>CEO, TechVentures Inc.</span>
+            </div>
+          </div>
+          <span class="service-testimonial-service">Tax Planning & Filing</span>
+        </div>
+        <div class="service-testimonial-card" data-animate="fade-up" data-delay="100">
+          <div class="service-testimonial-icon"><i class="fas fa-chart-pie"></i></div>
+          <div class="service-testimonial-stars">
+            <i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i>
+          </div>
+          <p class="service-testimonial-text">"Their financial advisory helped us secure $5M in funding. The strategic guidance was invaluable for our growth trajectory."</p>
+          <div class="service-testimonial-author">
+            <div class="service-testimonial-avatar">SR</div>
+            <div class="service-testimonial-info">
+              <h4>Sarah Rodriguez</h4>
+              <span>CFO, GlobalTrade Corp.</span>
+            </div>
+          </div>
+          <span class="service-testimonial-service">Financial Advisory</span>
+        </div>
+        <div class="service-testimonial-card" data-animate="fade-up" data-delay="200">
+          <div class="service-testimonial-icon"><i class="fas fa-shield-halved"></i></div>
+          <div class="service-testimonial-stars">
+            <i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i>
+          </div>
+          <p class="service-testimonial-text">"Their audit team found compliance gaps we missed internally. Now we're fully audit-ready with zero findings. Highly recommended!"</p>
+          <div class="service-testimonial-author">
+            <div class="service-testimonial-avatar">MK</div>
+            <div class="service-testimonial-info">
+              <h4>Michael Kim</h4>
+              <span>Director, Bloom Retail</span>
+            </div>
+          </div>
+          <span class="service-testimonial-service">Audit & Compliance</span>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- FAQ Section -->
+  <section class="faq-section" id="faq">
+    <div class="container">
+      <div class="section-header" data-animate="fade-up">
+        <span class="section-tag">Got Questions?</span>
+        <h2 class="section-title">Frequently Asked <span class="gradient-text">Questions</span></h2>
+        <p class="section-subtitle">Find answers to common questions about our financial services.</p>
+      </div>
+      <div class="faq-grid">
+        <div class="faq-column" data-animate="fade-up" data-delay="0">
+          <div class="faq-item">
+            <button class="faq-question" onclick="this.parentElement.classList.toggle('active')">
+              <span>What types of businesses do you serve?</span>
+              <i class="fas fa-chevron-down"></i>
+            </button>
+            <div class="faq-answer">
+              <p>We serve businesses of all sizes, from startups to enterprise corporations. Our clients span industries including technology, healthcare, manufacturing, retail, and professional services.</p>
+            </div>
+          </div>
+          <div class="faq-item">
+            <button class="faq-question" onclick="this.parentElement.classList.toggle('active')">
+              <span>How do you ensure data security?</span>
+              <i class="fas fa-chevron-down"></i>
+            </button>
+            <div class="faq-answer">
+              <p>We use bank-grade 256-bit encryption, SOC 2 compliant systems, and follow strict data privacy protocols. Your financial data is protected with enterprise-level security measures.</p>
+            </div>
+          </div>
+          <div class="faq-item">
+            <button class="faq-question" onclick="this.parentElement.classList.toggle('active')">
+              <span>What is your pricing structure?</span>
+              <i class="fas fa-chevron-down"></i>
+            </button>
+            <div class="faq-answer">
+              <p>We offer flexible pricing based on your business size and service needs. Contact us for a free consultation and custom quote tailored to your requirements.</p>
+            </div>
+          </div>
+        </div>
+        <div class="faq-column" data-animate="fade-up" data-delay="100">
+          <div class="faq-item">
+            <button class="faq-question" onclick="this.parentElement.classList.toggle('active')">
+              <span>Can I switch services mid-contract?</span>
+              <i class="fas fa-chevron-down"></i>
+            </button>
+            <div class="faq-answer">
+              <p>Yes, you can adjust your service package at any time. We offer month-to-month flexibility with no long-term lock-in contracts.</p>
+            </div>
+          </div>
+          <div class="faq-item">
+            <button class="faq-question" onclick="this.parentElement.classList.toggle('active')">
+              <span>Do you offer free consultations?</span>
+              <i class="fas fa-chevron-down"></i>
+            </button>
+            <div class="faq-answer">
+              <p>Yes! We provide a complimentary 30-minute consultation to discuss your needs and how we can help. No obligation required.</p>
+            </div>
+          </div>
+          <div class="faq-item">
+            <button class="faq-question" onclick="this.parentElement.classList.toggle('active')">
+              <span>How quickly can I get started?</span>
+              <i class="fas fa-chevron-down"></i>
+            </button>
+            <div class="faq-answer">
+              <p>Most clients are onboarded within 3-5 business days. Our streamlined process ensures a smooth transition with minimal disruption to your operations.</p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- CTA Section -->
+  <section class="cta">
+    <div class="container">
+      <div class="cta-card" data-animate="fade-up">
+        <div class="cta-content">
+          <h2 class="cta-title">Ready to Take Control of Your Finances?</h2>
+          <p class="cta-text">Start your free 30-day trial today. No credit card required.</p>
+          <div class="cta-buttons">
+            <a href="register.html" class="btn btn-white btn-lg">
+              <span>Start Free Trial</span>
+              <i class="fas fa-arrow-right"></i>
+            </a>
+            <a href="contact.html" class="btn btn-outline-white btn-lg">Contact Us</a>
+          </div>
+        </div>
+        <div class="cta-visual">
+          <div class="cta-float-card cta-float-1">
+            <i class="fas fa-check-circle"></i> <span>No Credit Card Required</span>
+          </div>
+          <div class="cta-float-card cta-float-2">
+            <i class="fas fa-infinity"></i> <span>Cancel Anytime</span>
+          </div>
+          <div class="cta-float-card cta-float-3">
+            <i class="fas fa-headset"></i> <span>24/7 Support</span>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Footer -->
+  <footer class="footer">
+    <div class="container">
+      <div class="footer-grid">
+        <div class="footer-brand">
+          <a href="index.html" class="logo">
+            <img src="images/logo.webp" alt="FinAcc Pro Logo" class="logo-img">
+          </a>
+          <p class="footer-brand-text">Empowering businesses with smart financial solutions since 2010. Your trusted partner for all accounting and advisory needs.</p>
+          <div class="footer-app-badges">
+            <a href="#" class="app-badge">
+              <i class="fab fa-apple"></i>
+              <div class="app-badge-text">
+                <span>Download on the</span>
+                <strong>App Store</strong>
+              </div>
+            </a>
+            <a href="#" class="app-badge">
+              <i class="fab fa-google-play"></i>
+              <div class="app-badge-text">
+                <span>Get it on</span>
+                <strong>Google Play</strong>
+              </div>
+            </a>
+          </div>
+        </div>
+        <div class="footer-links">
+          <h4 class="footer-heading">Services</h4>
+          <ul>
+            <li><a href="services.html">Tax Planning</a></li>
+            <li><a href="services.html">Financial Advisory</a></li>
+            <li><a href="services.html">Bookkeeping</a></li>
+            <li><a href="services.html">Audit & Compliance</a></li>
+            <li><a href="services.html">Corporate Finance</a></li>
+            <li><a href="services.html">Payroll Management</a></li>
+          </ul>
+        </div>
+        <div class="footer-links">
+          <h4 class="footer-heading">Company</h4>
+          <ul>
+            <li><a href="about.html">About Us</a></li>
+            <li><a href="results.html">Our Results</a></li>
+            <li><a href="testimonials.html">Testimonials</a></li>
+            <li><a href="contact.html">Contact Us</a></li>
+            <li><a href="careers.html">Careers</a></li>
+            <li><a href="blog.html">Blog</a></li>
+          </ul>
+        </div>
+        <div class="footer-contact">
+          <h4 class="footer-heading">Contact</h4>
+          <div class="footer-contact-item">
+            <div class="footer-contact-icon"><i class="fas fa-phone"></i></div>
+            <div>
+              <h5>Call Us</h5>
+              <p><a href="tel:+15551234567">+1 (555) 123-4567</a></p>
+            </div>
+          </div>
+          <div class="footer-contact-item">
+            <div class="footer-contact-icon"><i class="fas fa-envelope"></i></div>
+            <div>
+              <h5>Email Us</h5>
+              <p><a href="mailto:hello@finaccpro.com">hello@finaccpro.com</a></p>
+            </div>
+          </div>
+          <div class="footer-contact-item">
+            <div class="footer-contact-icon"><i class="fas fa-location-dot"></i></div>
+            <div>
+              <h5>Visit Us</h5>
+              <p>123 Finance Street<br>New York, NY 10001</p>
+            </div>
+          </div>
+        </div>
+        <div class="footer-newsletter">
+          <h4 class="footer-heading">Stay Updated</h4>
+          <p>Get the latest financial insights and tips delivered to your inbox.</p>
+          <form class="newsletter-form" onsubmit="event.preventDefault(); this.querySelector('input').value=''; alert('Subscribed!');">
+            <input type="email" placeholder="Your email address" required>
+            <button type="submit"><i class="fas fa-arrow-right"></i></button>
+          </form>
+          <div class="social-links" style="margin-top: 20px;">
+            <a href="#" class="social-link"><i class="fab fa-linkedin-in"></i></a>
+            <a href="#" class="social-link"><i class="fab fa-x-twitter"></i></a>
+            <a href="#" class="social-link"><i class="fab fa-facebook-f"></i></a>
+            <a href="#" class="social-link"><i class="fab fa-instagram"></i></a>
+          </div>
+        </div>
+      </div>
+      <div class="footer-bottom">
+        <p>&copy; 2026 FinAcc Pro. All rights reserved.</p>
+        <div class="footer-bottom-links">
+          <a href="#">Privacy Policy</a>
+          <a href="#">Terms of Service</a>
+        </div>
+      </div>
+    </div>
+  </footer>
+
+  <a href="services.html" class="back-to-top" id="backToTop"><i class="fas fa-arrow-up"></i></a>
+
+  <script src="script.js"></script>
+</body>
+</html>

@@ -1,0 +1,254 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Transactions - FinAcc Pro</title>
+  <link rel="stylesheet" href="styles.css">
+  <link rel="stylesheet" href="dashboard.css">
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.2/css/all.min.css">
+</head>
+<body>
+
+  <div class="dashboard">
+    <div class="sidebar-overlay" id="sidebarOverlay"></div>
+
+    <aside class="sidebar" id="sidebar">
+      <div class="sidebar-header">
+        <a href="index.html">
+          <img src="images/logo.webp" alt="FinAcc Pro Logo" class="sidebar-logo-img">
+        </a>
+      </div>
+
+      <nav class="sidebar-nav">
+        <div class="sidebar-section-label">Overview</div>
+        <a href="client-dashboard.html" class="sidebar-link">
+          <i class="fas fa-grid-2"></i> Dashboard
+        </a>
+        <a href="client-invoices.html" class="sidebar-link">
+          <i class="fas fa-file-invoice-dollar"></i> My Invoices
+          <span class="badge">6</span>
+        </a>
+        <a href="client-transactions.html" class="sidebar-link active">
+          <i class="fas fa-receipt"></i> Transactions
+        </a>
+        <div class="sidebar-section-label">Finance</div>
+        <a href="client-reports.html" class="sidebar-link">
+          <i class="fas fa-chart-line"></i> Financial Reports
+        </a>
+        <a href="client-tax.html" class="sidebar-link">
+          <i class="fas fa-calculator"></i> Tax Documents
+        </a>
+        <a href="client-budget.html" class="sidebar-link">
+          <i class="fas fa-piggy-bank"></i> Budget Tracker
+        </a>
+        <div class="sidebar-section-label">Account</div>
+        <a href="client-settings.html" class="sidebar-link">
+          <i class="fas fa-gear"></i> Settings
+        </a>
+        <a href="client-support.html" class="sidebar-link">
+          <i class="fas fa-circle-question"></i> Support
+        </a>
+      </nav>
+
+      <div class="sidebar-divider"></div>
+
+      <div class="sidebar-user">
+        <div class="sidebar-user-avatar">JD</div>
+        <div class="sidebar-user-info">
+          <div class="sidebar-user-name">John Davidson</div>
+          <div class="sidebar-user-role">Client</div>
+        </div>
+        <button class="sidebar-user-logout" title="Logout">
+          <i class="fas fa-right-from-bracket"></i>
+        </button>
+      </div>
+    </aside>
+
+    <main class="dashboard-main">
+      <header class="topbar">
+        <div class="topbar-left">
+          <button class="topbar-toggle" id="sidebarToggle">
+            <i class="fas fa-bars"></i>
+          </button>
+          <div class="topbar-title">
+            <h1>Transactions</h1>
+            <p>View all your financial transactions</p>
+          </div>
+        </div>
+        <div class="topbar-right">
+          <div class="topbar-search">
+            <i class="fas fa-search"></i>
+            <input type="text" placeholder="Search invoices, reports...">
+          </div>
+          <button class="topbar-icon-btn">
+            <i class="fas fa-bell"></i>
+            <span class="notification-dot"></span>
+          </button>
+          <button class="topbar-icon-btn">
+            <i class="fas fa-envelope"></i>
+          </button>
+          <div class="topbar-avatar">JD</div>
+        </div>
+      </header>
+
+      <div class="dashboard-content">
+        <div class="stats-row">
+          <div class="dash-stat-card">
+            <div class="dash-stat-header">
+              <div class="dash-stat-icon blue"><i class="fas fa-receipt"></i></div>
+              <span class="dash-stat-change up"><i class="fas fa-arrow-up"></i> 8</span>
+            </div>
+            <div class="dash-stat-value">47</div>
+            <div class="dash-stat-label">Total Transactions</div>
+          </div>
+          <div class="dash-stat-card">
+            <div class="dash-stat-header">
+              <div class="dash-stat-icon green"><i class="fas fa-arrow-trend-up"></i></div>
+              <span class="dash-stat-change up"><i class="fas fa-arrow-up"></i> 12.5%</span>
+            </div>
+            <div class="dash-stat-value">$84K</div>
+            <div class="dash-stat-label">Total Credits</div>
+          </div>
+          <div class="dash-stat-card">
+            <div class="dash-stat-header">
+              <div class="dash-stat-icon orange"><i class="fas fa-arrow-trend-down"></i></div>
+              <span class="dash-stat-change down"><i class="fas fa-arrow-down"></i> 3.2%</span>
+            </div>
+            <div class="dash-stat-value">$52K</div>
+            <div class="dash-stat-label">Total Debits</div>
+          </div>
+          <div class="dash-stat-card">
+            <div class="dash-stat-header">
+              <div class="dash-stat-icon purple"><i class="fas fa-scale-balanced"></i></div>
+              <span class="dash-stat-change up"><i class="fas fa-arrow-up"></i> 9.1%</span>
+            </div>
+            <div class="dash-stat-value">$32K</div>
+            <div class="dash-stat-label">Net Balance</div>
+          </div>
+        </div>
+
+        <div class="dash-card">
+          <div class="dash-card-header">
+            <h3 class="dash-card-title">Transaction History</h3>
+            <span class="dash-card-action">Export CSV</span>
+          </div>
+          <div class="dash-card-body" style="padding: 0;">
+            <table class="dash-table">
+              <thead>
+                <tr>
+                  <th>ID</th>
+                  <th>Date</th>
+                  <th>Description</th>
+                  <th>Amount</th>
+                  <th>Type</th>
+                </tr>
+              </thead>
+              <tbody>
+                <tr>
+                  <td><strong>#TXN-10421</strong></td>
+                  <td>Jul 18, 2026</td>
+                  <td>Client Payment - Tax Planning</td>
+                  <td><strong>$12,500</strong></td>
+                  <td><span class="status-badge paid">Credit</span></td>
+                </tr>
+                <tr>
+                  <td><strong>#TXN-10420</strong></td>
+                  <td>Jul 15, 2026</td>
+                  <td>Office Supplies Purchase</td>
+                  <td><strong>$1,240</strong></td>
+                  <td><span class="status-badge overdue">Debit</span></td>
+                </tr>
+                <tr>
+                  <td><strong>#TXN-10419</strong></td>
+                  <td>Jul 12, 2026</td>
+                  <td>Client Payment - Bookkeeping</td>
+                  <td><strong>$5,200</strong></td>
+                  <td><span class="status-badge paid">Credit</span></td>
+                </tr>
+                <tr>
+                  <td><strong>#TXN-10418</strong></td>
+                  <td>Jul 10, 2026</td>
+                  <td>Software Subscription</td>
+                  <td><strong>$890</strong></td>
+                  <td><span class="status-badge overdue">Debit</span></td>
+                </tr>
+                <tr>
+                  <td><strong>#TXN-10417</strong></td>
+                  <td>Jul 08, 2026</td>
+                  <td>Consulting Revenue</td>
+                  <td><strong>$8,400</strong></td>
+                  <td><span class="status-badge paid">Credit</span></td>
+                </tr>
+                <tr>
+                  <td><strong>#TXN-10416</strong></td>
+                  <td>Jul 05, 2026</td>
+                  <td>Payroll Processing</td>
+                  <td><strong>$3,600</strong></td>
+                  <td><span class="status-badge overdue">Debit</span></td>
+                </tr>
+                <tr>
+                  <td><strong>#TXN-10415</strong></td>
+                  <td>Jul 02, 2026</td>
+                  <td>Investment Return</td>
+                  <td><strong>$4,200</strong></td>
+                  <td><span class="status-badge paid">Credit</span></td>
+                </tr>
+                <tr>
+                  <td><strong>#TXN-10414</strong></td>
+                  <td>Jun 28, 2026</td>
+                  <td>Insurance Premium</td>
+                  <td><strong>$2,100</strong></td>
+                  <td><span class="status-badge overdue">Debit</span></td>
+                </tr>
+              </tbody>
+            </table>
+          </div>
+        </div>
+      </div>
+    </main>
+  </div>
+
+  <footer class="footer" style="margin-left: 260px;">
+    <div class="container">
+      <div class="footer-bottom" style="border-top: none; padding: 24px 0;">
+        <p>&copy; 2026 FinAcc Pro. All rights reserved.</p>
+        <div class="footer-bottom-links">
+          <a href="index.html">Back to Website</a>
+          <a href="login.html">Logout</a>
+        </div>
+      </div>
+    </div>
+  </footer>
+
+  <script>
+    const sidebarToggle = document.getElementById('sidebarToggle');
+    const sidebar = document.getElementById('sidebar');
+    const sidebarOverlay = document.getElementById('sidebarOverlay');
+
+    sidebarToggle.addEventListener('click', () => {
+      sidebar.classList.toggle('open');
+      sidebarOverlay.classList.toggle('active');
+    });
+
+    sidebarOverlay.addEventListener('click', () => {
+      sidebar.classList.remove('open');
+      sidebarOverlay.classList.remove('active');
+    });
+
+    document.querySelectorAll('.sidebar-link').forEach(link => {
+      link.addEventListener('click', function() {
+        document.querySelectorAll('.sidebar-link').forEach(l => l.classList.remove('active'));
+        this.classList.add('active');
+      });
+    });
+
+    document.querySelector('.sidebar-user-logout').addEventListener('click', () => {
+      if (confirm('Are you sure you want to logout?')) {
+        window.location.href = 'login.html';
+      }
+    });
+  </script>
+</body>
+</html>
