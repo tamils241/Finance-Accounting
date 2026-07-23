@@ -87,13 +87,47 @@
             <i class="fas fa-search"></i>
             <input type="text" placeholder="Search clients, invoices...">
           </div>
-          <button class="topbar-icon-btn">
-            <i class="fas fa-bell"></i>
-            <span class="notification-dot"></span>
-          </button>
-          <button class="topbar-icon-btn">
+          <div class="notification-wrapper">
+            <button class="topbar-icon-btn notification-bell">
+              <i class="fas fa-bell"></i>
+              <span class="notification-dot"></span>
+            </button>
+            <div class="notification-dropdown">
+              <div class="notification-dropdown-header">
+                <h4>Notifications</h4>
+                <a href="404.html">Mark all as read</a>
+              </div>
+              <div class="notification-dropdown-body">
+                <div class="notification-item unread">
+                  <i class="fas fa-user-plus"></i>
+                  <div>
+                    <p>New client "Globex Inc" registered</p>
+                    <span>5 minutes ago</span>
+                  </div>
+                </div>
+                <div class="notification-item unread">
+                  <i class="fas fa-file-invoice"></i>
+                  <div>
+                    <p>Invoice #5678 pending approval</p>
+                    <span>30 minutes ago</span>
+                  </div>
+                </div>
+                <div class="notification-item">
+                  <i class="fas fa-chart-line"></i>
+                  <div>
+                    <p>Monthly report is ready for review</p>
+                    <span>2 hours ago</span>
+                  </div>
+                </div>
+              </div>
+              <div class="notification-dropdown-footer">
+                <a href="404.html">View all notifications</a>
+              </div>
+            </div>
+          </div>
+          <a href="404.html" class="topbar-icon-btn">
             <i class="fas fa-envelope"></i>
-          </button>
+          </a>
           <div class="topbar-avatar">AD</div>
         </div>
       </header>
@@ -140,6 +174,7 @@
             <button class="btn btn-primary btn-sm"><i class="fas fa-download"></i> Export</button>
           </div>
           <div class="dash-card-body" style="padding:0;">
+            <div class="dash-table-wrapper">
             <table class="dash-table">
               <thead>
                 <tr>
@@ -218,6 +253,7 @@
                 </tr>
               </tbody>
             </table>
+            </div>
           </div>
         </div>
       </div>
@@ -257,6 +293,21 @@
     document.querySelector('.sidebar-user-logout').addEventListener('click', () => {
       if (confirm('Are you sure you want to logout?')) {
         window.location.href = 'login.html';
+      }
+    });
+
+    // Notification dropdown
+    const notifBell = document.querySelector('.notification-bell');
+    const notifDropdown = document.querySelector('.notification-dropdown');
+
+    notifBell.addEventListener('click', (e) => {
+      e.stopPropagation();
+      notifDropdown.classList.toggle('show');
+    });
+
+    document.addEventListener('click', (e) => {
+      if (!notifDropdown.contains(e.target) && !notifBell.contains(e.target)) {
+        notifDropdown.classList.remove('show');
       }
     });
   </script>

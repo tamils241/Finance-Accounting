@@ -431,6 +431,15 @@
 /* ========================================
    Auth Responsive
    ======================================== */
+.auth-mobile-header {
+  display: none;
+}
+
+.auth-mobile-header .logo-img {
+  height: 36px;
+  width: auto;
+}
+
 @media (max-width: 1024px) {
   .auth-left {
     display: none;
@@ -439,6 +448,11 @@
   .auth-right {
     margin-left: 0;
     padding: 40px 24px;
+  }
+
+  .auth-mobile-header {
+    display: flex;
+    margin-bottom: 24px;
   }
 }
 

@@ -166,13 +166,47 @@
             <i class="fas fa-search"></i>
             <input type="text" placeholder="Search invoices, reports...">
           </div>
-          <button class="topbar-icon-btn">
-            <i class="fas fa-bell"></i>
-            <span class="notification-dot"></span>
-          </button>
-          <button class="topbar-icon-btn">
+          <div class="notification-wrapper">
+            <button class="topbar-icon-btn notification-bell">
+              <i class="fas fa-bell"></i>
+              <span class="notification-dot"></span>
+            </button>
+            <div class="notification-dropdown">
+              <div class="notification-dropdown-header">
+                <h4>Notifications</h4>
+                <a href="404.html">Mark all as read</a>
+              </div>
+              <div class="notification-dropdown-body">
+                <div class="notification-item unread">
+                  <i class="fas fa-file-invoice"></i>
+                  <div>
+                    <p>New invoice #1234 has been generated</p>
+                    <span>2 minutes ago</span>
+                  </div>
+                </div>
+                <div class="notification-item unread">
+                  <i class="fas fa-check-circle"></i>
+                  <div>
+                    <p>Payment received from Acme Corp</p>
+                    <span>1 hour ago</span>
+                  </div>
+                </div>
+                <div class="notification-item">
+                  <i class="fas fa-exclamation-triangle"></i>
+                  <div>
+                    <p>Tax filing deadline in 3 days</p>
+                    <span>5 hours ago</span>
+                  </div>
+                </div>
+              </div>
+              <div class="notification-dropdown-footer">
+                <a href="404.html">View all notifications</a>
+              </div>
+            </div>
+          </div>
+          <a href="404.html" class="topbar-icon-btn">
             <i class="fas fa-envelope"></i>
-          </button>
+          </a>
           <div class="topbar-avatar">JD</div>
         </div>
       </header>
@@ -181,7 +215,7 @@
         <div class="dash-card settings-card">
           <div class="dash-card-header">
             <h3 class="dash-card-title"><i class="fas fa-user" style="margin-right: 8px; color: var(--primary);"></i> Profile</h3>
-            <span class="dash-card-action">Save Changes</span>
+            <a href="404.html" class="dash-card-action">Save Changes</a>
           </div>
           <div class="dash-card-body">
             <div class="settings-row">
@@ -211,7 +245,7 @@
         <div class="dash-card settings-card">
           <div class="dash-card-header">
             <h3 class="dash-card-title"><i class="fas fa-shield-halved" style="margin-right: 8px; color: var(--primary);"></i> Security</h3>
-            <span class="dash-card-action">Update</span>
+            <a href="404.html" class="dash-card-action">Update</a>
           </div>
           <div class="dash-card-body">
             <div class="settings-row">
@@ -237,7 +271,7 @@
         <div class="dash-card settings-card">
           <div class="dash-card-header">
             <h3 class="dash-card-title"><i class="fas fa-bell" style="margin-right: 8px; color: var(--primary);"></i> Notifications</h3>
-            <span class="dash-card-action">Save Preferences</span>
+            <a href="404.html" class="dash-card-action">Save Preferences</a>
           </div>
           <div class="dash-card-body">
             <div class="settings-row">
@@ -266,7 +300,7 @@
         <div class="dash-card settings-card">
           <div class="dash-card-header">
             <h3 class="dash-card-title"><i class="fas fa-credit-card" style="margin-right: 8px; color: var(--primary);"></i> Billing</h3>
-            <span class="dash-card-action">Manage</span>
+            <a href="404.html" class="dash-card-action">Manage</a>
           </div>
           <div class="dash-card-body">
             <div class="settings-row">
@@ -326,6 +360,21 @@
     document.querySelector('.sidebar-user-logout').addEventListener('click', () => {
       if (confirm('Are you sure you want to logout?')) {
         window.location.href = 'login.html';
+      }
+    });
+
+    // Notification dropdown
+    const notifBell = document.querySelector('.notification-bell');
+    const notifDropdown = document.querySelector('.notification-dropdown');
+
+    notifBell.addEventListener('click', (e) => {
+      e.stopPropagation();
+      notifDropdown.classList.toggle('show');
+    });
+
+    document.addEventListener('click', (e) => {
+      if (!notifDropdown.contains(e.target) && !notifBell.contains(e.target)) {
+        notifDropdown.classList.remove('show');
       }
     });
   </script>

@@ -26,18 +26,18 @@
 
 .sidebar-header {
   display: flex;
+  justify-content: center;
   align-items: center;
-  gap: 10px;
-  padding: 0 8px 24px;
-  border-bottom: 1px solid rgba(255, 255, 255, 0.08);
+  padding: 18px 0 24px;
+  border-bottom: 1px solid rgba(255,255,255,.08);
   margin-bottom: 24px;
 }
 
 .sidebar-header a {
   display: flex;
+  justify-content: center;
   align-items: center;
-  gap: 10px;
-  text-decoration: none;
+  width: 100%;
 }
 
 .sidebar-logo-icon {
@@ -54,10 +54,16 @@
 }
 
 .sidebar-logo-img {
-  width: 50px;
+  width: 150px;
+  max-width: 100%;
   height: auto;
-  flex-shrink: 0;
-  border-radius: var(--radius-sm);
+  display: block;
+  cursor: pointer;
+  transition: transform .3s ease;
+}
+
+.sidebar-logo-img:hover {
+  transform: scale(1.05);
 }
 
 .sidebar-logo-text {
@@ -327,6 +333,116 @@
   border: 2px solid var(--bg);
 }
 
+/* Notification Wrapper & Dropdown */
+.notification-wrapper {
+  position: relative;
+}
+
+.notification-dropdown {
+  display: none;
+  position: absolute;
+  top: calc(100% + 10px);
+  right: 0;
+  width: 340px;
+  max-width: calc(100vw - 32px);
+  background: var(--bg-alt);
+  border: 1px solid var(--border);
+  border-radius: var(--radius);
+  box-shadow: 0 12px 32px rgba(0,0,0,.25);
+  z-index: 1000;
+  overflow: hidden;
+}
+
+.notification-dropdown.show {
+  display: block;
+}
+
+.notification-dropdown-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 14px 16px;
+  border-bottom: 1px solid var(--border);
+}
+
+.notification-dropdown-header h4 {
+  margin: 0;
+  font-size: 0.95rem;
+  font-weight: 700;
+  color: var(--text);
+}
+
+.notification-dropdown-header a {
+  font-size: 0.8rem;
+  color: var(--primary);
+  text-decoration: none;
+  font-weight: 600;
+}
+
+.notification-dropdown-header a:hover {
+  text-decoration: underline;
+}
+
+.notification-dropdown-body {
+  max-height: 300px;
+  overflow-y: auto;
+}
+
+.notification-item {
+  display: flex;
+  align-items: flex-start;
+  gap: 12px;
+  padding: 12px 16px;
+  cursor: pointer;
+  transition: background .2s;
+}
+
+.notification-item:hover {
+  background: var(--primary-50);
+}
+
+.notification-item i {
+  margin-top: 2px;
+  font-size: 0.85rem;
+  color: var(--text-light);
+  flex-shrink: 0;
+}
+
+.notification-item.unread i {
+  color: var(--primary);
+}
+
+.notification-item p {
+  margin: 0;
+  font-size: 0.85rem;
+  color: var(--text);
+  line-height: 1.4;
+}
+
+.notification-item span {
+  font-size: 0.75rem;
+  color: var(--text-lighter);
+  margin-top: 2px;
+  display: block;
+}
+
+.notification-dropdown-footer {
+  text-align: center;
+  padding: 12px 16px;
+  border-top: 1px solid var(--border);
+}
+
+.notification-dropdown-footer a {
+  font-size: 0.85rem;
+  color: var(--primary);
+  text-decoration: none;
+  font-weight: 600;
+}
+
+.notification-dropdown-footer a:hover {
+  text-decoration: underline;
+}
+
 .topbar-avatar {
   width: 40px;
   height: 40px;
@@ -457,6 +573,8 @@
   border: 1px solid var(--border-light);
   box-shadow: var(--shadow-sm);
   overflow: hidden;
+  display: flex;
+  flex-direction: column;
 }
 
 .dash-card-header {
@@ -478,6 +596,7 @@
   color: var(--primary);
   font-weight: 500;
   cursor: pointer;
+  text-decoration: none;
   transition: var(--transition);
 }
 
@@ -487,6 +606,13 @@
 
 .dash-card-body {
   padding: 24px;
+  display: flex;
+  flex-direction: column;
+  flex: 1;
+}
+
+.dash-card-body .btn {
+  margin-top: auto;
 }
 
 /* Chart Placeholder */
@@ -497,6 +623,8 @@
   align-items: center;
   justify-content: center;
   position: relative;
+  flex-shrink: 0;
+  overflow: hidden;
 }
 
 .chart-bars {
@@ -515,10 +643,12 @@
   align-items: center;
   gap: 8px;
   flex: 1;
+  min-width: 0;
 }
 
 .chart-bar {
   width: 32px;
+  max-width: 100%;
   border-radius: 6px 6px 0 0;
   transition: var(--transition);
 }
@@ -546,6 +676,11 @@
 .dash-table {
   width: 100%;
   border-collapse: collapse;
+}
+
+.dash-table-wrapper {
+  overflow-x: auto;
+  -webkit-overflow-scrolling: touch;
 }
 
 .dash-table th {
@@ -894,6 +1029,7 @@
 @media (max-width: 1024px) {
   .sidebar {
     transform: translateX(-100%);
+    max-width: 85vw;
   }
 
   .sidebar.open {
@@ -972,5 +1108,74 @@
 
   .chart-bars {
     height: 150px;
+  }
+}
+
+@media (max-width: 480px) {
+  .topbar {
+    padding: 10px 12px;
+  }
+
+  .topbar-right {
+    gap: 8px;
+  }
+
+  .topbar-icon-btn {
+    width: 36px;
+    height: 36px;
+    font-size: 0.9rem;
+  }
+
+  .topbar-avatar {
+    width: 36px;
+    height: 36px;
+    font-size: 0.8rem;
+  }
+
+  .dashboard-content {
+    padding: 12px;
+  }
+
+  .dash-stat-card {
+    padding: 16px;
+  }
+
+  .dash-stat-value {
+    font-size: 1.6rem;
+  }
+
+  .dash-card-header {
+    padding: 14px 16px;
+    flex-wrap: wrap;
+    gap: 8px;
+  }
+
+  .dash-card-body {
+    padding: 12px;
+  }
+
+  .dash-table th,
+  .dash-table td {
+    padding: 8px 10px;
+    font-size: 0.75rem;
+  }
+
+  .notification-dropdown {
+    width: calc(100vw - 24px);
+    right: -60px;
+  }
+
+  .chart-bars {
+    height: 120px;
+    gap: 6px;
+    padding: 0 10px;
+  }
+
+  .chart-bar {
+    width: 24px;
+  }
+
+  .sidebar-logo-img {
+    width: 120px;
   }
 }

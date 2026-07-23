@@ -30,7 +30,7 @@
 .page-hero-bg .hero-video-overlay {
   position: absolute;
   inset: 0;
-  background: linear-gradient(135deg, rgba(15, 23, 42, 0.8), rgba(15, 23, 42, 0.6));
+  background: linear-gradient(to right, rgba(37, 99, 235, 0.75) 50%, rgba(15, 23, 42, 0.1) 100%);
   z-index: 1;
 }
 
@@ -1422,5 +1422,39 @@
 
   .map-wrapper iframe {
     height: 300px;
+  }
+}
+
+@media (max-width: 480px) {
+  .page-hero {
+    padding: 120px 0 40px;
+  }
+
+  .page-hero-title {
+    font-size: clamp(1.5rem, 6vw, 2rem);
+  }
+
+  .page-hero-subtitle {
+    font-size: 0.9rem;
+  }
+
+  .mission-card h3,
+  .mission-card p {
+    padding-left: 16px;
+    padding-right: 16px;
+  }
+
+  .trust-logos {
+    grid-template-columns: repeat(2, 1fr);
+    gap: 8px;
+  }
+
+  .trust-logo-item {
+    padding: 10px 12px;
+  }
+
+  .team-avatar {
+    width: 100px;
+    height: 100px;
   }
 }
