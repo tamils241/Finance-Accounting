@@ -157,6 +157,8 @@
   align-items: center;
   gap: 10px;
   margin-bottom: 32px;
+  position: relative;
+  z-index: 2;
 }
 
 .auth-form-logo .logo-img {
