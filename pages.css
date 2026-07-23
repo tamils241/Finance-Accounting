@@ -87,7 +87,7 @@
 
 .page-hero-subtitle {
   font-size: 1.1rem;
-  color: var(--text-light);
+  color: rgba(255,255,255,.85);
   line-height: 1.7;
   max-width: 560px;
   margin: 0 auto;

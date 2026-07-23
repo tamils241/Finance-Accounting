@@ -109,8 +109,8 @@ ul {
   align-items: center;
   gap: 8px;
   padding: 6px 16px;
-  background: var(--primary-50);
-  color: var(--primary);
+  background: rgba(255,255,255,.15);
+  color: #ffffff;
   border-radius: 100px;
   font-size: 0.85rem;
   font-weight: 600;
