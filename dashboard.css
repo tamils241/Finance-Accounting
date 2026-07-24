@@ -604,6 +604,18 @@
   text-decoration: underline;
 }
 
+.dash-card-actions {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  flex-wrap: wrap;
+}
+
+.dash-card-actions .topbar-search {
+  flex: 1;
+  min-width: 0;
+}
+
 .dash-card-body {
   padding: 24px;
   display: flex;
@@ -1055,11 +1067,11 @@
   }
 
   .dash-grid {
-    grid-template-columns: 1fr;
+    grid-template-columns: 1fr !important;
   }
 
   .dash-grid-equal {
-    grid-template-columns: 1fr;
+    grid-template-columns: 1fr !important;
   }
 }
 
@@ -1088,6 +1100,10 @@
   .topbar-search {
     order: 3;
     width: 100%;
+  }
+
+  .topbar-right {
+    flex-wrap: wrap;
   }
 
   .topbar-search input {
@@ -1119,6 +1135,14 @@
     padding: 14px 16px;
     flex-wrap: wrap;
     gap: 8px;
+  }
+
+  .dash-card-actions {
+    width: 100%;
+  }
+
+  .dash-card-actions .topbar-search input {
+    width: 100%;
   }
 
   .dash-card-body {
@@ -1156,6 +1180,11 @@
   .dashboard-footer {
     margin-left: 0;
   }
+
+  .dash-grid,
+  .dash-grid-equal {
+    grid-template-columns: 1fr !important;
+  }
 }
 
 @media (max-width: 480px) {
@@ -1173,6 +1202,7 @@
   }
 
   .topbar-right {
+    flex-wrap: wrap;
     gap: 6px;
   }
 
@@ -1194,16 +1224,24 @@
   }
 
   .stats-row {
-    grid-template-columns: 1fr 1fr;
+    grid-template-columns: 1fr;
     gap: 10px;
   }
 
   .dash-stat-card {
+    display: flex;
+    align-items: center;
+    gap: 12px;
     padding: 14px;
+  }
+
+  .dash-stat-header {
+    margin-bottom: 0;
   }
 
   .dash-stat-value {
     font-size: 1.35rem;
+    margin-bottom: 0;
   }
 
   .dash-stat-label {
@@ -1214,6 +1252,14 @@
     padding: 12px 14px;
     flex-wrap: wrap;
     gap: 8px;
+  }
+
+  .dash-card-actions {
+    width: 100%;
+  }
+
+  .dash-card-actions .topbar-search input {
+    width: 100%;
   }
 
   .dash-card-title {
@@ -1238,7 +1284,7 @@
 
   .notification-dropdown {
     width: calc(100vw - 24px);
-    right: -60px;
+    right: 0;
   }
 
   .chart-bars {
@@ -1254,4 +1300,91 @@
   .sidebar-logo-img {
     height: 36px;
   }
+}
+
+/* ========================================
+   Prevent Horizontal Overflow (Global)
+   ======================================== */
+html,
+body {
+  width: 100%;
+  max-width: 100%;
+  overflow-x: hidden;
+}
+
+.dashboard {
+  width: 100%;
+  overflow-x: hidden;
+}
+
+.dashboard-main {
+  width: 100%;
+  overflow-x: hidden;
+}
+
+.dashboard-content {
+  width: 100%;
+  max-width: 100%;
+  overflow-x: hidden;
+  box-sizing: border-box;
+}
+
+* {
+  box-sizing: border-box;
+}
+
+/* ========================================
+   Fix: Card Actions Stack on Mobile
+   ======================================== */
+@media (max-width: 768px) {
+  .dash-card-actions {
+    display: flex;
+    flex-direction: column;
+    gap: 12px;
+    width: 100%;
+  }
+
+  .dash-card-actions .btn {
+    width: 100%;
+    justify-content: center;
+  }
+
+  .dash-card-actions .topbar-search {
+    width: 100%;
+  }
+
+  .dash-card-actions .topbar-search input {
+    width: 100%;
+  }
+}
+
+/* ========================================
+   Fix: Table Scrolls Internally
+   ======================================== */
+.dash-table-wrapper {
+  width: 100%;
+  overflow-x: auto;
+  -webkit-overflow-scrolling: touch;
+}
+
+.dash-table {
+  min-width: 700px;
+}
+
+/* ========================================
+   Fix: Images Don't Overflow
+   ======================================== */
+img {
+  max-width: 100%;
+  height: auto;
+  display: block;
+}
+
+/* ========================================
+   Fix: Cards Stay Within Container
+   ======================================== */
+.dash-card,
+.dash-stat-card {
+  width: 100%;
+  max-width: 100%;
 }
