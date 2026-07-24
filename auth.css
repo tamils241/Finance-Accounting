@@ -6,7 +6,7 @@
   min-height: 100vh;
   display: flex;
   background: var(--bg-alt);
-  overflow: hidden;
+  overflow-x: hidden;
 }
 
 /* Left Panel */
@@ -349,7 +349,8 @@
 
 .auth-form .checkbox-group {
   display: flex;
-  align-items: center;
+  flex-wrap: wrap;
+  align-items: flex-start;
   gap: 10px;
 }
 
@@ -365,6 +366,8 @@
   font-weight: 400;
   color: var(--text-light);
   cursor: pointer;
+  font-size: 0.875rem;
+  line-height: 1.5;
 }
 
 .auth-form .remember-forgot {
@@ -442,114 +445,166 @@
   width: auto;
 }
 
-/* ========================================
-   Mobile Responsive Fix
-   ======================================== */
+/* ===============================
+   Login & Register Mobile Fix
+   =============================== */
 
-@media (max-width:1024px){
+@media (max-width: 1024px) {
+
+  html,
+  body{
+    width:100%;
+    overflow-x:hidden;
+  }
 
   .auth-page{
-      display:block;
-      min-height:100vh;
+    display:block;
+    width:100%;
+    min-height:100vh;
   }
 
+  /* Hide left panel completely */
   .auth-left{
-      display:none;
+    display:none !important;
+    width:0 !important;
+    min-width:0 !important;
+    flex:0 0 0 !important;
+    overflow:hidden;
+    padding:0;
+    margin:0;
   }
 
+  /* Right panel takes full width */
   .auth-right{
-      width:100%;
-      margin-left:0;
-      min-height:100vh;
-      padding:40px 24px 100px;
-      display:flex;
-      justify-content:center;
-      align-items:flex-start;
+    width:100%;
+    max-width:100%;
+    flex:1 1 100%;
+    margin:0;
+    padding:40px 24px 100px;
+    display:flex;
+    flex-direction:column;
+    align-items:center;
+    overflow-x:hidden;
   }
 
   .auth-form-container{
-      width:100%;
-      max-width:500px;
-  }
-
-  .auth-mobile-header{
-      display:flex;
-      justify-content:center;
-      margin-bottom:25px;
+    width:100%;
+    max-width:420px;
+    margin:0 auto;
   }
 
   .auth-back{
-      position:relative;
-      left:0;
-      bottom:0;
-      transform:none;
-      justify-content:center;
-      margin-top:30px;
+    position:relative;
+    left:0;
+    bottom:0;
+    transform:none;
+    justify-content:center;
+    margin-top:10px;
+    margin-bottom:20px;
+    width:auto;
+  }
+
+  .auth-mobile-header{
+    display:flex;
+    justify-content:center;
+    margin-bottom:16px;
+  }
+
+  .auth-mobile-header .logo-img{
+    height:40px;
   }
 }
 
 @media (max-width:768px){
 
   .auth-right{
-      padding:30px 20px 80px;
+    padding:24px 20px 80px;
   }
 
   .social-login{
-      flex-direction:column;
+    display:flex;
+    flex-direction:column;
+    gap:12px;
   }
 
   .social-login-btn{
-      width:100%;
+    width:100%;
+    justify-content:center;
+  }
+
+  .form-row{
+    display:block;
+  }
+
+  .form-row .form-group{
+    width:100%;
+    margin-bottom:16px;
   }
 
   .remember-forgot{
-      flex-direction:column;
-      align-items:flex-start;
-      gap:12px;
+    display:flex;
+    justify-content:space-between;
+    align-items:center;
+    gap:10px;
+    flex-wrap:wrap;
   }
 
   .auth-form-header{
-      margin-bottom:25px;
+    margin-bottom:25px;
   }
 
   .auth-form-header h1{
-      font-size:28px;
+    font-size:28px;
+  }
+
+  .btn{
+    width:100%;
+    justify-content:center;
   }
 
   .auth-form .btn-primary{
-      width:100%;
+    width:100%;
   }
 }
 
+/* Extra Small Devices */
 @media (max-width:480px){
 
   .auth-right{
-      padding:20px 15px 70px;
+    padding:16px 16px 60px;
   }
 
   .auth-form-container{
-      max-width:100%;
+    max-width:100%;
   }
 
   .auth-form-header h1{
-      font-size:24px;
+    font-size:28px;
+    text-align:center;
   }
 
   .auth-form-header p{
-      font-size:14px;
-  }
-
-  .auth-form .input-wrapper input,
-  .auth-form .input-wrapper select{
-      font-size:16px;
-  }
-
-  .auth-feature{
-      padding:14px;
+    text-align:center;
+    font-size:14px;
   }
 
   .auth-back{
-      margin-top:20px;
-      font-size:14px;
+    font-size:15px;
+    margin-top:8px;
+    margin-bottom:16px;
+  }
+
+  .input-wrapper input,
+  .input-wrapper select{
+    font-size:16px;
+  }
+
+  .forgot-link{
+    display:block;
+    margin-top:6px;
+  }
+
+  .auth-feature{
+    padding:14px;
   }
 }
