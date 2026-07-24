@@ -442,38 +442,114 @@
   width: auto;
 }
 
-@media (max-width: 1024px) {
-  .auth-left {
-    display: none;
+/* ========================================
+   Mobile Responsive Fix
+   ======================================== */
+
+@media (max-width:1024px){
+
+  .auth-page{
+      display:block;
+      min-height:100vh;
   }
 
-  .auth-right {
-    margin-left: 0;
-    padding: 40px 24px;
+  .auth-left{
+      display:none;
   }
 
-  .auth-mobile-header {
-    display: flex;
-    margin-bottom: 24px;
+  .auth-right{
+      width:100%;
+      margin-left:0;
+      min-height:100vh;
+      padding:40px 24px 100px;
+      display:flex;
+      justify-content:center;
+      align-items:flex-start;
+  }
+
+  .auth-form-container{
+      width:100%;
+      max-width:500px;
+  }
+
+  .auth-mobile-header{
+      display:flex;
+      justify-content:center;
+      margin-bottom:25px;
+  }
+
+  .auth-back{
+      position:relative;
+      left:0;
+      bottom:0;
+      transform:none;
+      justify-content:center;
+      margin-top:30px;
   }
 }
 
-@media (max-width: 480px) {
-  .auth-right {
-    padding: 24px 16px;
+@media (max-width:768px){
+
+  .auth-right{
+      padding:30px 20px 80px;
   }
 
-  .auth-form-header h1 {
-    font-size: 1.5rem;
+  .social-login{
+      flex-direction:column;
   }
 
-  .social-login {
-    flex-direction: column;
+  .social-login-btn{
+      width:100%;
   }
 
-  .auth-back {
-    bottom: 16px;
-    left: 50%;
-    transform: translateX(-50%);
+  .remember-forgot{
+      flex-direction:column;
+      align-items:flex-start;
+      gap:12px;
+  }
+
+  .auth-form-header{
+      margin-bottom:25px;
+  }
+
+  .auth-form-header h1{
+      font-size:28px;
+  }
+
+  .auth-form .btn-primary{
+      width:100%;
+  }
+}
+
+@media (max-width:480px){
+
+  .auth-right{
+      padding:20px 15px 70px;
+  }
+
+  .auth-form-container{
+      max-width:100%;
+  }
+
+  .auth-form-header h1{
+      font-size:24px;
+  }
+
+  .auth-form-header p{
+      font-size:14px;
+  }
+
+  .auth-form .input-wrapper input,
+  .auth-form .input-wrapper select{
+      font-size:16px;
+  }
+
+  .auth-feature{
+      padding:14px;
+  }
+
+  .auth-back{
+      margin-top:20px;
+      font-size:14px;
   }
 }

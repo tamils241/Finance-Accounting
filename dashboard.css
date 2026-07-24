@@ -1017,6 +1017,12 @@
   display: block;
 }
 
+/* Dashboard Footer */
+.dashboard-footer {
+  margin-left: 260px;
+  background: var(--bg-dark);
+}
+
 /* ========================================
    Dashboard Responsive
    ======================================== */
@@ -1037,6 +1043,10 @@
   }
 
   .dashboard-main {
+    margin-left: 0;
+  }
+
+  .dashboard-footer {
     margin-left: 0;
   }
 

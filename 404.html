@@ -217,26 +217,88 @@
       margin-left: 0;
     }
 
-    @media (max-width: 480px) {
-      .error-buttons {
-        flex-direction: column;
-        width: 100%;
-      }
+    @media (max-width:768px){
 
-      .error-buttons .btn {
-        width: 100%;
-      }
+        .error-content{
+            padding:100px 20px 60px;
+        }
 
-      .error-links {
-        flex-direction: column;
-        gap: 16px;
-      }
+        .error-inner{
+            max-width:100%;
+        }
 
-      .error-float {
-        width: 40px;
-        height: 40px;
-        font-size: 0.9rem;
-      }
+        .error-code{
+            font-size:5rem;
+        }
+
+        .error-title{
+            font-size:28px;
+        }
+
+        .error-text{
+            font-size:15px;
+        }
+
+        .error-illustration svg{
+            width:150px;
+            height:150px;
+        }
+
+        .error-float{
+            display:none;
+        }
+
+        .error-buttons{
+            flex-direction:column;
+            width:100%;
+        }
+
+        .error-buttons .btn{
+            width:100%;
+            justify-content:center;
+        }
+    }
+
+    @media (max-width:480px){
+
+        .error-content{
+            padding:90px 16px 40px;
+        }
+
+        .error-code{
+            font-size:4rem;
+        }
+
+        .error-title{
+            font-size:22px;
+        }
+
+        .error-text{
+            font-size:14px;
+            margin-bottom:30px;
+        }
+
+        .error-illustration{
+            margin-bottom:20px;
+        }
+
+        .error-illustration svg{
+            width:120px;
+            height:120px;
+        }
+
+        .hero-shape{
+            display:none;
+        }
+
+        .grid-overlay{
+            opacity:.3;
+        }
+
+        .error-links {
+            flex-direction: column;
+            gap: 16px;
+        }
     }
   </style>
 </head>
